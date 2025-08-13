@@ -110,6 +110,19 @@
 
     .cta-banner { background: var(--navy); color: var(--white); border-radius: 16px; padding: 16px; display: grid; gap: 12px; align-items: center; box-shadow: var(--shadow); }
     .cta-banner .row { display: grid; gap: 10px; }
+    /* Floating CTA (desktop only) */
+    .floating-cta { display: none; }
+    @media (min-width: 680px) {
+      .floating-cta {
+        display: block;
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 70;
+        max-width: 420px;
+        width: calc(100% - 48px);
+      }
+    }
     .steps { display:grid; gap:14px; grid-template-columns:1fr; }
     .step { background: var(--white); border:1px solid #e2e8f0; border-radius:14px; padding:16px; box-shadow: 0 2px 8px rgba(2,21,69,0.04); }
     .step-num { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:999px; background:#e6eef5; color:var(--navy); font-weight:800; margin-right:8px; }
@@ -399,7 +412,7 @@
       </div>
     </section>
 
-    <!-- Process Steps -->
+    <!-- How It Works (moved up) -->
     <section id="process">
       <div class="container">
         <h2 class="section-title">How It Works</h2>
@@ -412,26 +425,24 @@
       </div>
     </section>
 
-    <!-- CTA Banner -->
-    <section>
-      <div class="container">
-        <div class="cta-banner" aria-label="Call to action">
-          <div class="row">
-            <div>
-              <h2 style="margin:0 0 6px; font-size:20px;">Locked Out? Get Help Now.</h2>
-              <p style="margin:0; color:#e6f0ff;">Fast emergency locksmith dispatch anywhere in Westchester County, NY.</p>
-            </div>
-            <div style="display:flex; gap:10px; align-items:center; justify-content:flex-start;">
-              <a class="cta-primary" href="tel:+19144064474" data-cta="banner-primary" aria-label="Call Alliance 24hr Locksmith now">
-                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
-                <span>(914) 406-4474</span>
-              </a>
-              <span class="badge">Average dispatch <span aria-hidden="true">&lt;</span> 30 mins</span>
-            </div>
+    <!-- Floating CTA (desktop) -->
+    <div class="floating-cta" aria-label="Floating call to action">
+      <div class="cta-banner">
+        <div class="row">
+          <div>
+            <h2 style="margin:0 0 6px; font-size:20px;">Locked Out? Get Help Now.</h2>
+            <p style="margin:0; color:#e6f0ff;">Fast emergency locksmith dispatch anywhere in Westchester County, NY.</p>
+          </div>
+          <div style="display:flex; gap:10px; align-items:center; justify-content:flex-start;">
+            <a class="cta-primary" href="tel:+19144064474" data-cta="banner-primary" aria-label="Call Alliance 24hr Locksmith now">
+              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
+              <span>(914) 406-4474</span>
+            </a>
+            <span class="badge">Average dispatch <span aria-hidden="true">&lt;</span> 30 mins</span>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   </main>
 
   <footer role="contentinfo">
