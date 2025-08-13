@@ -29,9 +29,8 @@
 
   <style>
     :root {
-      --blue-900: #0b4aa6;
-      --blue-800: #0d5bd1;
-      --blue-700: #2a6fdb;
+      --navy: #1E2A36;
+      --off: #F7F7F5;
       --blue-100: #e8f0fe;
       --white: #ffffff;
       --black: #0f172a;
@@ -39,13 +38,13 @@
       --gray-600: #475569;
       --gray-100: #f1f5f9;
       --success: #16a34a;
-      --shadow: 0 10px 30px rgba(11, 74, 166, 0.15);
+      --shadow: 0 10px 30px rgba(30, 42, 54, 0.15);
     }
     html, body {
       padding: 0; margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
       color: var(--black);
-      background: var(--white);
+      background: var(--off);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -57,34 +56,36 @@
 
     /* Header */
     .topbar {
-      background: var(--blue-900);
+      background: var(--navy);
       color: var(--white);
       position: sticky; top: 0; z-index: 50;
       box-shadow: 0 1px 0 rgba(255,255,255,0.1);
     }
     .topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
     .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.2px; }
-    .brand-badge { width: 36px; height: 36px; border-radius: 8px; background: linear-gradient(135deg, var(--blue-900), var(--blue-700)); display: grid; place-items: center; box-shadow: var(--shadow); }
-    .brand-badge svg { width: 22px; height: 22px; fill: var(--white); }
+    .brand-badge { width: 36px; height: 36px; border-radius: 8px; background: var(--white); color: var(--navy); display: grid; place-items: center; box-shadow: var(--shadow); }
+    .brand-badge svg { width: 22px; height: 22px; fill: var(--navy); }
+    .nav-links { display: none; gap: 16px; font-weight: 600; }
+    @media (min-width: 820px){ .nav-links{ display:flex } }
     .call-btn {
       display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 999px;
-      background: var(--white); color: var(--blue-900); font-weight: 700; box-shadow: var(--shadow);
+      background: var(--white); color: var(--navy); font-weight: 700; box-shadow: var(--shadow);
     }
     .call-btn svg { width: 18px; height: 18px; fill: var(--blue-900); }
 
     /* Hero */
     .hero {
-      background: radial-gradient(1200px 600px at 80% -10%, var(--blue-100), transparent 60%), linear-gradient(180deg, var(--white), #f8fbff);
+      background: linear-gradient(180deg, var(--off), var(--white));
       border-bottom: 1px solid #e2e8f0;
     }
     .hero-inner { display: grid; grid-template-columns: 1fr; gap: 18px; padding: 28px 0 20px; }
     .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--blue-900); background: #e9f2ff; padding: 6px 10px; border-radius: 999px; }
-    h1 { font-size: 28px; line-height: 1.2; margin: 8px 0 12px; color: var(--black); }
+    h1 { font-size: 32px; line-height: 1.2; margin: 8px 0 12px; color: var(--black); }
     .subhead { font-size: 16px; color: var(--gray-700); margin-bottom: 18px; }
 
     .cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-    .cta-primary { background: linear-gradient(180deg, var(--blue-800), var(--blue-900)); color: var(--white); padding: 12px 18px; border-radius: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; box-shadow: var(--shadow); }
-    .cta-secondary { background: var(--white); color: var(--blue-900); padding: 12px 16px; border-radius: 12px; font-weight: 700; border: 1px solid #dbeafe; }
+    .cta-primary { background: var(--navy); color: var(--white); padding: 12px 18px; border-radius: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; box-shadow: var(--shadow); }
+    .cta-secondary { background: var(--white); color: var(--navy); padding: 12px 16px; border-radius: 12px; font-weight: 700; border: 1px solid #e2e8f0; }
     .hero-points { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; color: var(--gray-600); font-size: 14px; }
     .point { display: inline-flex; align-items: center; gap: 8px; }
     .badge { background: #ecfdf5; color: var(--success); border: 1px solid #d1fae5; padding: 6px 10px; border-radius: 999px; font-weight: 700; font-size: 12px; }
@@ -96,7 +97,7 @@
     .card { background: var(--white); border: 1px solid #e2e8f0; border-radius: 14px; padding: 16px; box-shadow: 0 2px 8px rgba(2, 21, 69, 0.04); }
     .card h3 { margin: 6px 0 8px; font-size: 18px; }
     .card p { margin: 0; color: var(--gray-700); font-size: 15px; }
-    .icon { width: 28px; height: 28px; color: var(--blue-900); }
+    .icon { width: 28px; height: 28px; color: var(--navy); }
 
     .areas { display: grid; gap: 10px; grid-template-columns: repeat(2, 1fr); }
     .area-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px 12px; font-weight: 600; color: var(--gray-700); }
@@ -105,11 +106,11 @@
     .trust-item { display: flex; gap: 12px; align-items: center; background: #f1f5f9; border: 1px solid #e2e8f0; padding: 12px; border-radius: 12px; }
     .trust-item strong { display: block; }
 
-    .cta-banner { background: linear-gradient(180deg, var(--blue-900), var(--blue-800)); color: var(--white); border-radius: 16px; padding: 16px; display: grid; gap: 12px; align-items: center; box-shadow: var(--shadow); }
+    .cta-banner { background: var(--navy); color: var(--white); border-radius: 16px; padding: 16px; display: grid; gap: 12px; align-items: center; box-shadow: var(--shadow); }
     .cta-banner .row { display: grid; gap: 10px; }
 
     /* Footer */
-    footer { background: #0a3c87; color: var(--white); padding: 20px 0; margin-top: 10px; }
+    footer { background: var(--navy); color: var(--white); padding: 20px 0; margin-top: 10px; }
     footer small { color: #cfe0ff; }
 
     /* Sticky mobile call bar */
@@ -118,7 +119,7 @@
       display: grid; justify-content: center;
       padding: 0 10px; pointer-events: none;
     }
-    .mobile-call a { pointer-events: auto; display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #10b981; color: var(--white); font-weight: 900; border-radius: 999px; padding: 14px 20px; box-shadow: 0 12px 30px rgba(16,185,129,0.35); }
+    .mobile-call a { pointer-events: auto; display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--navy); color: var(--white); font-weight: 900; border-radius: 999px; padding: 14px 20px; box-shadow: 0 12px 30px rgba(30,42,54,0.28); }
     .mobile-call svg { width: 18px; height: 18px; fill: var(--white); }
 
     /* Utilities */
@@ -127,7 +128,7 @@
     /* Larger screens */
     @media (min-width: 680px) {
       .hero-inner { grid-template-columns: 1.2fr 0.8fr; align-items: center; padding: 40px 0 28px; }
-      h1 { font-size: 36px; }
+      h1 { font-size: 38px; }
       .subhead { font-size: 18px; }
       .grid-3 { grid-template-columns: repeat(3, 1fr); }
       .trust { grid-template-columns: repeat(3, 1fr); }
@@ -225,6 +226,11 @@
         </div>
         <span>Alliance 24hr Locksmith</span>
       </div>
+      <nav class="nav-links" aria-label="primary">
+        <a href="#services">Services</a>
+        <a href="#areas">Locations</a>
+        <a href="/contact/">Contact</a>
+      </nav>
       <a class="call-btn" href="tel:+19144064474" data-cta="header-call" aria-label="Call Alliance 24hr Locksmith at (914) 406-4474">
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
         <span>(914) 406-4474</span>
@@ -248,6 +254,7 @@
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
               <span>Call Now: (914) 406-4474</span>
             </a>
+            <a class="cta-secondary" href="/contact/" data-cta="hero-quote">Get a Quote</a>
             <span class="badge" aria-label="licensed and insured">Licensed • Insured • 24/7</span>
           </div>
           <div class="hero-points" aria-label="service highlights">
@@ -304,7 +311,10 @@
               <h3>Business Lockouts</h3>
             </div>
             <p>Minimize downtime. We handle storefronts, offices, and commercial doors.</p>
-            <div style="margin-top:10px;"><a class="cta-secondary" href="tel:+19144064474" data-cta="svc-biz">Call (914) 406-4474</a></div>
+            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
+              <a class="cta-secondary" href="tel:+19144064474" data-cta="svc-biz">Call (914) 406-4474</a>
+              <a class="cta-secondary" href="/emergency-locksmith/">Learn more</a>
+            </div>
           </article>
         </div>
       </div>
