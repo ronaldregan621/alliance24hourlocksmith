@@ -97,6 +97,8 @@
     .card { background: var(--white); border: 1px solid #e2e8f0; border-radius: 14px; padding: 16px; box-shadow: 0 2px 8px rgba(2, 21, 69, 0.04); }
     .card h3 { margin: 6px 0 8px; font-size: 18px; }
     .card p { margin: 0; color: var(--gray-700); font-size: 15px; }
+    .card { transition: transform .2s ease, box-shadow .2s ease; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(30,42,54,0.08); }
     .icon { width: 28px; height: 28px; color: var(--navy); }
 
     .areas { display: grid; gap: 10px; grid-template-columns: repeat(2, 1fr); }
@@ -108,6 +110,10 @@
 
     .cta-banner { background: var(--navy); color: var(--white); border-radius: 16px; padding: 16px; display: grid; gap: 12px; align-items: center; box-shadow: var(--shadow); }
     .cta-banner .row { display: grid; gap: 10px; }
+    .steps { display:grid; gap:14px; grid-template-columns:1fr; }
+    .step { background: var(--white); border:1px solid #e2e8f0; border-radius:14px; padding:16px; box-shadow: 0 2px 8px rgba(2,21,69,0.04); }
+    .step-num { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:999px; background:#e6eef5; color:var(--navy); font-weight:800; margin-right:8px; }
+    @media(min-width:680px){ .steps{ grid-template-columns:repeat(4,1fr) } }
 
     /* Footer */
     footer { background: var(--navy); color: var(--white); padding: 20px 0; margin-top: 10px; }
@@ -248,7 +254,7 @@
             <span>24/7 Emergency Dispatch • Westchester County, NY</span>
           </div>
           <h1>Emergency Locksmith in Westchester County — Fast 24/7 Lockout Dispatch</h1>
-          <p class="subhead">Locked out of your car, home, or business? Get fast, professional help anywhere in Westchester County. Licensed and insured. Average dispatch under 30 minutes.</p>
+          <p class="subhead">Locked Out? We’re on our way. Calm, professional help with clear pricing and no‑damage entry. Average dispatch under 30 minutes.</p>
           <div class="cta-row">
             <a class="cta-primary" href="tel:+19144064474" data-cta="hero-primary" aria-label="Tap to call now (914) 406-4474">
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
@@ -279,14 +285,14 @@
     <!-- Services -->
     <section id="services">
       <div class="container">
-        <h2 class="section-title">Emergency Locksmith Services</h2>
+        <h2 class="section-title">Professional Locksmith Services</h2>
         <div class="grid-3" role="list">
           <article class="card" role="listitem">
             <div style="display:flex; align-items:center; gap:10px;">
               <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 11h14l-1-4H6zM3 16h18v2H3z"/></svg>
               <h3>Car Lockouts</h3>
             </div>
-            <p>Locked keys in your car or trunk? Fast, non-destructive entry for most makes and models.</p>
+            <p>Fast, non‑destructive entry for most makes and models.</p>
             <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
               <a class="cta-secondary" href="tel:+19144064474" data-cta="svc-car">Call (914) 406-4474</a>
               <a class="cta-secondary" href="/car-lockout/">Learn more</a>
@@ -298,7 +304,7 @@
               <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l9 8h-3v8H6v-8H3z"/></svg>
               <h3>Home Lockouts</h3>
             </div>
-            <p>Gain entry to your house or apartment quickly with licensed and insured technicians.</p>
+            <p>Get back inside safely with licensed, insured techs.</p>
             <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
               <a class="cta-secondary" href="tel:+19144064474" data-cta="svc-home">Call (914) 406-4474</a>
               <a class="cta-secondary" href="/house-lockout/">Learn more</a>
@@ -310,11 +316,35 @@
               <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 7h18v10H3zM7 5h10v2H7z"/></svg>
               <h3>Business Lockouts</h3>
             </div>
-            <p>Minimize downtime. We handle storefronts, offices, and commercial doors.</p>
+            <p>Storefronts, offices, and commercial doors.</p>
             <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
               <a class="cta-secondary" href="tel:+19144064474" data-cta="svc-biz">Call (914) 406-4474</a>
               <a class="cta-secondary" href="/emergency-locksmith/">Learn more</a>
             </div>
+          </article>
+
+          <article class="card" role="listitem">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 11h16v2H4zM6 7h12v2H6zM8 15h8v2H8z"/></svg>
+              <h3>Lock Replacement</h3>
+            </div>
+            <p>Change, repair, or upgrade locks and deadbolts.</p>
+          </article>
+
+          <article class="card" role="listitem">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 14l5-5 5 5H7z"/></svg>
+              <h3>Key Duplication</h3>
+            </div>
+            <p>On‑site key cutting for many lock types.</p>
+          </article>
+
+          <article class="card" role="listitem">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l7 4v12l-7 4-7-4V6l7-4zm0 2.2L7 6.5v10.9l5 2.8 5-2.8V6.5l-5-2.3z"/></svg>
+              <h3>Safe Opening</h3>
+            </div>
+            <p>Professional, non‑destructive safe access.</p>
           </article>
         </div>
       </div>
@@ -354,17 +384,37 @@
           <div class="trust-item">
             <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 8v5l4 2"/></svg>
             <div>
-              <strong>24/7 Emergency Dispatch</strong>
-              <span>Day or night, we’re here when you need us—holidays included.</span>
+              <strong>Fast Response</strong>
+              <span>Average dispatch under 30 minutes across Westchester County.</span>
             </div>
           </div>
           <div class="trust-item">
             <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
             <div>
               <strong>Upfront Pricing</strong>
-              <span>Clear, competitive rates before any work begins.</span>
+              <span>Clear quotes before dispatch. No surprises on arrival.</span>
             </div>
           </div>
+          <div class="trust-item">
+            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 7h18v10H3zM7 5h10v2H7z"/></svg>
+            <div>
+              <strong>Professional Tools</strong>
+              <span>Modern unlocking, key cutting, and programming equipment.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Steps -->
+    <section id="process">
+      <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps">
+          <div class="step"><div><span class="step-num">1</span><strong>Call Us</strong></div><p style="margin-top:6px; color:var(--gray-700)">Tap to call and share your location and situation.</p></div>
+          <div class="step"><div><span class="step-num">2</span><strong>Get a Quote</strong></div><p style="margin-top:6px; color:var(--gray-700)">We confirm clear pricing before dispatch.</p></div>
+          <div class="step"><div><span class="step-num">3</span><strong>Rapid Arrival</strong></div><p style="margin-top:6px; color:var(--gray-700)">Local tech heads your way—typically under 30 minutes.</p></div>
+          <div class="step"><div><span class="step-num">4</span><strong>Professional Entry</strong></div><p style="margin-top:6px; color:var(--gray-700)">Non‑destructive methods first. You’re back in quickly.</p></div>
         </div>
       </div>
     </section>
