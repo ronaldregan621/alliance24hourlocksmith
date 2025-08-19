@@ -122,6 +122,14 @@
 
     .cta-banner { background: var(--navy); color: var(--white); border-radius: 16px; padding: 16px; display: grid; gap: 12px; align-items: center; box-shadow: var(--shadow); }
     .cta-banner .row { display: grid; gap: 10px; }
+    /* Quote form */
+    .quote-section { background: var(--navy); color: var(--white); border-radius: 16px; padding: 18px; box-shadow: var(--shadow); }
+    .quote-section h2 { margin: 0 0 10px; font-size: 20px; }
+    .quote-form { display: grid; gap: 10px; }
+    .quote-form label { font-weight: 700; font-size: 14px; }
+    .quote-form input { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid #c7d2fe; outline: none; }
+    .quote-form input::placeholder { color: #64748b; }
+    .quote-form button { background: var(--white); color: var(--navy); font-weight: 800; padding: 12px 18px; border-radius: 12px; border: 0; cursor: pointer; }
     /* Floating CTA (desktop only) */
     .floating-cta { display: none; }
     @media (min-width: 680px) {
@@ -281,7 +289,7 @@
               <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
               <span>Call Now: (914) 406-4474</span>
             </a>
-            <a class="cta-secondary" href="/contact/" data-cta="hero-quote">Get a Quote</a>
+            <a class="cta-secondary" href="#quote" data-cta="hero-quote">Get a Quote</a>
             <span class="badge" aria-label="licensed and insured">Licensed • Insured • 24/7</span>
           </div>
           <div class="hero-points" aria-label="service highlights">
@@ -436,6 +444,32 @@
           <div class="step"><div><span class="step-num">2</span><strong>Get a Quote</strong></div><p style="margin-top:6px; color:var(--gray-700)">We confirm clear pricing before dispatch.</p></div>
           <div class="step"><div><span class="step-num">3</span><strong>Rapid Arrival</strong></div><p style="margin-top:6px; color:var(--gray-700)">Local tech heads your way—typically under 30 minutes.</p></div>
           <div class="step"><div><span class="step-num">4</span><strong>Professional Entry</strong></div><p style="margin-top:6px; color:var(--gray-700)">Non‑destructive methods first. You’re back in quickly.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quote Form -->
+    <section id="quote">
+      <div class="container">
+        <div class="quote-section" role="form" aria-labelledby="quote-title">
+          <h2 id="quote-title">Request a Quote</h2>
+          <form class="quote-form" action="/contact/" method="get">
+            <div>
+              <label for="q-name">Your Name</label>
+              <input id="q-name" name="name" type="text" placeholder="Your Name" required />
+            </div>
+            <div>
+              <label for="q-phone">Phone Number</label>
+              <input id="q-phone" name="phone" type="tel" placeholder="(914) 406-4474" required />
+            </div>
+            <div>
+              <label for="q-service">Service Needed</label>
+              <input id="q-service" name="service" type="text" placeholder="e.g., Car lockout, door rekey" required />
+            </div>
+            <div>
+              <button type="submit" data-cta="quote-submit">Submit</button>
+            </div>
+          </form>
         </div>
       </div>
     </section>

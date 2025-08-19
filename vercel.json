@@ -1,7 +1,6 @@
 {
   "cleanUrls": true,
   "trailingSlash": true,
-  "analytics": { "enabled": true },
   "redirects": [
     { "source": "/pricing", "destination": "/price-list/", "permanent": true },
     { "source": "/pricing/", "destination": "/price-list/", "permanent": true }
