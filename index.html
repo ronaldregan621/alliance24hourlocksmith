@@ -133,6 +133,10 @@
     .quote-form input { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid #c7d2fe; outline: none; }
     .quote-form input::placeholder { color: #64748b; }
     .quote-form button { background: var(--white); color: var(--navy); font-weight: 800; padding: 12px 18px; border-radius: 12px; border: 0; cursor: pointer; }
+    .quote-grid { display: grid; gap: 14px; }
+    @media(min-width:820px){ .quote-grid{ grid-template-columns: 1fr 0.9fr; align-items: start; } }
+    .quote-info p { margin: 0; color: #e6f0ff; }
+    .quote-card { background: var(--white); color: var(--black); border-radius: 14px; padding: 16px; box-shadow: var(--shadow-sm); }
     /* Floating CTA (desktop only) */
     .floating-cta { display: none; }
     @media (min-width: 680px) {
@@ -554,25 +558,37 @@
     <!-- Quote Form -->
     <section id="quote">
       <div class="container">
-        <div class="quote-section" role="form" aria-labelledby="quote-title">
-          <h2 id="quote-title">Request a Quote</h2>
-          <form class="quote-form" action="/contact/" method="get">
-            <div>
-              <label for="q-name">Your Name</label>
-              <input id="q-name" name="name" type="text" placeholder="Your Name" required />
+        <div class="quote-section">
+          <div class="quote-grid">
+            <div class="quote-info">
+              <h2 style="margin:0 0 8px; font-size:22px;">We’re ready to help</h2>
+              <p>Tell us what you need—car, home, or business—and the best number to reach you. We’ll confirm pricing and send a local tech.</p>
+              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
+                <a class="cta-primary" href="tel:+19144064474" data-cta="quote-call">Call (914) 406-4474</a>
+                <span class="badge">Average arrival ≈ 30 mins</span>
+              </div>
             </div>
-            <div>
-              <label for="q-phone">Phone Number</label>
-              <input id="q-phone" name="phone" type="tel" placeholder="(914) 406-4474" required />
+            <div class="quote-card" role="form" aria-labelledby="quote-title">
+              <h2 id="quote-title" style="margin:0 0 10px; font-size:20px;">Request a Quote</h2>
+              <form class="quote-form" action="/contact/" method="get">
+                <div>
+                  <label for="q-name">Your Name</label>
+                  <input id="q-name" name="name" type="text" placeholder="Your Name" required />
+                </div>
+                <div>
+                  <label for="q-phone">Phone Number</label>
+                  <input id="q-phone" name="phone" type="tel" placeholder="(914) 406-4474" required />
+                </div>
+                <div>
+                  <label for="q-service">Service Needed</label>
+                  <input id="q-service" name="service" type="text" placeholder="e.g., Car lockout, door rekey" required />
+                </div>
+                <div>
+                  <button type="submit" data-cta="quote-submit">Submit</button>
+                </div>
+              </form>
             </div>
-            <div>
-              <label for="q-service">Service Needed</label>
-              <input id="q-service" name="service" type="text" placeholder="e.g., Car lockout, door rekey" required />
-            </div>
-            <div>
-              <button type="submit" data-cta="quote-submit">Submit</button>
-            </div>
-          </form>
+          </div>
         </div>
       </div>
     </section>
