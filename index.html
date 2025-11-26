@@ -111,6 +111,20 @@
     .btn-xl { display:inline-flex; align-items:center; gap:12px; padding: 18px 28px; border-radius: 16px; font-weight: 900; background: linear-gradient(90deg, #2563eb, #1e40af); color:#fff; border:4px solid #0f172a; box-shadow: 8px 8px 0 rgba(15,23,42,1); }
     .btn-xl:hover { box-shadow: 4px 4px 0 rgba(15,23,42,1); transform: translate(1px,1px); }
     .pill { display:inline-flex; align-items:center; gap:8px; background: #ecfdf5; color:#059669; border: 2px solid #059669; padding:10px 14px; border-radius: 999px; font-weight: 800; }
+    /* Why Us gradient block */
+    .why-gradient { position: relative; padding: 28px 0; background: linear-gradient(135deg, #fff7ed, #fff1f2); }
+    .why-gradient .label { display:inline-block; background: linear-gradient(90deg, #2563eb, #1e40af); color:#fff; font-weight:900; padding:8px 16px; border-radius: 999px; border:4px solid #0f172a; box-shadow: 4px 4px 0 rgba(15,23,42,1); margin-bottom: 14px; text-transform: uppercase; }
+    .reason-grid { display:grid; gap:14px; grid-template-columns: 1fr; margin-bottom: 18px; }
+    @media(min-width:820px){ .reason-grid{ grid-template-columns: repeat(3, 1fr) } }
+    .reason-card { background:#fff; border:4px solid #0f172a; border-radius: 16px; padding: 16px; box-shadow: 6px 6px 0 rgba(15,23,42,1); transition: box-shadow .2s ease, transform .2s ease; }
+    .reason-card:hover { box-shadow: 10px 10px 0 rgba(15,23,42,1); transform: translateY(-2px); }
+    .reason-emoji { font-size: 28px; margin-bottom: 8px; }
+    .reason-title { font-size: 18px; font-weight: 900; color: #0f172a; margin: 0 0 6px; }
+    .reason-desc { color: #334155; font-weight: 600; margin: 0; }
+    .why-stats { display:grid; gap:14px; grid-template-columns: repeat(2, 1fr); }
+    @media(min-width:820px){ .why-stats{ grid-template-columns: repeat(4, 1fr) } }
+    .why-stat { text-align:center; background: linear-gradient(135deg, #0b4aa6, #0b1633); color:#fff; border:4px solid #0f172a; border-radius: 20px; padding: 16px; }
+    .why-stat .num { font-size: 34px; font-weight: 900; margin-bottom: 6px; background: linear-gradient(90deg, #60a5fa, #2563eb); -webkit-background-clip: text; background-clip: text; color: transparent; }
          .grid-3 { display: grid; gap: 14px; grid-template-columns: 1fr; }
      /* Bubble style for service cards */
      .grid-3 > .card { border: 3px solid #e2e8f0; border-radius: 25px; padding: 20px; text-align: center; position: relative; overflow: hidden; transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
@@ -358,6 +372,51 @@
       </div>
     </section>
 
+    <!-- Why Us gradient block -->
+    <section class="why-gradient">
+      <div class="container">
+        <div style="text-align:center;">
+          <span class="label">The Alliance Difference</span>
+          <h2 class="section-title" style="font-size:28px;">Why Choose Us?</h2>
+          <p class="subhead" style="margin-top:-6px; font-weight:700; color:#334155;">We're not just fast — we're the best in Westchester County.</p>
+        </div>
+        <div class="reason-grid" role="list">
+          <article class="reason-card" role="listitem">
+            <div class="reason-emoji">⚡</div>
+            <h3 class="reason-title">Lightning Fast</h3>
+            <p class="reason-desc">Average arrival 35–55 minutes across Westchester County.</p>
+          </article>
+          <article class="reason-card" role="listitem">
+            <div class="reason-emoji">🛡️</div>
+            <h3 class="reason-title">Licensed & Insured</h3>
+            <p class="reason-desc">Fully certified professionals with comprehensive insurance coverage.</p>
+          </article>
+          <article class="reason-card" role="listitem">
+            <div class="reason-emoji">💰</div>
+            <h3 class="reason-title">Upfront Pricing</h3>
+            <p class="reason-desc">Clear quotes over the phone before dispatch — no surprises.</p>
+          </article>
+        </div>
+        <div class="why-stats">
+          <div class="why-stat">
+            <div class="num">24/7</div>
+            <div style="font-weight:800;">Always Available</div>
+          </div>
+          <div class="why-stat">
+            <div class="num">35–55</div>
+            <div style="font-weight:800;">Min Arrival</div>
+          </div>
+          <div class="why-stat">
+            <div class="num">100%</div>
+            <div style="font-weight:800;">Licensed</div>
+          </div>
+          <div class="why-stat">
+            <div class="num">LOCAL</div>
+            <div style="font-weight:800;">Technicians</div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Testimonials -->
     <section id="testimonials">
       <div class="container">
