@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alliance24hourlocksmith.com/sitemap.xml
