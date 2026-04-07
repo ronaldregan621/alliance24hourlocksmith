@@ -166,21 +166,8 @@
     @media(min-width:820px){ .quote-grid{ grid-template-columns: 1fr 0.9fr; align-items: start; } }
     .quote-info p { margin: 0; color: #e6f0ff; }
     .quote-card { background: var(--white); color: var(--black); border-radius: 14px; padding: 16px; box-shadow: var(--shadow-sm); }
-    /* Floating CTA (desktop only) */
+    /* Floating CTA removed */
     .floating-cta { display: none; }
-    @media (min-width: 680px) {
-      .floating-cta {
-        display: block;
-        position: fixed;
-        bottom: 24px;
-        right: 24px;
-        z-index: 70;
-        max-width: 420px;
-        width: calc(100% - 48px);
-        transform: scale(0.45);
-        transform-origin: bottom right;
-      }
-    }
     .steps { display:grid; gap:14px; grid-template-columns:1fr; }
     .step { background: var(--white); border:1px solid #e2e8f0; border-radius:14px; padding:16px; box-shadow: 0 2px 8px rgba(2,21,69,0.04); }
     .step-num { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:999px; background:#e6eef5; color:var(--navy); font-weight:800; margin-right:8px; }
@@ -481,9 +468,9 @@
             <h2 class="section-title">Work Together to Keep Westchester Moving</h2>
             <p class="subhead" style="margin-top:-6px; color: var(--gray-700);">We help residents, property managers, and local businesses with calm, professional lock and key solutions—day or night.</p>
             <div style="display:flex; gap:20px; flex-wrap:wrap; margin-top:10px;">
-              <div><strong>30k+</strong><div style="color:var(--gray-700)">Successful entries</div></div>
-              <div><strong>100k+</strong><div style="color:var(--gray-700)">Keys handled</div></div>
               <div><strong>24/7</strong><div style="color:var(--gray-700)">Local dispatch</div></div>
+              <div><strong>Licensed</strong><div style="color:var(--gray-700)">&amp; insured</div></div>
+              <div><strong>Upfront</strong><div style="color:var(--gray-700)">Pricing always</div></div>
             </div>
           </div>
           <div>
@@ -713,7 +700,7 @@
             </div>
             <div class="quote-card" role="form" aria-labelledby="quote-title">
               <h2 id="quote-title" style="margin:0 0 10px; font-size:20px;">Request a Quote</h2>
-              <form class="quote-form" action="/contact/" method="get">
+              <form class="quote-form" id="quote-form">
                 <div>
                   <label for="q-name">Your Name</label>
                   <input id="q-name" name="name" type="text" placeholder="Your Name" required />
@@ -727,33 +714,51 @@
                   <input id="q-service" name="service" type="text" placeholder="e.g., Car lockout, door rekey" required />
                 </div>
                 <div>
-                  <button type="submit" data-cta="quote-submit">Submit</button>
+                  <button type="submit" id="quote-btn" data-cta="quote-submit">Submit</button>
                 </div>
+                <p id="quote-msg" style="display:none; margin:8px 0 0; font-weight:700;"></p>
               </form>
+              <script>
+                document.getElementById('quote-form').addEventListener('submit', async function(e) {
+                  e.preventDefault();
+                  var btn = document.getElementById('quote-btn');
+                  var msg = document.getElementById('quote-msg');
+                  btn.disabled = true;
+                  btn.textContent = 'Sending...';
+                  try {
+                    var res = await fetch('/api/quote', {
+                      method: 'POST',
+                      headers: { 'Content-Type': 'application/json' },
+                      body: JSON.stringify({
+                        name: document.getElementById('q-name').value,
+                        phone: document.getElementById('q-phone').value,
+                        service: document.getElementById('q-service').value,
+                        page: window.location.href
+                      })
+                    });
+                    if (res.ok) {
+                      msg.style.display = 'block';
+                      msg.style.color = '#16a34a';
+                      msg.textContent = "Got it! We'll call you back shortly.";
+                      e.target.reset();
+                    } else {
+                      throw new Error('Server error');
+                    }
+                  } catch(err) {
+                    msg.style.display = 'block';
+                    msg.style.color = '#dc2626';
+                    msg.textContent = 'Something went wrong. Please call us directly at (914) 406-4474.';
+                  }
+                  btn.disabled = false;
+                  btn.textContent = 'Submit';
+                });
+              </script>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Floating CTA (desktop) -->
-    <div class="floating-cta" aria-label="Floating call to action">
-      <div class="cta-banner">
-        <div class="row">
-          <div>
-            <h2 style="margin:0 0 6px; font-size:20px;">Locked Out? Get Help Now.</h2>
-            <p style="margin:0; color:#e6f0ff;">Fast emergency locksmith dispatch anywhere in Westchester County, NY.</p>
-          </div>
-          <div style="display:flex; gap:10px; align-items:center; justify-content:flex-start;">
-            <a class="cta-primary" href="tel:+19144064474" data-cta="banner-primary" aria-label="Call Alliance 24hr Locksmith now">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
-              <span>(914) 406-4474</span>
-            </a>
-            <span class="badge">Average dispatch <span aria-hidden="true">&lt;</span> 30 mins</span>
-          </div>
-        </div>
-      </div>
-    </div>
   </main>
 
   <footer role="contentinfo">
