@@ -75,16 +75,46 @@
 
     /* Hero */
     .hero {
-      background: linear-gradient(180deg, var(--off), var(--white));
-      border-bottom: 1px solid #e2e8f0;
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      min-height: 520px;
     }
-    .hero--image { position: relative; color: var(--white); }
-    .hero--image::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.35); }
-    .hero--image .hero-inner { position: relative; }
-    .hero--image h1 { color: var(--white); }
-    .hero--image .subhead { color: var(--white); }
-    .hero--image .hero-points { color: #f1f5f9; }
-    .hero--image .hero-points .icon { color: #f1f5f9; }
+    .hero-img-side {
+      position: relative;
+      min-height: 280px;
+      background: url('/images/hero-key.webp') center/cover no-repeat;
+    }
+    .hero-img-side::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(15,23,42,0.72) 0%, rgba(30,42,54,0.55) 100%);
+    }
+    .hero-img-content {
+      position: relative;
+      padding: 36px 24px 28px;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-img-content h1 { color: var(--white); margin: 8px 0 12px; }
+    .hero-img-content .subhead { color: #e2e8f0; }
+    .hero-img-content .hero-points { color: #cbd5e1; }
+    .hero-form-side {
+      background: var(--navy);
+      padding: 32px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    @media (min-width: 820px) {
+      .hero { grid-template-columns: 1fr 420px; }
+      .hero-img-side { min-height: 520px; }
+      .hero-img-content { padding: 56px 48px; }
+      .hero-form-side { padding: 48px 36px; }
+    }
     .hero-inner { display: grid; grid-template-columns: 1fr; gap: 18px; padding: 28px 0 20px; }
     .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--blue-900); background: #e9f2ff; padding: 6px 10px; border-radius: 999px; }
     h1 { font-size: 32px; line-height: 1.2; margin: 8px 0 12px; color: var(--black); }
@@ -115,10 +145,10 @@
     .why-gradient { position: relative; padding: 28px 0; background: linear-gradient(135deg, #fff7ed, #fff1f2); }
     .why-gradient .label { display:inline-block; background: linear-gradient(90deg, #2563eb, #1e40af); color:#fff; font-weight:900; padding:8px 16px; border-radius: 999px; border:4px solid #0f172a; box-shadow: 4px 4px 0 rgba(15,23,42,1); margin-bottom: 14px; text-transform: uppercase; }
     .reason-grid { display:grid; gap:14px; grid-template-columns: 1fr; margin-bottom: 18px; }
-    @media(min-width:820px){ .reason-grid{ grid-template-columns: repeat(3, 1fr) } }
+    @media(min-width:820px){ .reason-grid{ grid-template-columns: repeat(4, 1fr) } }
     .reason-card { background:#fff; border:4px solid #0f172a; border-radius: 16px; padding: 16px; box-shadow: 6px 6px 0 rgba(15,23,42,1); transition: box-shadow .2s ease, transform .2s ease; }
     .reason-card:hover { box-shadow: 10px 10px 0 rgba(15,23,42,1); transform: translateY(-2px); }
-    .reason-emoji { font-size: 28px; margin-bottom: 8px; }
+    .reason-emoji { font-size: 28px; margin-bottom: 8px; line-height: 1; }
     .reason-title { font-size: 18px; font-weight: 900; color: #0f172a; margin: 0 0 6px; }
     .reason-desc { color: #334155; font-weight: 600; margin: 0; }
     .why-stats { display:grid; gap:14px; grid-template-columns: repeat(2, 1fr); }
@@ -185,6 +215,28 @@
     }
     .mobile-call a { pointer-events: auto; display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--navy); color: var(--white); font-weight: 900; border-radius: 999px; padding: 14px 20px; box-shadow: 0 12px 30px rgba(30,42,54,0.28); }
     .mobile-call svg { width: 18px; height: 18px; fill: var(--white); }
+
+    /* Trust strip */
+    .trust-strip { background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 10px 0; }
+    .trust-strip-inner { display: flex; gap: 8px 20px; flex-wrap: wrap; justify-content: center; font-size: 13px; font-weight: 700; color: var(--navy); }
+    .ts-item { display: inline-flex; align-items: center; gap: 6px; }
+    .ts-item svg { width: 15px; height: 15px; fill: var(--navy); flex-shrink: 0; }
+
+    /* Service cards — left-accent style */
+    #services .card {
+      border: 1px solid #e2e8f0 !important;
+      border-left: 4px solid var(--navy) !important;
+      border-radius: 12px !important;
+      padding: 18px 20px !important;
+      text-align: left !important;
+      background: #fff;
+      overflow: visible !important;
+    }
+    #services .card::before { display: none !important; }
+    #services .card:hover { transform: translateY(-3px) !important; box-shadow: 0 10px 24px rgba(30,42,54,0.1) !important; border-color: #e2e8f0 !important; }
+    .svc-icon { width: 40px; height: 40px; background: #e8f0fe; border-radius: 10px; display: grid; place-items: center; margin-bottom: 10px; }
+    .svc-icon svg { width: 22px; height: 22px; fill: var(--navy); }
+    .svc-link { display: inline-block; margin-top: 10px; font-weight: 700; color: var(--navy); font-size: 14px; text-decoration: underline; }
 
     /* Utilities */
     .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; clip: rect(0,0,0,0); overflow: hidden; border: 0; }
@@ -292,6 +344,16 @@
   </header>
 
   <main id="main" role="main">
+    <!-- Trust strip -->
+    <div class="trust-strip" aria-label="trust signals">
+      <div class="container trust-strip-inner">
+        <span class="ts-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Westchester County, NY</span>
+        <span class="ts-item"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>Mobile Service</span>
+        <span class="ts-item"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>24/7 Emergency</span>
+        <span class="ts-item"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>Licensed &amp; Insured</span>
+      </div>
+    </div>
+
     <!-- Emergency Banner -->
     <section class="emergency-banner" aria-label="emergency callout">
       <div class="pattern" aria-hidden="true"></div>
@@ -301,39 +363,49 @@
       </div>
     </section>
     <!-- Hero -->
-    <section class="hero hero--image" style="background:url('https://images.unsplash.com/photo-1556438064-2d7646166914?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;">
-      <div class="container hero-inner">
-        <div>
-          <div class="eyebrow" aria-label="24/7 emergency">
+    <section class="hero" aria-label="hero">
+      <!-- Left: photo + headline -->
+      <div class="hero-img-side">
+        <div class="hero-img-content">
+          <div class="eyebrow" style="background:rgba(255,255,255,0.15); color:#fff; border:1px solid rgba(255,255,255,0.3);" aria-label="24/7 emergency">
             <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 8v5l4 2"/></svg>
-            <span>24/7 Emergency Dispatch • Westchester County, NY</span>
+            <span>24/7 Emergency Dispatch &bull; Westchester County, NY</span>
           </div>
-          <h1>24/7 Emergency Locksmith — Westchester County, NY</h1>
-          <p class="subhead">Locked Out? We’re on our way. Calm, professional help with clear pricing and no damage entry. Average dispatch under 30 minutes.</p>
+          <h1>24/7 Emergency Locksmith &mdash; Westchester County, NY</h1>
+          <p class="subhead">Locked out? We dispatch around the clock. Upfront quote before we leave, no damage entry, licensed and insured.</p>
           <div class="cta-row">
-            <a class="cta-primary" href="tel:+19144064474" data-cta="hero-primary" aria-label="Tap to call now (914) 406-4474">
-              <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
+            <a class="cta-primary" href="tel:+19144064474" data-cta="hero-primary" aria-label="Call now (914) 406-4474">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
               <span>Call Now: (914) 406-4474</span>
             </a>
-            <a class="cta-secondary" href="#quote" data-cta="hero-quote">Get a Quote</a>
-            <span class="badge" aria-label="licensed and insured">Licensed • Insured • 24/7</span>
           </div>
-          <div class="hero-points" aria-label="service highlights">
-            <div class="point"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 8v5l4 2"/></svg><span>We’re on our way</span></div>
+          <div class="hero-points" aria-label="service highlights" style="margin-top:16px;">
             <div class="point"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Upfront pricing</span></div>
-            <div class="point"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l7 4v6c0 5-3.5 9.74-7 10-3.5-.26-7-5-7-10V6l7-4z"/></svg><span>Local technicians</span></div>
+            <div class="point"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l7 4v6c0 5-3.5 9.74-7 10-3.5-.26-7-5-7-10V6l7-4z"/></svg><span>Licensed &amp; insured</span></div>
+            <div class="point"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 8v5l4 2"/></svg><span>Avg. 30 min dispatch</span></div>
           </div>
         </div>
-        <div>
-          <div class="card">
-            <h3>Immediate Help</h3>
-            <p>Tap to connect with a dispatcher now. We cover all of Westchester County—day or night.</p>
-            <div style="margin-top:12px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="cta-secondary" href="tel:+19144064474" data-cta="hero-secondary">Call (914) 406-4474</a>
-              <a class="cta-secondary" href="#services">See Services</a>
-            </div>
+      </div>
+      <!-- Right: quote form -->
+      <div class="hero-form-side" id="quote">
+        <h2 style="color:#fff; font-size:22px; margin:0 0 6px;">Get a Free Quote</h2>
+        <p style="color:#94a3b8; font-size:14px; margin:0 0 18px;">Or call us directly: <a href="tel:+19144064474" style="color:#60a5fa; font-weight:700;">(914) 406-4474</a></p>
+        <form class="quote-form" id="quoteForm">
+          <div>
+            <label for="q-name">Your Name</label>
+            <input id="q-name" name="name" type="text" placeholder="John Smith" required autocomplete="name" style="background:#fff;" />
           </div>
-        </div>
+          <div>
+            <label for="q-phone">Phone Number</label>
+            <input id="q-phone" name="phone" type="tel" placeholder="(914) 555-0000" required autocomplete="tel" style="background:#fff;" />
+          </div>
+          <div>
+            <label for="q-service">Service Needed</label>
+            <input id="q-service" name="service" type="text" placeholder="e.g. Car lockout, house lockout…" required style="background:#fff;" />
+          </div>
+          <button type="submit" style="margin-top:4px;">Request a Quote</button>
+          <p id="formMsg" style="margin:0; font-size:14px; display:none;"></p>
+        </form>
       </div>
     </section>
 
@@ -364,19 +436,24 @@
         </div>
         <div class="reason-grid" role="list">
           <article class="reason-card" role="listitem">
-            <div class="reason-emoji">⚡</div>
-            <h3 class="reason-title">Lightning Fast</h3>
-            <p class="reason-desc">Average arrival 35–55 minutes across Westchester County.</p>
+            <div class="reason-emoji" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="#0f172a"><path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.81 6-4.72 7.28L13 17v5h5l-1.22-1.22C19.91 19.07 22 15.76 22 12c0-5.18-3.95-9.45-9-9.95zM11 2.05C5.95 2.55 2 6.82 2 12c0 3.76 2.09 7.07 5.22 8.78L6 22h5v-5l-2.28 2.28C6.81 18 5 15.21 5 12c0-4.08 3.05-7.44 7-7.93V2.05z"/></svg></div>
+            <h3 class="reason-title">Fast Dispatch</h3>
+            <p class="reason-desc">Average arrival 30–45 minutes. We give you a real ETA — not a vague window.</p>
           </article>
           <article class="reason-card" role="listitem">
-            <div class="reason-emoji">🛡️</div>
-            <h3 class="reason-title">Licensed & Insured</h3>
-            <p class="reason-desc">Fully certified professionals with comprehensive insurance coverage.</p>
+            <div class="reason-emoji" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="#0f172a"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+            <h3 class="reason-title">Licensed &amp; Insured</h3>
+            <p class="reason-desc">Fully certified professionals. Your property is protected from the moment we arrive.</p>
           </article>
           <article class="reason-card" role="listitem">
-            <div class="reason-emoji">💰</div>
+            <div class="reason-emoji" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="#0f172a"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
             <h3 class="reason-title">Upfront Pricing</h3>
-            <p class="reason-desc">Clear quotes over the phone before dispatch — no surprises.</p>
+            <p class="reason-desc">Quote on the phone before we dispatch. What you hear is what you pay — every time.</p>
+          </article>
+          <article class="reason-card" role="listitem">
+            <div class="reason-emoji" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="#0f172a"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg></div>
+            <h3 class="reason-title">No Damage Entry</h3>
+            <p class="reason-desc">We pick and bypass — drilling is a last resort and always requires your approval.</p>
           </article>
         </div>
         <div class="why-stats">
@@ -431,35 +508,6 @@
         </div>
       </div>
     </section>
-    <!-- Why Choose Us -->
-    <section id="why">
-      <div class="container">
-        <h2 class="section-title">Why Choose Us</h2>
-        <div class="grid-3" role="list">
-          <article class="card" role="listitem">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
-              <strong>Reliable Service</strong>
-            </div>
-            <p>24/7 coverage with clear communication from dispatch to door.</p>
-          </article>
-          <article class="card" role="listitem">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l7 4v6c0 5-3.5 9.74-7 10-3.5-.26-7-5-7-10V6l7-4z"/></svg>
-              <strong>Professional Team</strong>
-            </div>
-            <p>Licensed, insured techs using modern tools and non-destructive methods.</p>
-          </article>
-          <article class="card" role="listitem">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 8v5l4 2"/></svg>
-              <strong>Fast & Local</strong>
-            </div>
-            <p>Average arrival in about 30 minutes across Westchester County.</p>
-          </article>
-        </div>
-      </div>
-    </section>
     <!-- About -->
     <section id="about">
       <div class="container">
@@ -479,138 +527,75 @@
         </div>
       </div>
     </section>
-    <!-- Value Props -->
-    <section id="value-props">
-      <div class="container">
-        <div class="grid-3" role="list">
-          <article class="card" role="listitem">
-            <h3>On Our Way Fast</h3>
-            <p>Average arrival in about 30 minutes.</p>
-          </article>
-          <article class="card" role="listitem">
-            <h3>Transparent Pricing</h3>
-            <p>Quote given over the phone before dispatch.</p>
-          </article>
-          <article class="card" role="listitem">
-            <h3>Experienced Technicians</h3>
-            <p>Licensed, insured, and local locksmiths.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <!-- Services -->
     <section id="services">
       <div class="container">
-        <h2 class="section-title">Comprehensive Locksmith Solutions for You</h2>
+        <h2 class="section-title">Locksmith Services We Provide</h2>
         <div class="grid-3" role="list">
-          <article class="card" role="listitem">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 11h14l-1-4H6zM3 16h18v2H3z"/></svg>
-              <h3>Car Lockouts</h3>
-            </div>
-            <p>Fast, non-destructive entry for most makes and models.</p>
-            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="cta-secondary" href="tel:+19144064474" data-cta="svc-car">Call (914) 406-4474</a>
-              <a class="cta-secondary" href="/car-lockout/">Read more</a>
-            </div>
+
+          <article class="card svc-card" role="listitem">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
+            <h3>Car Lockouts</h3>
+            <p>Fast, non-destructive entry for most makes and models. Keys locked inside, key stuck in ignition — we handle it.</p>
+            <a class="svc-link" href="/car-lockout/">Learn more →</a>
           </article>
 
-          <article class="card" role="listitem">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3l9 8h-3v8H6v-8H3z"/></svg>
-              <h3>Home Lockouts</h3>
-            </div>
-            <p>Get back inside safely with licensed, insured techs.</p>
-            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="cta-secondary" href="tel:+19144064474" data-cta="svc-home">Call (914) 406-4474</a>
-              <a class="cta-secondary" href="/house-lockout/">Read more</a>
-            </div>
+          <article class="card svc-card" role="listitem">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
+            <h3>Home Lockouts</h3>
+            <p>Houses, apartments, and condos — we get you back in without damage. Licensed techs, upfront quote first.</p>
+            <a class="svc-link" href="/house-lockout/">Learn more →</a>
           </article>
 
-          <article class="card" role="listitem">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 7h18v10H3zM7 5h10v2H7z"/></svg>
-              <h3>Business Lockouts</h3>
-            </div>
-            <p>Storefronts, offices, and commercial doors.</p>
-            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="cta-secondary" href="tel:+19144064474" data-cta="svc-biz">Call (914) 406-4474</a>
-              <a class="cta-secondary" href="/emergency-locksmith/">Read more</a>
-            </div>
+          <article class="card svc-card" role="listitem">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg></div>
+            <h3>Business Lockouts</h3>
+            <p>Storefronts, offices, and commercial doors. We minimize downtime and work with property managers when needed.</p>
+            <a class="svc-link" href="/commercial/">Learn more →</a>
           </article>
 
-          <article class="card" role="listitem">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 11h16v2H4zM6 7h12v2H6zM8 15h8v2H8z"/></svg>
-              <h3>Lock Replacement</h3>
-            </div>
-            <p>Change, repair, or upgrade locks and deadbolts.</p>
-            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="cta-secondary" href="tel:+19144064474">Call (914) 406-4474</a>
-              <a class="cta-secondary" href="/high-security-locks/">Read more</a>
-            </div>
+          <article class="card svc-card" role="listitem">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg></div>
+            <h3>Lock Replacement</h3>
+            <p>Replace worn or compromised deadbolts and knob locks. We stock common brands and can upgrade to high-security hardware.</p>
+            <a class="svc-link" href="/high-security-locks/">Learn more →</a>
           </article>
 
-          <article class="card" role="listitem">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 14l5-5 5 5H7z"/></svg>
-              <h3>Key Duplication</h3>
-            </div>
-            <p>On‑site key cutting for many lock types.</p>
-            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="cta-secondary" href="tel:+19144064474">Call (914) 406-4474</a>
-              <a class="cta-secondary" href="/key-duplication/">Read more</a>
-            </div>
+          <article class="card svc-card" role="listitem">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg></div>
+            <h3>Key Duplication</h3>
+            <p>On-site key cutting for house, apartment, and office keys. We bring the cutting equipment to you.</p>
+            <a class="svc-link" href="/key-duplication/">Learn more →</a>
           </article>
 
-          <article class="card" role="listitem">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l7 4v12l-7 4-7-4V6l7-4zm0 2.2L7 6.5v10.9l5 2.8 5-2.8V6.5l-5-2.3z"/></svg>
-              <h3>Safe Opening</h3>
-            </div>
-            <p>Professional, non-destructive safe access.</p>
-            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="cta-secondary" href="tel:+19144064474">Call (914) 406-4474</a>
-              <a class="cta-secondary" href="/emergency-locksmith/">Read more</a>
-            </div>
+          <article class="card svc-card" role="listitem">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
+            <h3>Safe Opening</h3>
+            <p>Forgotten combinations, jammed mechanisms, lost keys — we open safes without damage whenever possible.</p>
+            <a class="svc-link" href="/emergency-locksmith/">Learn more →</a>
           </article>
 
-          <article class="card" role="listitem">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4 11h16v2H4zM6 7h12v2H6zM8 15h8v2H8z"/></svg>
-              <h3>Smart Lock Installation</h3>
-            </div>
-            <p>Keyless entry setup, app pairing, and access codes.</p>
-            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="cta-secondary" href="tel:+19144064474">Call (914) 406-4474</a>
-              <a class="cta-secondary" href="/smart-lock-installation/">Read more</a>
-            </div>
+          <article class="card svc-card" role="listitem">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm2 16h-4v-2h1v-4h-1v-2h3v6h1v2z"/></svg></div>
+            <h3>Smart Lock Installation</h3>
+            <p>Keyless entry setup, app pairing, and access code programming for all major smart lock brands.</p>
+            <a class="svc-link" href="/smart-lock-installation/">Learn more →</a>
           </article>
 
-          <article class="card" role="listitem">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
-              <h3>Lock Rekey</h3>
-            </div>
-            <p>New keys, same locks—ideal after a move or turnover.</p>
-            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="cta-secondary" href="tel:+19144064474">Call (914) 406-4474</a>
-              <a class="cta-secondary" href="/lock-rekey/">Read more</a>
-            </div>
+          <article class="card svc-card" role="listitem">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 12c0 2.76-2.24 5-5 5s-5-2.24-5-5 2.24-5 5-5c1.35 0 2.57.54 3.46 1.4L13 11h4V7l-1.41 1.41C14.42 7.35 13.26 7 12 7c-3.86 0-7 3.14-7 7s3.14 7 7 7 7-3.14 7-7h-2z"/></svg></div>
+            <h3>Lock Rekey</h3>
+            <p>New keys, same locks. The right move after a move-in, turnover, or lost key — cheaper than full replacement.</p>
+            <a class="svc-link" href="/lock-rekey/">Learn more →</a>
           </article>
 
-          <article class="card" role="listitem">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 7h18v10H3zM7 5h10v2H7z"/></svg>
-              <h3>Master Key Systems</h3>
-            </div>
-            <p>One master opens all; sub‑keys for authorized doors.</p>
-            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="cta-secondary" href="tel:+19144064474">Call (914) 406-4474</a>
-              <a class="cta-secondary" href="/master-key-system/">Read more</a>
-            </div>
+          <article class="card svc-card" role="listitem">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm11.5-2H12.65C11.83 9.67 9.61 8 7 8c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4h1.85l1.5 1.5 1.5-1.5 1.5 1.5 3-3-3.5-3.5z"/></svg></div>
+            <h3>Master Key Systems</h3>
+            <p>One master opens all; individual sub-keys for each door. Ideal for multi-unit properties and small offices.</p>
+            <a class="svc-link" href="/master-key-system/">Learn more →</a>
           </article>
+
         </div>
       </div>
     </section>
@@ -685,74 +670,37 @@
       </div>
     </section>
 
-    <!-- Quote Form -->
-    <section id="quote">
+    <!-- Quote Form (secondary, below fold) -->
+    <section>
       <div class="container">
         <div class="quote-section">
           <div class="quote-grid">
             <div class="quote-info">
               <h2 style="margin:0 0 8px; font-size:22px;">We’re ready to help</h2>
-              <p>Tell us what you need—car, home, or business—and the best number to reach you. We’ll confirm pricing and send a local tech.</p>
+              <p>Tell us what you need and the best number to reach you. We’ll confirm pricing and send a local tech.</p>
               <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
                 <a class="cta-primary" href="tel:+19144064474" data-cta="quote-call">Call (914) 406-4474</a>
                 <span class="badge">Average arrival ≈ 30 mins</span>
               </div>
             </div>
-            <div class="quote-card" role="form" aria-labelledby="quote-title">
-              <h2 id="quote-title" style="margin:0 0 10px; font-size:20px;">Request a Quote</h2>
-              <form class="quote-form" id="quote-form">
+            <div class="quote-card">
+              <h2 style="margin:0 0 10px; font-size:20px;">Request a Quote</h2>
+              <form class="quote-form js-quote-form">
                 <div>
-                  <label for="q-name">Your Name</label>
-                  <input id="q-name" name="name" type="text" placeholder="Your Name" required />
+                  <label>Your Name</label>
+                  <input name="name" type="text" placeholder="Your Name" required />
                 </div>
                 <div>
-                  <label for="q-phone">Phone Number</label>
-                  <input id="q-phone" name="phone" type="tel" placeholder="(914) 406-4474" required />
+                  <label>Phone Number</label>
+                  <input name="phone" type="tel" placeholder="(914) 555-0000" required />
                 </div>
                 <div>
-                  <label for="q-service">Service Needed</label>
-                  <input id="q-service" name="service" type="text" placeholder="e.g., Car lockout, door rekey" required />
+                  <label>Service Needed</label>
+                  <input name="service" type="text" placeholder="e.g., Car lockout, door rekey" required />
                 </div>
-                <div>
-                  <button type="submit" id="quote-btn" data-cta="quote-submit">Submit</button>
-                </div>
-                <p id="quote-msg" style="display:none; margin:8px 0 0; font-weight:700;"></p>
+                <button type="submit" data-cta="quote-submit">Submit</button>
+                <p class="form-msg" style="display:none; margin:8px 0 0; font-weight:700;"></p>
               </form>
-              <script>
-                document.getElementById('quote-form').addEventListener('submit', async function(e) {
-                  e.preventDefault();
-                  var btn = document.getElementById('quote-btn');
-                  var msg = document.getElementById('quote-msg');
-                  btn.disabled = true;
-                  btn.textContent = 'Sending...';
-                  try {
-                    var res = await fetch('/api/quote', {
-                      method: 'POST',
-                      headers: { 'Content-Type': 'application/json' },
-                      body: JSON.stringify({
-                        name: document.getElementById('q-name').value,
-                        phone: document.getElementById('q-phone').value,
-                        service: document.getElementById('q-service').value,
-                        page: window.location.href
-                      })
-                    });
-                    if (res.ok) {
-                      msg.style.display = 'block';
-                      msg.style.color = '#16a34a';
-                      msg.textContent = "Got it! We'll call you back shortly.";
-                      e.target.reset();
-                    } else {
-                      throw new Error('Server error');
-                    }
-                  } catch(err) {
-                    msg.style.display = 'block';
-                    msg.style.color = '#dc2626';
-                    msg.textContent = 'Something went wrong. Please call us directly at (914) 406-4474.';
-                  }
-                  btn.disabled = false;
-                  btn.textContent = 'Submit';
-                });
-              </script>
             </div>
           </div>
         </div>
@@ -832,6 +780,41 @@
   <script defer>
     // Set year
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Quote form handler — handles all .js-quote-form instances + hero #quoteForm
+    async function handleQuoteSubmit(e) {
+      e.preventDefault();
+      var form = e.target;
+      var btn = form.querySelector('button[type="submit"]');
+      var msg = form.querySelector('.form-msg') || document.getElementById('formMsg');
+      var origText = btn.textContent;
+      btn.disabled = true;
+      btn.textContent = 'Sending...';
+      try {
+        var res = await fetch('/api/quote', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: form.querySelector('[name="name"]').value,
+            phone: form.querySelector('[name="phone"]').value,
+            service: form.querySelector('[name="service"]').value,
+            page: window.location.href
+          })
+        });
+        if (res.ok) {
+          if (msg) { msg.style.display = 'block'; msg.style.color = '#16a34a'; msg.textContent = "Got it! We'll call you back shortly."; }
+          form.reset();
+        } else { throw new Error('err'); }
+      } catch(err) {
+        if (msg) { msg.style.display = 'block'; msg.style.color = '#dc2626'; msg.textContent = 'Something went wrong. Please call us at (914) 406-4474.'; }
+      }
+      btn.disabled = false;
+      btn.textContent = origText;
+    }
+
+    document.querySelectorAll('.js-quote-form, #quoteForm').forEach(function(f) {
+      f.addEventListener('submit', handleQuoteSubmit);
+    });
 
     // Track tel link clicks for GA4 if gtag is present
     function trackCallClick(event) {

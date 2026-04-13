@@ -21,8 +21,10 @@ Last updated: 2026-04-06
   - Confirm FAQPage and BreadcrumbList are reading correctly
 
 - [ ] **Set up Google Analytics (GA4)**
-  - Add GA4 tracking snippet to all pages
-  - Set up a "Call Click" event on tel: links (already have data-cta attributes on CTAs)
+  - Create a GA4 property at analytics.google.com
+  - Get your Measurement ID (format: G-XXXXXXXXXX)
+  - Paste Measurement ID into Claude Code — snippet will be injected across all 41 pages automatically
+  - Set up a "Call Click" conversion event on tel: links (already have data-cta attributes on CTAs)
 
 ---
 

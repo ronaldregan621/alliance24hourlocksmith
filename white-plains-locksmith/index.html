@@ -2,32 +2,139 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#1E2A36" />
+  <meta name="robots" content="index, follow" />
+  <meta name="format-detection" content="telephone=no" />
   <title>24/7 Emergency Locksmith White Plains, NY | Alliance Mobile Service</title>
   <meta name="description" content="Locked out in White Plains? Alliance 24hr Locksmith is available 24/7 for car, home, and office lockouts. Upfront quote, no damage entry. Call (914) 406-4474." />
   <link rel="canonical" href="https://alliance24hourlocksmith.com/white-plains-locksmith/" />
   <style>
-    :root { --navy:#1E2A36; --off:#F7F7F5; }
-    * { box-sizing:border-box }
-    body { margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Helvetica,Arial,sans-serif; color:var(--navy); background:var(--off); line-height:1.6 }
-    a { color:var(--navy) }
-    .wrap { max-width:960px; margin:0 auto; padding:16px }
-    header { padding:16px 0 }
-    .brand { font-weight:800; font-size:20px }
-    .cta { display:inline-flex; align-items:center; gap:8px; background:var(--navy); color:var(--off); padding:12px 16px; border-radius:8px; text-decoration:none; font-weight:700 }
-    .hero { padding:24px 0 8px }
-    .hero h1 { font-size:28px; margin:0 0 8px }
-    .grid { display:grid; gap:16px; grid-template-columns:1fr; }
-    section { background:white; border:1px solid rgba(0,0,0,0.06); border-radius:10px; padding:16px }
-    h2 { font-size:20px; margin:0 0 8px }
-    h3 { font-size:16px; margin:14px 0 4px }
-    ul { padding-left:18px; margin:6px 0 }
-    footer { padding:24px 0; font-size:14px; opacity:0.9 }
-    .sticky-call { position:fixed; left:0; right:0; bottom:0; background:var(--navy); color:var(--off); display:flex; justify-content:center; padding:12px; z-index:50 }
-    .sticky-call a { color:var(--off); text-decoration:none; font-weight:800 }
-    @media (min-width:720px){ .hero h1{ font-size:34px } .grid{ grid-template-columns:1fr 1fr } }
+    :root {
+      --navy: #1E2A36;
+      --off: #F7F7F5;
+      --blue-100: #e8f0fe;
+      --white: #ffffff;
+      --black: #0f172a;
+      --gray-700: #334155;
+      --gray-600: #475569;
+      --gray-100: #f1f5f9;
+      --success: #16a34a;
+      --shadow: 0 10px 30px rgba(30, 42, 54, 0.15);
+    }
+    html, body {
+      padding: 0; margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--black); background: var(--off); line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+    /* Header */
+    .topbar { background: var(--navy); color: var(--white); position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 0 rgba(255,255,255,0.1); }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--white); }
+    .nav-links { display: none; gap: 16px; font-weight: 600; }
+    @media (min-width: 820px){ .nav-links{ display:flex; color: var(--white); } .nav-links a { color: var(--white); } }
+    .call-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; background: var(--white); color: var(--navy); font-weight: 700; box-shadow: var(--shadow); }
+    .call-btn svg { width: 17px; height: 17px; fill: var(--navy); }
+
+    /* Trust strip */
+    .trust-strip { background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 10px 0; }
+    .trust-strip-inner { display: flex; gap: 8px 20px; flex-wrap: wrap; justify-content: center; font-size: 13px; font-weight: 700; color: var(--navy); }
+    .ts-item { display: inline-flex; align-items: center; gap: 6px; }
+    .ts-item svg { width: 15px; height: 15px; fill: var(--navy); flex-shrink: 0; }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1fr; }
+    .hero-content-side { background: var(--navy); color: var(--white); padding: 36px 24px 32px; }
+    .hero-content-side h1 { color: var(--white); font-size: 28px; line-height: 1.2; margin: 0 0 14px; }
+    .hero-content-side p { color: #cbd5e1; margin: 0 0 12px; font-size: 15px; }
+    .hero-content-side .hero-points { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
+    .hero-content-side .point { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; color: #94a3b8; }
+    .hero-content-side .point svg { width: 15px; height: 15px; fill: #60a5fa; }
+    .hero-form-side { background: #162231; padding: 32px 24px; }
+    @media (min-width: 820px) {
+      .hero { grid-template-columns: 1fr 400px; min-height: 460px; }
+      .hero-content-side { padding: 52px 48px; display: flex; flex-direction: column; justify-content: center; }
+      .hero-content-side h1 { font-size: 36px; }
+      .hero-form-side { padding: 44px 32px; display: flex; flex-direction: column; justify-content: center; }
+    }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #94a3b8; background: rgba(255,255,255,0.08); padding: 5px 10px; border-radius: 999px; margin-bottom: 12px; }
+    .cta-primary { background: var(--white); color: var(--navy); padding: 12px 18px; border-radius: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; box-shadow: var(--shadow); }
+    .cta-primary svg { width: 18px; height: 18px; fill: var(--navy); }
+
+    /* Quote form */
+    .quote-form { display: grid; gap: 10px; }
+    .quote-form label { font-weight: 700; font-size: 14px; color: #e2e8f0; }
+    .quote-form input { width: 100%; padding: 11px 13px; border-radius: 10px; border: 1px solid #334155; background: #fff; outline: none; font-size: 15px; box-sizing: border-box; }
+    .quote-form input::placeholder { color: #64748b; }
+    .quote-form button { background: #2563eb; color: #fff; font-weight: 800; padding: 13px 18px; border-radius: 12px; border: 0; cursor: pointer; font-size: 15px; }
+    .quote-form button:hover { background: #1d4ed8; }
+    #formMsg { margin: 0; font-size: 14px; }
+
+    /* Sections */
+    section { padding: 28px 0; }
+    .section-title { font-size: 22px; margin: 0 0 16px; color: var(--black); }
+    h2 { font-size: 20px; }
+    h3 { font-size: 17px; }
+
+    /* Service cards */
+    .svc-grid { display: grid; gap: 14px; grid-template-columns: 1fr; }
+    @media (min-width: 580px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .svc-grid { grid-template-columns: repeat(3, 1fr); } }
+    .svc-card { background: #fff; border: 1px solid #e2e8f0; border-left: 4px solid var(--navy); border-radius: 12px; padding: 18px 20px; transition: transform .2s ease, box-shadow .2s ease; }
+    .svc-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(30,42,54,0.1); }
+    .svc-icon { width: 38px; height: 38px; background: #e8f0fe; border-radius: 9px; display: grid; place-items: center; margin-bottom: 9px; }
+    .svc-icon svg { width: 20px; height: 20px; fill: var(--navy); }
+    .svc-card h3 { margin: 0 0 6px; font-size: 16px; color: var(--black); }
+    .svc-card p { margin: 0; color: var(--gray-700); font-size: 14px; line-height: 1.5; }
+    .svc-link { display: inline-block; margin-top: 9px; font-weight: 700; color: var(--navy); font-size: 13px; text-decoration: underline; }
+
+    /* How it works */
+    .steps { display: grid; gap: 14px; grid-template-columns: 1fr; }
+    @media (min-width: 680px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+    .step { background: var(--white); border: 1px solid #e2e8f0; border-radius: 14px; padding: 16px; box-shadow: 0 2px 8px rgba(2,21,69,0.04); }
+    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 999px; background: #e6eef5; color: var(--navy); font-weight: 800; margin-right: 8px; }
+
+    /* Why Us */
+    .why-gradient { background: linear-gradient(135deg, #fff7ed, #fff1f2); padding: 28px 0; }
+    .reason-grid { display: grid; gap: 14px; grid-template-columns: 1fr; margin-bottom: 0; }
+    @media (min-width: 820px) { .reason-grid { grid-template-columns: repeat(4, 1fr); } }
+    .reason-card { background: #fff; border: 4px solid #0f172a; border-radius: 16px; padding: 16px; box-shadow: 6px 6px 0 rgba(15,23,42,1); transition: box-shadow .2s, transform .2s; }
+    .reason-card:hover { box-shadow: 10px 10px 0 rgba(15,23,42,1); transform: translateY(-2px); }
+    .reason-title { font-size: 17px; font-weight: 900; color: #0f172a; margin: 0 0 5px; }
+    .reason-desc { color: #334155; font-weight: 600; margin: 0; font-size: 14px; }
+    .reason-icon { width: 32px; height: 32px; margin-bottom: 8px; }
+    .reason-icon svg { width: 28px; height: 28px; fill: #0f172a; }
+
+    /* FAQ */
+    .faq-list { display: grid; gap: 12px; }
+    .faq-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px 18px; }
+    .faq-q { font-size: 16px; font-weight: 800; margin: 0 0 6px; color: var(--black); }
+    .faq-a { margin: 0; color: var(--gray-700); font-size: 15px; line-height: 1.6; }
+
+    /* CTA banner */
+    .cta-banner { background: linear-gradient(90deg, #2563eb, #1e40af); color: #fff; border-radius: 16px; padding: 24px; text-align: center; }
+    .cta-banner h2 { margin: 0 0 8px; color: #fff; font-size: 22px; }
+    .cta-banner p { margin: 0 0 16px; color: #bfdbfe; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #1e40af; font-weight: 800; padding: 13px 22px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .btn-cta svg { width: 18px; height: 18px; fill: #1e40af; }
+
+    /* Footer */
+    footer { background: var(--navy); color: var(--white); padding: 20px 0; margin-top: 10px; }
+    footer small { color: #cfe0ff; }
+
+    /* Mobile sticky call bar */
+    .mobile-call { position: fixed; bottom: 10px; left: 0; right: 0; z-index: 60; display: grid; justify-content: center; padding: 0 10px; pointer-events: none; }
+    .mobile-call a { pointer-events: auto; display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--navy); color: var(--white); font-weight: 900; border-radius: 999px; padding: 14px 20px; box-shadow: 0 12px 30px rgba(30,42,54,0.28); }
+    .mobile-call svg { width: 18px; height: 18px; fill: var(--white); }
+    @media (min-width: 680px) { .mobile-call { display: none; } }
+
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; clip: rect(0,0,0,0); overflow: hidden; border: 0; }
   </style>
   <script type="application/ld+json">
   {
@@ -68,82 +175,341 @@
     ]
   }
   </script>
+  <!-- Vercel Web Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="brand"><a href="/" style="text-decoration:none;color:inherit;">Alliance 24hr Locksmith</a></div>
-    </header>
-    <div class="hero">
-      <h1>Emergency Locksmith in White Plains — 24/7 Mobile</h1>
-      <p>White Plains is Westchester's downtown hub — high-rises, commuter traffic, parking garages, and a dense mix of residential and commercial buildings. Lockouts happen in all of them. We dispatch around the clock and reach most of White Plains in under 30 minutes, with an upfront quote before anyone leaves the shop.</p>
-      <p>Car lockout, home lockout, rekey after losing a key — call us and know the price before we come out.</p>
-      <p><a class="cta" href="tel:+19144064474">Call Now: (914) 406-4474</a></p>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <header class="topbar" role="banner">
+    <div class="container topbar-inner">
+      <a class="brand" href="/" aria-label="Alliance 24hr Locksmith — home">
+        Alliance 24hr Locksmith
+      </a>
+      <nav class="nav-links" aria-label="primary">
+        <a href="/#services" style="color:#cbd5e1;">Services</a>
+        <a href="/#areas" style="color:#cbd5e1;">Locations</a>
+        <a href="/contact/" style="color:#cbd5e1;">Contact</a>
+      </nav>
+      <a class="call-btn" href="tel:+19144064474" data-cta="header-call" aria-label="Call Alliance 24hr Locksmith">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
+        <span>(914) 406-4474</span>
+      </a>
     </div>
-    <div class="grid">
-      <section>
-        <h2>Locksmith Services in White Plains</h2>
-        <p>We handle the full range of lockout situations White Plains residents and workers run into — from apartment lockouts on Mamaroneck Ave to car lockouts in parking structures near the Galleria.</p>
-        <ul>
-          <li>Home lockouts — apartments, condos, single-family homes</li>
-          <li>Car lockouts — keys inside, broken in ignition, or lost</li>
-          <li><a href="/lock-rekey/">Lock rekey</a> — change access after moving in or losing a key</li>
-          <li><a href="/car-key-replacement/">Car key replacement and programming</a></li>
-          <li>Deadbolt upgrades and new lock installation</li>
-          <li><a href="/commercial/">Commercial emergency lockouts</a> for offices and retail spaces</li>
-        </ul>
-        <p>Non-destructive entry on every job. We pick, bypass, or use slim tools — drilling is a last resort, always with your go-ahead.</p>
-      </section>
-      <section>
-        <h2>Response Time and Coverage in White Plains</h2>
-        <p>Most of White Plains is under 30 minutes from dispatch. Downtown, the Highlands, and North White Plains are typically faster. West Harrison is also a quick run.</p>
-        <p>We cover all of White Plains including the downtown core near Metro-North, the Highlands, North White Plains, West Harrison, and the neighborhoods bordering Harrison and Scarsdale. We also serve Tarrytown, Elmsford, and Greenburgh nearby.</p>
-        <p>Standard unlocks take 5 to 15 minutes on site. Vehicles with newer electronic security may take longer — we'll say so upfront.</p>
-        <p><a class="cta" href="tel:+19144064474">Get a Quote</a></p>
-      </section>
-      <section>
-        <h2>Why White Plains Residents and Workers Call Alliance</h2>
-        <p>We know White Plains — the downtown streets, the residential areas, and the difference between a Mamaroneck Ave address and a Harrison border address. Less time navigating means faster service for you.</p>
-        <p>The quote you get on the phone is the price you pay. No add-ons at the door. If something unexpected comes up on site, we tell you before we proceed — the decision is always yours.</p>
-        <p>Licensed, insured, and operating out of Westchester. This is our home territory.</p>
-      </section>
-      <section>
-        <h2>Common Questions from White Plains Customers</h2>
-        <h3>How quickly can you reach White Plains?</h3>
-        <p>Typically 15 to 30 minutes from dispatch depending on your exact location. Downtown White Plains and the Highlands are usually on the faster end. We give you a realistic ETA when you call.</p>
-        <h3>What proof do I need for a home lockout?</h3>
-        <p>A government-issued ID showing your address is standard. If your ID is locked inside, a lease, utility bill, or mail works. We handle unusual situations on site — we've seen everything.</p>
-        <h3>Can you handle lockouts at White Plains office buildings?</h3>
-        <p>Yes. We do commercial emergency lockouts for offices and small businesses throughout White Plains. Call us and we will tell you upfront what we can help with.</p>
-        <h3>Will you drill my lock if you can't pick it?</h3>
-        <p>Drilling is always the last option. We use non-destructive entry methods first and only drill if there is truly no other way in — and only with your approval so the decision is yours.</p>
-        <h3>Do you cover North White Plains and West Harrison?</h3>
-        <p>Yes. We cover all of White Plains including the Highlands, North White Plains, West Harrison, and the downtown core near the Galleria and Metro-North station.</p>
-      </section>
+  </header>
+
+  <main id="main" role="main">
+    <!-- Trust Strip -->
+    <div class="trust-strip" aria-label="trust signals">
+      <div class="container trust-strip-inner">
+        <span class="ts-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>White Plains</span>
+        <span class="ts-item"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>Mobile Service</span>
+        <span class="ts-item"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>24/7 Emergency</span>
+        <span class="ts-item"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>Licensed &amp; Insured</span>
+      </div>
     </div>
-    <footer>
-      <div>Alliance 24hr Locksmith &bull; (914) 406-4474 &bull; 24/7 Dispatch</div>
-      <nav aria-label="services" style="margin:10px 0 4px; font-size:13px;">
-        <a href="/emergency-locksmith/">Emergency</a> &middot; <a href="/car-lockout/">Car Lockout</a> &middot; <a href="/house-lockout/">House Lockout</a> &middot; <a href="/lock-rekey/">Lock Rekey</a> &middot; <a href="/car-key-replacement/">Car Keys</a> &middot; <a href="/commercial/">Commercial</a> &middot; <a href="/price-list/">Price List</a> &middot; <a href="/contact/">Contact</a>
+
+    <!-- Hero -->
+    <section class="hero" aria-label="hero">
+      <div class="hero-content-side">
+        <div class="eyebrow">
+          <svg style="width:13px;height:13px;fill:#60a5fa;" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          24/7 Emergency Dispatch &bull; White Plains
+        </div>
+        <h1>Emergency Locksmith in White Plains — 24/7 Mobile</h1>
+          <p>White Plains is Westchester's downtown hub — high-rises, commuter traffic, parking garages, and a dense mix of residential and commercial buildings. Lockouts happen in all of them. We dispatch around the clock and reach most of White Plains in under 30 minutes, with an upfront quote before anyone leaves the shop.</p>
+          <p>Car lockout, home lockout, rekey after losing a key — call us and know the price before we come out.</p>
+        <a class="cta-primary" href="tel:+19144064474" data-cta="hero-call" aria-label="Call now (914) 406-4474">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
+          Call Now: (914) 406-4474
+        </a>
+        <div class="hero-points" aria-label="service highlights">
+          <div class="point"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Upfront pricing</div>
+          <div class="point"><svg viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3.5 9.74-7 10-3.5-.26-7-5-7-10V6l7-4z"/></svg>Licensed &amp; insured</div>
+          <div class="point"><svg viewBox="0 0 24 24"><path d="M12 8v5l4 2"/></svg>Non-destructive entry</div>
+        </div>
+      </div>
+      <div class="hero-form-side" id="quote">
+        <h2 style="color:#fff; font-size:20px; margin:0 0 5px;">Get a Free Quote</h2>
+        <p style="color:#94a3b8; font-size:13px; margin:0 0 16px;">Or call us: <a href="tel:+19144064474" style="color:#60a5fa; font-weight:700;">(914) 406-4474</a></p>
+        <form class="quote-form" id="quoteForm" novalidate>
+          <div>
+            <label for="q-name">Your Name</label>
+            <input id="q-name" name="name" type="text" placeholder="John Smith" required autocomplete="name" />
+          </div>
+          <div>
+            <label for="q-phone">Phone Number</label>
+            <input id="q-phone" name="phone" type="tel" placeholder="(914) 555-0000" required autocomplete="tel" />
+          </div>
+          <div>
+            <label for="q-service">Service Needed</label>
+            <input id="q-service" name="service" type="text" placeholder="e.g. Car lockout, house lockout…" required />
+          </div>
+          <button type="submit">Request a Quote</button>
+          <p id="formMsg" style="display:none; font-weight:700;"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title">Locksmith Services in White Plains</h2>
+        <div class="svc-grid" role="list">
+          <div class="svc-card">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 11V3H7v4H3v14h8v-4h2v4h8V11h-4zm-6 0H9V9h2v2zm4 0h-2V9h2v2zm0 4h-2v-2h2v2zm4 0h-2v-2h2v2zm0 4h-2v-2h2v2z"/></svg></div>
+            <h3>Home lockouts</h3>
+            <p>apartments, condos, single-family homes</p>
+            
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
+            <h3>Car lockouts</h3>
+            <p>keys inside, broken in ignition, or lost</p>
+            
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 12c0 2.76-2.24 5-5 5s-5-2.24-5-5 2.24-5 5-5c1.35 0 2.57.54 3.46 1.4L13 11h4V7l-1.41 1.41C14.42 7.35 13.26 7 12 7c-3.86 0-7 3.14-7 7s3.14 7 7 7 7-3.14 7-7h-2z"/></svg></div>
+            <h3>Lock rekey</h3>
+            <p>change access after moving in or losing a key</p>
+            
+            <a class="svc-link" href="/lock-rekey/">Learn more →</a>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
+            <h3>Car key replacement and programming</h3>
+            
+            
+            <a class="svc-link" href="/car-key-replacement/">Learn more →</a>
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2z"/></svg></div>
+            <h3>Deadbolt upgrades and new lock installation</h3>
+            
+            
+          </div>
+          <div class="svc-card">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg></div>
+            <h3>Commercial emergency lockouts for offices and retail spaces</h3>
+            
+            
+            <a class="svc-link" href="/commercial/">Learn more →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="process">
+      <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps">
+          <div class="step"><div><span class="step-num">1</span><strong>Call Us</strong></div><p style="margin-top:6px; color:var(--gray-700);">Share your location and situation — we pick up 24/7.</p></div>
+          <div class="step"><div><span class="step-num">2</span><strong>Get a Quote</strong></div><p style="margin-top:6px; color:var(--gray-700);">We confirm clear pricing before we dispatch.</p></div>
+          <div class="step"><div><span class="step-num">3</span><strong>Rapid Arrival</strong></div><p style="margin-top:6px; color:var(--gray-700);">A local tech heads your way — real ETA given on the call.</p></div>
+          <div class="step"><div><span class="step-num">4</span><strong>Professional Entry</strong></div><p style="margin-top:6px; color:var(--gray-700);">Non-destructive methods first. You're back in quickly.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Alliance -->
+    <section class="why-gradient">
+      <div class="container">
+        <h2 class="section-title">Why White Plains Residents Call Alliance</h2>
+        <div class="reason-grid" role="list">
+          <article class="reason-card" role="listitem">
+            <div class="reason-icon"><svg viewBox="0 0 24 24" fill="#0f172a"><path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.81 6-4.72 7.28L13 17v5h5l-1.22-1.22C19.91 19.07 22 15.76 22 12c0-5.18-3.95-9.45-9-9.95zM11 2.05C5.95 2.55 2 6.82 2 12c0 3.76 2.09 7.07 5.22 8.78L6 22h5v-5l-2.28 2.28C6.81 18 5 15.21 5 12c0-4.08 3.05-7.44 7-7.93V2.05z"/></svg></div>
+            <h3 class="reason-title">Fast Dispatch</h3>
+            <p class="reason-desc">Real ETA on the phone — not a vague window. We track every job to keep arrival times honest.</p>
+          </article>
+          <article class="reason-card" role="listitem">
+            <div class="reason-icon"><svg viewBox="0 0 24 24" fill="#0f172a"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+            <h3 class="reason-title">Licensed &amp; Insured</h3>
+            <p class="reason-desc">Certified professionals on every call. Your property is protected from the moment we arrive.</p>
+          </article>
+          <article class="reason-card" role="listitem">
+            <div class="reason-icon"><svg viewBox="0 0 24 24" fill="#0f172a"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+            <h3 class="reason-title">Upfront Pricing</h3>
+            <p class="reason-desc">You hear the price before we leave. What you're quoted is what's on the invoice — always.</p>
+          </article>
+          <article class="reason-card" role="listitem">
+            <div class="reason-icon"><svg viewBox="0 0 24 24" fill="#0f172a"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg></div>
+            <h3 class="reason-title">No Damage Entry</h3>
+            <p class="reason-desc">We pick and bypass first. Drilling is a last resort and always requires your explicit approval.</p>
+          </article>
+        </div>
+        <div style="margin-top:18px; background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:18px;"><p>We know White Plains — the downtown streets, the residential areas, and the difference between a Mamaroneck Ave address and a Harrison border address. Less time navigating means faster service for you.</p>
+          <p style="margin-top:8px;">The quote you get on the phone is the price you pay. No add-ons at the door. If something unexpected comes up on site, we tell you before we proceed — the decision is always yours.</p></div>
+      </div>
+    </section>
+
+    <!-- Response Time & Coverage -->
+    <section id="coverage">
+      <div class="container">
+        <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:20px 24px;">
+          <h2 class="section-title" style="margin-bottom:10px;">Response Time &amp; Coverage in White Plains</h2>
+          <p>Most of White Plains is under 30 minutes from dispatch. Downtown, the Highlands, and North White Plains are typically faster. West Harrison is also a quick run.</p>
+        <p style="margin-top:8px;">We cover all of White Plains including the downtown core near Metro-North, the Highlands, North White Plains, West Harrison, and the neighborhoods bordering Harrison and Scarsdale. We also serve Tarrytown, Elmsford, and Greenburgh nearby.</p>
+          <div style="margin-top:14px;">
+            <a class="cta-primary" href="tel:+19144064474" data-cta="coverage-call" style="display:inline-flex; width:auto;">
+              <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--navy);"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
+              Call for ETA: (914) 406-4474
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title">Common Questions from White Plains Customers</h2>
+        <div class="faq-list">
+      <div class="faq-item">
+        <h3 class="faq-q">How quickly can you reach White Plains?</h3>
+        <p class="faq-a">Typically 15 to 30 minutes from dispatch depending on your exact location. Downtown White Plains and the Highlands are usually on the faster end. We give you a realistic ETA when you call.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">What proof do I need for a home lockout?</h3>
+        <p class="faq-a">A government-issued ID showing your address is standard. If your ID is locked inside, a lease, utility bill, or mail works. We handle unusual situations on site — we've seen everything.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">Can you handle lockouts at White Plains office buildings?</h3>
+        <p class="faq-a">Yes. We do commercial emergency lockouts for offices and small businesses throughout White Plains. Call us and we will tell you upfront what we can help with.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">Will you drill my lock if you can't pick it?</h3>
+        <p class="faq-a">Drilling is always the last option. We use non-destructive entry methods first and only drill if there is truly no other way in — and only with your approval so the decision is yours.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">Do you cover North White Plains and West Harrison?</h3>
+        <p class="faq-a">Yes. We cover all of White Plains including the Highlands, North White Plains, West Harrison, and the downtown core near the Galleria and Metro-North station.</p>
+      </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section>
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Locked Out in White Plains?</h2>
+          <p>Call now — we dispatch 24/7, give you an upfront price, and arrive fast.</p>
+          <a class="btn-cta" href="tel:+19144064474" data-cta="cta-banner">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
+            Call (914) 406-4474
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo">
+    <div class="container">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.1);">
+        <div>
+          <strong>Alliance 24hr Locksmith</strong>
+          <div>24/7 Emergency Mobile Locksmith</div>
+          <div><a href="tel:+19144064474" data-cta="footer-call" style="font-weight:700; color:#fff; text-decoration:underline;">(914) 406-4474</a></div>
+        </div>
+        <nav aria-label="footer services">
+          <a href="/emergency-locksmith/" style="color:#cfe0ff; margin-right:12px;">Emergency</a>
+          <a href="/car-lockout/" style="color:#cfe0ff; margin-right:12px;">Car Lockout</a>
+          <a href="/house-lockout/" style="color:#cfe0ff; margin-right:12px;">House Lockout</a>
+          <a href="/price-list/" style="color:#cfe0ff; margin-right:12px;">Price List</a>
+          <a href="/contact/" style="color:#cfe0ff;">Contact</a>
+        </nav>
+      </div>
+      <nav aria-label="service areas" style="padding-top:16px;">
+        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">Westchester County, NY</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
+          <a href="/yonkers-locksmith/" style="color:#cfe0ff;">Yonkers</a>
+          <a href="/white-plains-locksmith/" style="color:#cfe0ff;">White Plains</a>
+          <a href="/new-rochelle-locksmith/" style="color:#cfe0ff;">New Rochelle</a>
+          <a href="/mount-vernon-locksmith/" style="color:#cfe0ff;">Mount Vernon</a>
+          <a href="/scarsdale-locksmith/" style="color:#cfe0ff;">Scarsdale</a>
+          <a href="/larchmont-locksmith/" style="color:#cfe0ff;">Larchmont</a>
+          <a href="/pelham-locksmith/" style="color:#cfe0ff;">Pelham</a>
+          <a href="/tarrytown-locksmith/" style="color:#cfe0ff;">Tarrytown</a>
+        </div>
+        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">Fairfield County, CT</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
+          <a href="/greenwich-locksmith/" style="color:#cfe0ff;">Greenwich</a>
+          <a href="/stamford-locksmith/" style="color:#cfe0ff;">Stamford</a>
+          <a href="/darien-locksmith/" style="color:#cfe0ff;">Darien</a>
+          <a href="/new-canaan-locksmith/" style="color:#cfe0ff;">New Canaan</a>
+          <a href="/westport-locksmith/" style="color:#cfe0ff;">Westport</a>
+        </div>
+        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">Long Island, NY</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
+          <a href="/garden-city-locksmith/" style="color:#cfe0ff;">Garden City</a>
+          <a href="/manhasset-locksmith/" style="color:#cfe0ff;">Manhasset</a>
+          <a href="/great-neck-locksmith/" style="color:#cfe0ff;">Great Neck</a>
+          <a href="/syosset-locksmith/" style="color:#cfe0ff;">Syosset</a>
+          <a href="/rockville-centre-locksmith/" style="color:#cfe0ff;">Rockville Centre</a>
+        </div>
+        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">New Jersey</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
+          <a href="/short-hills-locksmith/" style="color:#cfe0ff;">Short Hills</a>
+          <a href="/summit-locksmith/" style="color:#cfe0ff;">Summit</a>
+          <a href="/livingston-locksmith/" style="color:#cfe0ff;">Livingston</a>
+          <a href="/montclair-locksmith/" style="color:#cfe0ff;">Montclair</a>
+          <a href="/ridgewood-locksmith/" style="color:#cfe0ff;">Ridgewood</a>
+          <a href="/hoboken-locksmith/" style="color:#cfe0ff;">Hoboken</a>
+          <a href="/jersey-city-locksmith/" style="color:#cfe0ff;">Jersey City</a>
+        </div>
       </nav>
-      <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; margin:8px 0 4px; opacity:0.7;">Westchester County, NY</div>
-      <nav aria-label="westchester locations" style="font-size:13px; line-height:2;">
-        <a href="/yonkers-locksmith/">Yonkers</a> &middot; <a href="/white-plains-locksmith/">White Plains</a> &middot; <a href="/new-rochelle-locksmith/">New Rochelle</a> &middot; <a href="/mount-vernon-locksmith/">Mount Vernon</a> &middot; <a href="/scarsdale-locksmith/">Scarsdale</a> &middot; <a href="/larchmont-locksmith/">Larchmont</a> &middot; <a href="/pelham-locksmith/">Pelham</a> &middot; <a href="/tarrytown-locksmith/">Tarrytown</a>
-      </nav>
-      <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; margin:8px 0 4px; opacity:0.7;">Fairfield County, CT</div>
-      <nav aria-label="ct locations" style="font-size:13px; line-height:2;">
-        <a href="/greenwich-locksmith/">Greenwich</a> &middot; <a href="/stamford-locksmith/">Stamford</a> &middot; <a href="/darien-locksmith/">Darien</a> &middot; <a href="/new-canaan-locksmith/">New Canaan</a> &middot; <a href="/westport-locksmith/">Westport</a>
-      </nav>
-      <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; margin:8px 0 4px; opacity:0.7;">Long Island, NY</div>
-      <nav aria-label="long island locations" style="font-size:13px; line-height:2;">
-        <a href="/garden-city-locksmith/">Garden City</a> &middot; <a href="/manhasset-locksmith/">Manhasset</a> &middot; <a href="/great-neck-locksmith/">Great Neck</a> &middot; <a href="/syosset-locksmith/">Syosset</a> &middot; <a href="/rockville-centre-locksmith/">Rockville Centre</a>
-      </nav>
-      <div style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; margin:8px 0 4px; opacity:0.7;">New Jersey</div>
-      <nav aria-label="nj locations" style="font-size:13px; line-height:2;">
-        <a href="/short-hills-locksmith/">Short Hills</a> &middot; <a href="/summit-locksmith/">Summit</a> &middot; <a href="/livingston-locksmith/">Livingston</a> &middot; <a href="/montclair-locksmith/">Montclair</a> &middot; <a href="/ridgewood-locksmith/">Ridgewood</a> &middot; <a href="/hoboken-locksmith/">Hoboken</a> &middot; <a href="/jersey-city-locksmith/">Jersey City</a>
-      </nav>
-    </footer>
+      <small style="display:block; padding-top:12px; border-top:1px solid rgba(255,255,255,0.1);">&#169; <span id="y"></span> Alliance 24hr Locksmith. All rights reserved.</small>
+    </div>
+  </footer>
+
+  <!-- Mobile sticky call bar -->
+  <div class="mobile-call" aria-label="mobile call bar">
+    <a href="tel:+19144064474" data-cta="mobile-sticky">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
+      <span>Call Now</span> <span style="opacity:0.85;">(914) 406-4474</span>
+    </a>
   </div>
-  <div class="sticky-call"><a href="tel:+19144064474">Call (914) 406-4474 24/7</a></div>
+
+  <script defer>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    async function handleQuoteSubmit(e) {
+      e.preventDefault();
+      var form = e.target;
+      var btn = form.querySelector('button[type="submit"]');
+      var msg = form.querySelector('#formMsg');
+      var origText = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending...';
+      try {
+        var res = await fetch('/api/quote', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: form.querySelector('[name="name"]').value,
+            phone: form.querySelector('[name="phone"]').value,
+            service: form.querySelector('[name="service"]').value,
+            page: window.location.href
+          })
+        });
+        if (res.ok) {
+          if (msg) { msg.style.display='block'; msg.style.color='#16a34a'; msg.textContent="Got it! We'll call you back shortly."; }
+          form.reset();
+        } else { throw new Error('err'); }
+      } catch(err) {
+        if (msg) { msg.style.display='block'; msg.style.color='#dc2626'; msg.textContent='Something went wrong. Please call us at (914) 406-4474.'; }
+      }
+      btn.disabled = false; btn.textContent = origText;
+    }
+    var qf = document.getElementById('quoteForm');
+    if (qf) qf.addEventListener('submit', handleQuoteSubmit);
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        try { if (typeof gtag==='function') gtag('event','click',{event_category:'engagement',event_label:a.getAttribute('data-cta')||'tel-click',value:1}); } catch(x){}
+      }, {passive:true});
+    });
+  </script>
+
+  <noscript>Your browser does not support JavaScript. Please call Alliance 24hr Locksmith at (914) 406-4474.</noscript>
 </body>
 </html>

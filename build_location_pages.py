@@ -1,0 +1,697 @@
+#!/usr/bin/env python3
+"""
+Rebuild all 25 location pages with homepage-matching design.
+Preserves: title, meta, canonical, JSON-LD schemas, H1, intro text, services, FAQs.
+"""
+
+import re
+import os
+
+BASE = "/Users/kamaalmorrison/Documents/Agent 51/alliance24hourlocksmith"
+
+PAGES = [
+    "white-plains-locksmith",
+    "yonkers-locksmith",
+    "greenwich-locksmith",
+    "stamford-locksmith",
+    "darien-locksmith",
+    "new-canaan-locksmith",
+    "westport-locksmith",
+    "garden-city-locksmith",
+    "manhasset-locksmith",
+    "great-neck-locksmith",
+    "syosset-locksmith",
+    "rockville-centre-locksmith",
+    "short-hills-locksmith",
+    "summit-locksmith",
+    "livingston-locksmith",
+    "montclair-locksmith",
+    "ridgewood-locksmith",
+    "hoboken-locksmith",
+    "jersey-city-locksmith",
+    "mount-vernon-locksmith",
+    "scarsdale-locksmith",
+    "larchmont-locksmith",
+    "pelham-locksmith",
+    "tarrytown-locksmith",
+    "new-rochelle-locksmith",
+]
+
+def extract(html, pattern, group=1, flags=re.DOTALL):
+    m = re.search(pattern, html, flags)
+    return m.group(group).strip() if m else ""
+
+def extract_all(html, pattern, flags=re.DOTALL):
+    return re.findall(pattern, html, flags)
+
+def get_faq_html(faq_qa_list):
+    """Generate styled FAQ items from list of (question, answer) tuples."""
+    items = []
+    for q, a in faq_qa_list:
+        items.append(f"""      <div class="faq-item">
+        <h3 class="faq-q">{q}</h3>
+        <p class="faq-a">{a}</p>
+      </div>""")
+    return "\n".join(items)
+
+def parse_page(slug):
+    path = os.path.join(BASE, slug, "index.html")
+    with open(path, "r", encoding="utf-8") as f:
+        html = f.read()
+
+    # Title
+    title = extract(html, r'<title>(.*?)</title>')
+
+    # Meta description
+    meta_desc = extract(html, r'<meta\s+name="description"\s+content="([^"]+)"')
+
+    # Canonical
+    canonical = extract(html, r'<link\s+rel="canonical"\s+href="([^"]+)"')
+
+    # All JSON-LD blocks
+    ld_blocks = extract_all(html, r'<script\s+type="application/ld\+json">(.*?)</script>')
+    ld_scripts = "\n".join(
+        f'  <script type="application/ld+json">\n  {b.strip()}\n  </script>'
+        for b in ld_blocks
+    )
+
+    # H1
+    h1 = extract(html, r'<h1[^>]*>(.*?)</h1>')
+
+    # Intro paragraphs from hero (before the CTA button)
+    # They are <p> elements inside .hero before the <a class="cta"
+    hero_block = extract(html, r'<div class="hero">(.*?)</div>\s*<div class="grid">')
+    intro_paras_raw = re.findall(r'<p>(.*?)</p>', hero_block, re.DOTALL)
+    # Filter out the CTA text if accidentally included
+    intro_paras = [p.strip() for p in intro_paras_raw if 'class="cta"' not in p and 'href="tel:' not in p]
+
+    # Services list items from first section
+    # Find the first <section> inside .grid
+    sections = re.findall(r'<section>(.*?)</section>', html, re.DOTALL)
+    svc_items = []
+    faq_items = []
+
+    for sec in sections:
+        h2 = extract(sec, r'<h2[^>]*>(.*?)</h2>')
+        if 'Service' in h2 or 'Locksmith Service' in h2:
+            # Get list items
+            lis = re.findall(r'<li>(.*?)</li>', sec, re.DOTALL)
+            for li in lis:
+                # Clean up internal links but keep text
+                clean = re.sub(r'<a[^>]*>(.*?)</a>', r'\1', li, flags=re.DOTALL)
+                clean = re.sub(r'<[^>]+>', '', clean).strip()
+                # Also preserve original li with links for services
+                svc_items.append(li.strip())
+        elif 'Question' in h2 or 'FAQ' in h2.upper() or 'Common' in h2:
+            h3s = re.findall(r'<h3[^>]*>(.*?)</h3>\s*<p>(.*?)</p>', sec, re.DOTALL)
+            for q, a in h3s:
+                faq_items.append((q.strip(), a.strip()))
+
+    # Response time text — from second section
+    timing_text = ""
+    timing_extra = ""
+    for sec in sections:
+        h2 = extract(sec, r'<h2[^>]*>(.*?)</h2>')
+        if 'Response' in h2 or 'Coverage' in h2:
+            paras = re.findall(r'<p>(.*?)</p>', sec, re.DOTALL)
+            paras = [p for p in paras if 'class="cta"' not in p and 'href="tel:' not in p]
+            if paras:
+                timing_text = paras[0].strip()
+            if len(paras) > 1:
+                timing_extra = paras[1].strip()
+
+    # Why Alliance text — third section
+    why_text = ""
+    why_extra = ""
+    for sec in sections:
+        h2 = extract(sec, r'<h2[^>]*>(.*?)</h2>')
+        if 'Why' in h2 or 'Alliance' in h2 or 'Residents' in h2:
+            paras = re.findall(r'<p>(.*?)</p>', sec, re.DOTALL)
+            if paras:
+                why_text = paras[0].strip()
+            if len(paras) > 1:
+                why_extra = paras[1].strip()
+
+    # City name from slug
+    city_name = slug.replace("-locksmith", "").replace("-", " ").title()
+    # Fix known capitalizations
+    fixes = {
+        "Jersey City": "Jersey City",
+        "New Canaan": "New Canaan",
+        "New Rochelle": "New Rochelle",
+        "Garden City": "Garden City",
+        "Great Neck": "Great Neck",
+        "Rockville Centre": "Rockville Centre",
+        "Mount Vernon": "Mount Vernon",
+        "White Plains": "White Plains",
+        "Short Hills": "Short Hills",
+    }
+    city_name = fixes.get(city_name, city_name)
+
+    return {
+        "slug": slug,
+        "city": city_name,
+        "title": title,
+        "meta_desc": meta_desc,
+        "canonical": canonical,
+        "ld_scripts": ld_scripts,
+        "h1": h1,
+        "intro_paras": intro_paras,
+        "svc_items": svc_items,
+        "timing_text": timing_text,
+        "timing_extra": timing_extra,
+        "why_text": why_text,
+        "why_extra": why_extra,
+        "faq_items": faq_items,
+    }
+
+FOOTER_HTML = """  <footer role="contentinfo">
+    <div class="container">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.1);">
+        <div>
+          <strong>Alliance 24hr Locksmith</strong>
+          <div>24/7 Emergency Mobile Locksmith</div>
+          <div><a href="tel:+19144064474" data-cta="footer-call" style="font-weight:700; color:#fff; text-decoration:underline;">(914) 406-4474</a></div>
+        </div>
+        <nav aria-label="footer services">
+          <a href="/emergency-locksmith/" style="color:#cfe0ff; margin-right:12px;">Emergency</a>
+          <a href="/car-lockout/" style="color:#cfe0ff; margin-right:12px;">Car Lockout</a>
+          <a href="/house-lockout/" style="color:#cfe0ff; margin-right:12px;">House Lockout</a>
+          <a href="/price-list/" style="color:#cfe0ff; margin-right:12px;">Price List</a>
+          <a href="/contact/" style="color:#cfe0ff;">Contact</a>
+        </nav>
+      </div>
+      <nav aria-label="service areas" style="padding-top:16px;">
+        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">Westchester County, NY</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
+          <a href="/yonkers-locksmith/" style="color:#cfe0ff;">Yonkers</a>
+          <a href="/white-plains-locksmith/" style="color:#cfe0ff;">White Plains</a>
+          <a href="/new-rochelle-locksmith/" style="color:#cfe0ff;">New Rochelle</a>
+          <a href="/mount-vernon-locksmith/" style="color:#cfe0ff;">Mount Vernon</a>
+          <a href="/scarsdale-locksmith/" style="color:#cfe0ff;">Scarsdale</a>
+          <a href="/larchmont-locksmith/" style="color:#cfe0ff;">Larchmont</a>
+          <a href="/pelham-locksmith/" style="color:#cfe0ff;">Pelham</a>
+          <a href="/tarrytown-locksmith/" style="color:#cfe0ff;">Tarrytown</a>
+        </div>
+        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">Fairfield County, CT</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
+          <a href="/greenwich-locksmith/" style="color:#cfe0ff;">Greenwich</a>
+          <a href="/stamford-locksmith/" style="color:#cfe0ff;">Stamford</a>
+          <a href="/darien-locksmith/" style="color:#cfe0ff;">Darien</a>
+          <a href="/new-canaan-locksmith/" style="color:#cfe0ff;">New Canaan</a>
+          <a href="/westport-locksmith/" style="color:#cfe0ff;">Westport</a>
+        </div>
+        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">Long Island, NY</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
+          <a href="/garden-city-locksmith/" style="color:#cfe0ff;">Garden City</a>
+          <a href="/manhasset-locksmith/" style="color:#cfe0ff;">Manhasset</a>
+          <a href="/great-neck-locksmith/" style="color:#cfe0ff;">Great Neck</a>
+          <a href="/syosset-locksmith/" style="color:#cfe0ff;">Syosset</a>
+          <a href="/rockville-centre-locksmith/" style="color:#cfe0ff;">Rockville Centre</a>
+        </div>
+        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">New Jersey</div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
+          <a href="/short-hills-locksmith/" style="color:#cfe0ff;">Short Hills</a>
+          <a href="/summit-locksmith/" style="color:#cfe0ff;">Summit</a>
+          <a href="/livingston-locksmith/" style="color:#cfe0ff;">Livingston</a>
+          <a href="/montclair-locksmith/" style="color:#cfe0ff;">Montclair</a>
+          <a href="/ridgewood-locksmith/" style="color:#cfe0ff;">Ridgewood</a>
+          <a href="/hoboken-locksmith/" style="color:#cfe0ff;">Hoboken</a>
+          <a href="/jersey-city-locksmith/" style="color:#cfe0ff;">Jersey City</a>
+        </div>
+      </nav>
+      <small style="display:block; padding-top:12px; border-top:1px solid rgba(255,255,255,0.1);">&#169; <span id="y"></span> Alliance 24hr Locksmith. All rights reserved.</small>
+    </div>
+  </footer>"""
+
+CSS = """    :root {
+      --navy: #1E2A36;
+      --off: #F7F7F5;
+      --blue-100: #e8f0fe;
+      --white: #ffffff;
+      --black: #0f172a;
+      --gray-700: #334155;
+      --gray-600: #475569;
+      --gray-100: #f1f5f9;
+      --success: #16a34a;
+      --shadow: 0 10px 30px rgba(30, 42, 54, 0.15);
+    }
+    html, body {
+      padding: 0; margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--black); background: var(--off); line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; height: auto; display: block; }
+    .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 16px; }
+
+    /* Header */
+    .topbar { background: var(--navy); color: var(--white); position: sticky; top: 0; z-index: 50; box-shadow: 0 1px 0 rgba(255,255,255,0.1); }
+    .topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; color: var(--white); }
+    .nav-links { display: none; gap: 16px; font-weight: 600; }
+    @media (min-width: 820px){ .nav-links{ display:flex; color: var(--white); } .nav-links a { color: var(--white); } }
+    .call-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 999px; background: var(--white); color: var(--navy); font-weight: 700; box-shadow: var(--shadow); }
+    .call-btn svg { width: 17px; height: 17px; fill: var(--navy); }
+
+    /* Trust strip */
+    .trust-strip { background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 10px 0; }
+    .trust-strip-inner { display: flex; gap: 8px 20px; flex-wrap: wrap; justify-content: center; font-size: 13px; font-weight: 700; color: var(--navy); }
+    .ts-item { display: inline-flex; align-items: center; gap: 6px; }
+    .ts-item svg { width: 15px; height: 15px; fill: var(--navy); flex-shrink: 0; }
+
+    /* Hero */
+    .hero { display: grid; grid-template-columns: 1fr; }
+    .hero-content-side { background: var(--navy); color: var(--white); padding: 36px 24px 32px; }
+    .hero-content-side h1 { color: var(--white); font-size: 28px; line-height: 1.2; margin: 0 0 14px; }
+    .hero-content-side p { color: #cbd5e1; margin: 0 0 12px; font-size: 15px; }
+    .hero-content-side .hero-points { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 14px; }
+    .hero-content-side .point { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 700; color: #94a3b8; }
+    .hero-content-side .point svg { width: 15px; height: 15px; fill: #60a5fa; }
+    .hero-form-side { background: #162231; padding: 32px 24px; }
+    @media (min-width: 820px) {
+      .hero { grid-template-columns: 1fr 400px; min-height: 460px; }
+      .hero-content-side { padding: 52px 48px; display: flex; flex-direction: column; justify-content: center; }
+      .hero-content-side h1 { font-size: 36px; }
+      .hero-form-side { padding: 44px 32px; display: flex; flex-direction: column; justify-content: center; }
+    }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 700; color: #94a3b8; background: rgba(255,255,255,0.08); padding: 5px 10px; border-radius: 999px; margin-bottom: 12px; }
+    .cta-primary { background: var(--white); color: var(--navy); padding: 12px 18px; border-radius: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; box-shadow: var(--shadow); }
+    .cta-primary svg { width: 18px; height: 18px; fill: var(--navy); }
+
+    /* Quote form */
+    .quote-form { display: grid; gap: 10px; }
+    .quote-form label { font-weight: 700; font-size: 14px; color: #e2e8f0; }
+    .quote-form input { width: 100%; padding: 11px 13px; border-radius: 10px; border: 1px solid #334155; background: #fff; outline: none; font-size: 15px; box-sizing: border-box; }
+    .quote-form input::placeholder { color: #64748b; }
+    .quote-form button { background: #2563eb; color: #fff; font-weight: 800; padding: 13px 18px; border-radius: 12px; border: 0; cursor: pointer; font-size: 15px; }
+    .quote-form button:hover { background: #1d4ed8; }
+    #formMsg { margin: 0; font-size: 14px; }
+
+    /* Sections */
+    section { padding: 28px 0; }
+    .section-title { font-size: 22px; margin: 0 0 16px; color: var(--black); }
+    h2 { font-size: 20px; }
+    h3 { font-size: 17px; }
+
+    /* Service cards */
+    .svc-grid { display: grid; gap: 14px; grid-template-columns: 1fr; }
+    @media (min-width: 580px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .svc-grid { grid-template-columns: repeat(3, 1fr); } }
+    .svc-card { background: #fff; border: 1px solid #e2e8f0; border-left: 4px solid var(--navy); border-radius: 12px; padding: 18px 20px; transition: transform .2s ease, box-shadow .2s ease; }
+    .svc-card:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(30,42,54,0.1); }
+    .svc-icon { width: 38px; height: 38px; background: #e8f0fe; border-radius: 9px; display: grid; place-items: center; margin-bottom: 9px; }
+    .svc-icon svg { width: 20px; height: 20px; fill: var(--navy); }
+    .svc-card h3 { margin: 0 0 6px; font-size: 16px; color: var(--black); }
+    .svc-card p { margin: 0; color: var(--gray-700); font-size: 14px; line-height: 1.5; }
+    .svc-link { display: inline-block; margin-top: 9px; font-weight: 700; color: var(--navy); font-size: 13px; text-decoration: underline; }
+
+    /* How it works */
+    .steps { display: grid; gap: 14px; grid-template-columns: 1fr; }
+    @media (min-width: 680px) { .steps { grid-template-columns: repeat(4, 1fr); } }
+    .step { background: var(--white); border: 1px solid #e2e8f0; border-radius: 14px; padding: 16px; box-shadow: 0 2px 8px rgba(2,21,69,0.04); }
+    .step-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 999px; background: #e6eef5; color: var(--navy); font-weight: 800; margin-right: 8px; }
+
+    /* Why Us */
+    .why-gradient { background: linear-gradient(135deg, #fff7ed, #fff1f2); padding: 28px 0; }
+    .reason-grid { display: grid; gap: 14px; grid-template-columns: 1fr; margin-bottom: 0; }
+    @media (min-width: 820px) { .reason-grid { grid-template-columns: repeat(4, 1fr); } }
+    .reason-card { background: #fff; border: 4px solid #0f172a; border-radius: 16px; padding: 16px; box-shadow: 6px 6px 0 rgba(15,23,42,1); transition: box-shadow .2s, transform .2s; }
+    .reason-card:hover { box-shadow: 10px 10px 0 rgba(15,23,42,1); transform: translateY(-2px); }
+    .reason-title { font-size: 17px; font-weight: 900; color: #0f172a; margin: 0 0 5px; }
+    .reason-desc { color: #334155; font-weight: 600; margin: 0; font-size: 14px; }
+    .reason-icon { width: 32px; height: 32px; margin-bottom: 8px; }
+    .reason-icon svg { width: 28px; height: 28px; fill: #0f172a; }
+
+    /* FAQ */
+    .faq-list { display: grid; gap: 12px; }
+    .faq-item { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px 18px; }
+    .faq-q { font-size: 16px; font-weight: 800; margin: 0 0 6px; color: var(--black); }
+    .faq-a { margin: 0; color: var(--gray-700); font-size: 15px; line-height: 1.6; }
+
+    /* CTA banner */
+    .cta-banner { background: linear-gradient(90deg, #2563eb, #1e40af); color: #fff; border-radius: 16px; padding: 24px; text-align: center; }
+    .cta-banner h2 { margin: 0 0 8px; color: #fff; font-size: 22px; }
+    .cta-banner p { margin: 0 0 16px; color: #bfdbfe; }
+    .btn-cta { display: inline-flex; align-items: center; gap: 10px; background: #fff; color: #1e40af; font-weight: 800; padding: 13px 22px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+    .btn-cta svg { width: 18px; height: 18px; fill: #1e40af; }
+
+    /* Footer */
+    footer { background: var(--navy); color: var(--white); padding: 20px 0; margin-top: 10px; }
+    footer small { color: #cfe0ff; }
+
+    /* Mobile sticky call bar */
+    .mobile-call { position: fixed; bottom: 10px; left: 0; right: 0; z-index: 60; display: grid; justify-content: center; padding: 0 10px; pointer-events: none; }
+    .mobile-call a { pointer-events: auto; display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--navy); color: var(--white); font-weight: 900; border-radius: 999px; padding: 14px 20px; box-shadow: 0 12px 30px rgba(30,42,54,0.28); }
+    .mobile-call svg { width: 18px; height: 18px; fill: var(--white); }
+    @media (min-width: 680px) { .mobile-call { display: none; } }
+
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; clip: rect(0,0,0,0); overflow: hidden; border: 0; }"""
+
+JS = """  <script defer>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    async function handleQuoteSubmit(e) {
+      e.preventDefault();
+      var form = e.target;
+      var btn = form.querySelector('button[type="submit"]');
+      var msg = form.querySelector('#formMsg');
+      var origText = btn.textContent;
+      btn.disabled = true; btn.textContent = 'Sending...';
+      try {
+        var res = await fetch('/api/quote', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: form.querySelector('[name="name"]').value,
+            phone: form.querySelector('[name="phone"]').value,
+            service: form.querySelector('[name="service"]').value,
+            page: window.location.href
+          })
+        });
+        if (res.ok) {
+          if (msg) { msg.style.display='block'; msg.style.color='#16a34a'; msg.textContent="Got it! We'll call you back shortly."; }
+          form.reset();
+        } else { throw new Error('err'); }
+      } catch(err) {
+        if (msg) { msg.style.display='block'; msg.style.color='#dc2626'; msg.textContent='Something went wrong. Please call us at (914) 406-4474.'; }
+      }
+      btn.disabled = false; btn.textContent = origText;
+    }
+    var qf = document.getElementById('quoteForm');
+    if (qf) qf.addEventListener('submit', handleQuoteSubmit);
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(a) {
+      a.addEventListener('click', function(e) {
+        try { if (typeof gtag==='function') gtag('event','click',{event_category:'engagement',event_label:a.getAttribute('data-cta')||'tel-click',value:1}); } catch(x){}
+      }, {passive:true});
+    });
+  </script>"""
+
+def build_svc_cards(svc_items):
+    """Convert service list items to styled cards."""
+    # SVG icons for common service types
+    svg_map = {
+        "car": '<svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>',
+        "apartment": '<svg viewBox="0 0 24 24"><path d="M17 11V3H7v4H3v14h8v-4h2v4h8V11h-4zm-6 0H9V9h2v2zm4 0h-2V9h2v2zm0 4h-2v-2h2v2zm4 0h-2v-2h2v2zm0 4h-2v-2h2v2z"/></svg>',
+        "home": '<svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>',
+        "house": '<svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>',
+        "lock": '<svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>',
+        "rekey": '<svg viewBox="0 0 24 24"><path d="M17 12c0 2.76-2.24 5-5 5s-5-2.24-5-5 2.24-5 5-5c1.35 0 2.57.54 3.46 1.4L13 11h4V7l-1.41 1.41C14.42 7.35 13.26 7 12 7c-3.86 0-7 3.14-7 7s3.14 7 7 7 7-3.14 7-7h-2z"/></svg>',
+        "key": '<svg viewBox="0 0 24 24"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>',
+        "commercial": '<svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg>',
+        "deadbolt": '<svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2z"/></svg>',
+        "smart": '<svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm2 16h-4v-2h1v-4h-1v-2h3v6h1v2z"/></svg>',
+        "default": '<svg viewBox="0 0 24 24"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg>',
+    }
+
+    def get_svg(item_text):
+        t = item_text.lower()
+        if "car" in t and ("lockout" in t or "key" in t): return svg_map["car"]
+        if "apartment" in t: return svg_map["apartment"]
+        if "home" in t or "house" in t or "residential" in t: return svg_map["home"]
+        if "rekey" in t or "re-key" in t: return svg_map["rekey"]
+        if "deadbolt" in t: return svg_map["deadbolt"]
+        if "commercial" in t or "office" in t or "business" in t: return svg_map["commercial"]
+        if "smart" in t: return svg_map["smart"]
+        if "key" in t: return svg_map["key"]
+        if "lock" in t: return svg_map["lock"]
+        return svg_map["default"]
+
+    def item_to_card(li_html):
+        # Extract link href and text
+        link_m = re.search(r'<a\s+href="([^"]+)"[^>]*>(.*?)</a>', li_html, re.DOTALL)
+        # Get plain text
+        plain = re.sub(r'<[^>]+>', '', li_html).strip()
+        # Split at em dash or double dash for desc
+        parts = re.split(r'\s*[—–-]{1,2}\s*', plain, maxsplit=1)
+        title = parts[0].strip()
+        desc = parts[1].strip() if len(parts) > 1 else ""
+        svg = get_svg(plain)
+
+        link_part = ""
+        if link_m:
+            href = link_m.group(1)
+            link_part = f'\n            <a class="svc-link" href="{href}">Learn more →</a>'
+
+        return f"""          <div class="svc-card">
+            <div class="svc-icon" aria-hidden="true">{svg}</div>
+            <h3>{title}</h3>
+            {f'<p>{desc}</p>' if desc else ''}
+            {link_part}
+          </div>"""
+
+    cards = [item_to_card(item) for item in svc_items]
+    return "\n".join(cards)
+
+def build_page(data):
+    city = data["city"]
+    h1 = data["h1"] if data["h1"] else f"Emergency Locksmith in {city} — 24/7 Mobile"
+
+    intro_html = ""
+    for p in data["intro_paras"]:
+        intro_html += f'          <p>{p}</p>\n'
+    if not intro_html:
+        intro_html = f'          <p>Locked out in {city}? Alliance 24hr Locksmith dispatches 24/7 to your location. Call now for an upfront quote before we leave.</p>\n'
+
+    # Build service cards
+    svc_cards = build_svc_cards(data["svc_items"]) if data["svc_items"] else """          <div class="svc-card">
+            <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99z"/></svg></div>
+            <h3>Car Lockouts</h3><p>Fast mobile dispatch for all makes and models.</p><a class="svc-link" href="/car-lockout/">Learn more →</a>
+          </div>"""
+
+    # Build FAQ items
+    faq_html = ""
+    if data["faq_items"]:
+        faq_html = get_faq_html(data["faq_items"])
+
+    timing_html = ""
+    if data["timing_text"]:
+        timing_html = f'<p>{data["timing_text"]}</p>'
+    if data["timing_extra"]:
+        timing_html += f'\n        <p style="margin-top:8px;">{data["timing_extra"]}</p>'
+
+    why_html = ""
+    if data["why_text"]:
+        why_html = f'<p>{data["why_text"]}</p>'
+    if data["why_extra"]:
+        why_html += f'\n          <p style="margin-top:8px;">{data["why_extra"]}</p>'
+
+    page = f"""<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#1E2A36" />
+  <meta name="robots" content="index, follow" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>{data["title"]}</title>
+  <meta name="description" content="{data["meta_desc"]}" />
+  <link rel="canonical" href="{data["canonical"]}" />
+  <style>
+{CSS}
+  </style>
+{data["ld_scripts"]}
+  <!-- Vercel Web Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+  <a class="sr-only" href="#main">Skip to content</a>
+
+  <header class="topbar" role="banner">
+    <div class="container topbar-inner">
+      <a class="brand" href="/" aria-label="Alliance 24hr Locksmith — home">
+        Alliance 24hr Locksmith
+      </a>
+      <nav class="nav-links" aria-label="primary">
+        <a href="/#services" style="color:#cbd5e1;">Services</a>
+        <a href="/#areas" style="color:#cbd5e1;">Locations</a>
+        <a href="/contact/" style="color:#cbd5e1;">Contact</a>
+      </nav>
+      <a class="call-btn" href="tel:+19144064474" data-cta="header-call" aria-label="Call Alliance 24hr Locksmith">
+        <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
+        <span>(914) 406-4474</span>
+      </a>
+    </div>
+  </header>
+
+  <main id="main" role="main">
+    <!-- Trust Strip -->
+    <div class="trust-strip" aria-label="trust signals">
+      <div class="container trust-strip-inner">
+        <span class="ts-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>{city}</span>
+        <span class="ts-item"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>Mobile Service</span>
+        <span class="ts-item"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>24/7 Emergency</span>
+        <span class="ts-item"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>Licensed &amp; Insured</span>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero" aria-label="hero">
+      <div class="hero-content-side">
+        <div class="eyebrow">
+          <svg style="width:13px;height:13px;fill:#60a5fa;" viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          24/7 Emergency Dispatch &bull; {city}
+        </div>
+        <h1>{h1}</h1>
+{intro_html}        <a class="cta-primary" href="tel:+19144064474" data-cta="hero-call" aria-label="Call now (914) 406-4474">
+          <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
+          Call Now: (914) 406-4474
+        </a>
+        <div class="hero-points" aria-label="service highlights">
+          <div class="point"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg>Upfront pricing</div>
+          <div class="point"><svg viewBox="0 0 24 24"><path d="M12 2l7 4v6c0 5-3.5 9.74-7 10-3.5-.26-7-5-7-10V6l7-4z"/></svg>Licensed &amp; insured</div>
+          <div class="point"><svg viewBox="0 0 24 24"><path d="M12 8v5l4 2"/></svg>Non-destructive entry</div>
+        </div>
+      </div>
+      <div class="hero-form-side" id="quote">
+        <h2 style="color:#fff; font-size:20px; margin:0 0 5px;">Get a Free Quote</h2>
+        <p style="color:#94a3b8; font-size:13px; margin:0 0 16px;">Or call us: <a href="tel:+19144064474" style="color:#60a5fa; font-weight:700;">(914) 406-4474</a></p>
+        <form class="quote-form" id="quoteForm" novalidate>
+          <div>
+            <label for="q-name">Your Name</label>
+            <input id="q-name" name="name" type="text" placeholder="John Smith" required autocomplete="name" />
+          </div>
+          <div>
+            <label for="q-phone">Phone Number</label>
+            <input id="q-phone" name="phone" type="tel" placeholder="(914) 555-0000" required autocomplete="tel" />
+          </div>
+          <div>
+            <label for="q-service">Service Needed</label>
+            <input id="q-service" name="service" type="text" placeholder="e.g. Car lockout, house lockout…" required />
+          </div>
+          <button type="submit">Request a Quote</button>
+          <p id="formMsg" style="display:none; font-weight:700;"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services">
+      <div class="container">
+        <h2 class="section-title">Locksmith Services in {city}</h2>
+        <div class="svc-grid" role="list">
+{svc_cards}
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="process">
+      <div class="container">
+        <h2 class="section-title">How It Works</h2>
+        <div class="steps">
+          <div class="step"><div><span class="step-num">1</span><strong>Call Us</strong></div><p style="margin-top:6px; color:var(--gray-700);">Share your location and situation — we pick up 24/7.</p></div>
+          <div class="step"><div><span class="step-num">2</span><strong>Get a Quote</strong></div><p style="margin-top:6px; color:var(--gray-700);">We confirm clear pricing before we dispatch.</p></div>
+          <div class="step"><div><span class="step-num">3</span><strong>Rapid Arrival</strong></div><p style="margin-top:6px; color:var(--gray-700);">A local tech heads your way — real ETA given on the call.</p></div>
+          <div class="step"><div><span class="step-num">4</span><strong>Professional Entry</strong></div><p style="margin-top:6px; color:var(--gray-700);">Non-destructive methods first. You're back in quickly.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Alliance -->
+    <section class="why-gradient">
+      <div class="container">
+        <h2 class="section-title">Why {city} Residents Call Alliance</h2>
+        <div class="reason-grid" role="list">
+          <article class="reason-card" role="listitem">
+            <div class="reason-icon"><svg viewBox="0 0 24 24" fill="#0f172a"><path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.81 6-4.72 7.28L13 17v5h5l-1.22-1.22C19.91 19.07 22 15.76 22 12c0-5.18-3.95-9.45-9-9.95zM11 2.05C5.95 2.55 2 6.82 2 12c0 3.76 2.09 7.07 5.22 8.78L6 22h5v-5l-2.28 2.28C6.81 18 5 15.21 5 12c0-4.08 3.05-7.44 7-7.93V2.05z"/></svg></div>
+            <h3 class="reason-title">Fast Dispatch</h3>
+            <p class="reason-desc">Real ETA on the phone — not a vague window. We track every job to keep arrival times honest.</p>
+          </article>
+          <article class="reason-card" role="listitem">
+            <div class="reason-icon"><svg viewBox="0 0 24 24" fill="#0f172a"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
+            <h3 class="reason-title">Licensed &amp; Insured</h3>
+            <p class="reason-desc">Certified professionals on every call. Your property is protected from the moment we arrive.</p>
+          </article>
+          <article class="reason-card" role="listitem">
+            <div class="reason-icon"><svg viewBox="0 0 24 24" fill="#0f172a"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
+            <h3 class="reason-title">Upfront Pricing</h3>
+            <p class="reason-desc">You hear the price before we leave. What you're quoted is what's on the invoice — always.</p>
+          </article>
+          <article class="reason-card" role="listitem">
+            <div class="reason-icon"><svg viewBox="0 0 24 24" fill="#0f172a"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg></div>
+            <h3 class="reason-title">No Damage Entry</h3>
+            <p class="reason-desc">We pick and bypass first. Drilling is a last resort and always requires your explicit approval.</p>
+          </article>
+        </div>
+        {f'<div style="margin-top:18px; background:#fff; border:1px solid #e2e8f0; border-radius:12px; padding:18px;">{why_html}</div>' if why_html else ''}
+      </div>
+    </section>
+
+    <!-- Response Time & Coverage -->
+    <section id="coverage">
+      <div class="container">
+        <div style="background:#fff; border:1px solid #e2e8f0; border-radius:14px; padding:20px 24px;">
+          <h2 class="section-title" style="margin-bottom:10px;">Response Time &amp; Coverage in {city}</h2>
+          {timing_html}
+          <div style="margin-top:14px;">
+            <a class="cta-primary" href="tel:+19144064474" data-cta="coverage-call" style="display:inline-flex; width:auto;">
+              <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--navy);"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
+              Call for ETA: (914) 406-4474
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    {f'''<section id="faq">
+      <div class="container">
+        <h2 class="section-title">Common Questions from {city} Customers</h2>
+        <div class="faq-list">
+{faq_html}
+        </div>
+      </div>
+    </section>''' if faq_html else ''}
+
+    <!-- CTA Banner -->
+    <section>
+      <div class="container">
+        <div class="cta-banner">
+          <h2>Locked Out in {city}?</h2>
+          <p>Call now — we dispatch 24/7, give you an upfront price, and arrive fast.</p>
+          <a class="btn-cta" href="tel:+19144064474" data-cta="cta-banner">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
+            Call (914) 406-4474
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+{FOOTER_HTML}
+
+  <!-- Mobile sticky call bar -->
+  <div class="mobile-call" aria-label="mobile call bar">
+    <a href="tel:+19144064474" data-cta="mobile-sticky">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
+      <span>Call Now</span> <span style="opacity:0.85;">(914) 406-4474</span>
+    </a>
+  </div>
+
+{JS}
+
+  <noscript>Your browser does not support JavaScript. Please call Alliance 24hr Locksmith at (914) 406-4474.</noscript>
+</body>
+</html>"""
+    return page
+
+def main():
+    for slug in PAGES:
+        print(f"Processing {slug}...")
+        try:
+            data = parse_page(slug)
+            html = build_page(data)
+            out_path = os.path.join(BASE, slug, "index.html")
+            with open(out_path, "w", encoding="utf-8") as f:
+                f.write(html)
+            print(f"  ✓ Written: {out_path}")
+        except Exception as e:
+            print(f"  ✗ ERROR on {slug}: {e}")
+            import traceback; traceback.print_exc()
+    print("\nDone!")
+
+if __name__ == "__main__":
+    main()

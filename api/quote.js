@@ -16,7 +16,7 @@ export default async function handler(req, res) {
   }
 
   const message = {
-    text: ':rotating_light: *New Quote Request — Alliance 24hr Locksmith*',
+    text: `:rotating_light: New Quote Request — ${name} | ${phone} | ${service}`,
     blocks: [
       {
         type: 'header',
@@ -32,33 +32,29 @@ export default async function handler(req, res) {
         ]
       },
       {
-        type: 'actions',
-        elements: [
-          {
-            type: 'button',
-            text: { type: 'plain_text', text: `Call ${phone}`, emoji: true },
-            url: `tel:${phone.replace(/\D/g, '')}`,
-            style: 'primary'
-          }
-        ]
+        type: 'section',
+        text: { type: 'mrkdwn', text: `📞 *Call back:* ${phone}` }
       }
     ]
   };
 
   try {
-    const slackRes = await fetch(webhookUrl, {
+    const slackRes = await fetch(webhookUrl.trim(), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(message)
     });
 
+    const slackBody = await slackRes.text();
+    console.log('Slack status:', slackRes.status, 'body:', slackBody);
+
     if (!slackRes.ok) {
-      throw new Error(`Slack responded with ${slackRes.status}`);
+      throw new Error(`Slack responded with ${slackRes.status}: ${slackBody}`);
     }
 
     return res.status(200).json({ ok: true });
   } catch (err) {
-    console.error('Slack error:', err);
-    return res.status(500).json({ error: 'Failed to send to Slack' });
+    console.error('Slack error:', err.message);
+    return res.status(500).json({ error: 'Failed to send to Slack', detail: err.message });
   }
 }
