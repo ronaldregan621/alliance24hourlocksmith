@@ -1,260 +1,31 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#0b4aa6" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#F5A524" />
   <meta name="robots" content="index, follow" />
+  <meta name="format-detection" content="telephone=no" />
 
   <title>Emergency Locksmith Westchester County | 24/7 Dispatch | Alliance 24hr Locksmith</title>
   <meta name="description" content="Alliance 24hr Locksmith provides fast, 24/7 emergency lockout dispatch across Westchester County, NY. Car, home, and business lockouts. Call (914) 406-4474." />
   <link rel="canonical" href="https://alliance24hourlocksmith.com/" />
 
-  <!-- Open Graph -->
   <meta property="og:title" content="Emergency Locksmith Westchester County | 24/7 Dispatch" />
   <meta property="og:description" content="24/7 emergency lockout dispatch for Westchester County, NY. Fast response for car, home, and business. Call (914) 406-4474." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://alliance24hourlocksmith.com/" />
   <meta property="og:site_name" content="Alliance 24hr Locksmith" />
   <meta property="og:locale" content="en_US" />
-
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Emergency Locksmith Westchester County | 24/7 Dispatch" />
   <meta name="twitter:description" content="24/7 emergency lockout dispatch for Westchester County, NY. Call (914) 406-4474." />
 
-  <!-- Prevent iOS auto-detect from mangling tel formatting; we explicitly link tel: below -->
-  <meta name="format-detection" content="telephone=no" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
-  <style>
-    :root {
-      --navy: #1E2A36;
-      --off: #F7F7F5;
-      --blue-100: #e8f0fe;
-      --white: #ffffff;
-      --black: #0f172a;
-      --gray-700: #334155;
-      --gray-600: #475569;
-      --gray-100: #f1f5f9;
-      --success: #16a34a;
-      --shadow: 0 10px 30px rgba(30, 42, 54, 0.15);
-    }
-    html, body {
-      padding: 0; margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: var(--black);
-      background: var(--off);
-      line-height: 1.5;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      text-rendering: optimizeLegibility;
-    }
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; height: auto; display: block; }
-    .container { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 16px; }
-
-    /* Header */
-    .topbar {
-      background: var(--navy);
-      color: var(--white);
-      position: sticky; top: 0; z-index: 50;
-      box-shadow: 0 1px 0 rgba(255,255,255,0.1);
-    }
-    .topbar-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; }
-    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; letter-spacing: 0.2px; }
-    .brand-badge { width: 36px; height: 36px; border-radius: 8px; background: var(--white); color: var(--navy); display: grid; place-items: center; box-shadow: var(--shadow); }
-    .brand-badge svg { width: 22px; height: 22px; fill: var(--navy); }
-    .nav-links { display: none; gap: 16px; font-weight: 600; }
-    @media (min-width: 820px){ .nav-links{ display:flex } }
-    .call-btn {
-      display: inline-flex; align-items: center; gap: 10px; padding: 10px 14px; border-radius: 999px;
-      background: var(--white); color: var(--navy); font-weight: 700; box-shadow: var(--shadow);
-    }
-    .call-btn svg { width: 18px; height: 18px; fill: var(--blue-900); }
-
-    /* Hero */
-    .hero {
-      position: relative;
-      display: grid;
-      grid-template-columns: 1fr;
-      min-height: 520px;
-    }
-    .hero-img-side {
-      position: relative;
-      min-height: 280px;
-      background: url('/images/hero-key.webp') center/cover no-repeat;
-    }
-    .hero-img-side::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(15,23,42,0.72) 0%, rgba(30,42,54,0.55) 100%);
-    }
-    .hero-img-content {
-      position: relative;
-      padding: 36px 24px 28px;
-      color: var(--white);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .hero-img-content h1 { color: var(--white); margin: 8px 0 12px; }
-    .hero-img-content .subhead { color: #e2e8f0; }
-    .hero-img-content .hero-points { color: #cbd5e1; }
-    .hero-form-side {
-      background: var(--navy);
-      padding: 32px 24px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    @media (min-width: 820px) {
-      .hero { grid-template-columns: 1fr 420px; }
-      .hero-img-side { min-height: 520px; }
-      .hero-img-content { padding: 56px 48px; }
-      .hero-form-side { padding: 48px 36px; }
-    }
-    .hero-inner { display: grid; grid-template-columns: 1fr; gap: 18px; padding: 28px 0 20px; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-weight: 700; color: var(--blue-900); background: #e9f2ff; padding: 6px 10px; border-radius: 999px; }
-    h1 { font-size: 32px; line-height: 1.2; margin: 8px 0 12px; color: var(--black); }
-    .subhead { font-size: 16px; color: var(--gray-700); margin-bottom: 18px; }
-
-    .cta-row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
-    .cta-primary { background: var(--navy); color: var(--white); padding: 12px 18px; border-radius: 12px; font-weight: 800; display: inline-flex; align-items: center; gap: 10px; box-shadow: var(--shadow); }
-    .cta-secondary { background: var(--white); color: var(--navy); padding: 12px 16px; border-radius: 12px; font-weight: 700; border: 1px solid #e2e8f0; }
-    .hero-points { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 10px; color: var(--gray-600); font-size: 14px; }
-    .point { display: inline-flex; align-items: center; gap: 8px; }
-    .badge { background: #ecfdf5; color: var(--success); border: 1px solid #d1fae5; padding: 6px 10px; border-radius: 999px; font-weight: 700; font-size: 12px; }
-
-    /* Sections */
-    section { padding: 28px 0; }
-    .section-title { font-size: 22px; margin: 0 0 16px; color: var(--black); }
-    /* Emergency banner + Big CTA (inspired design) */
-    .emergency-banner { position: relative; padding: 14px 0; color: #fff; background: linear-gradient(90deg, #2563eb, #1e40af); border-top: 4px solid #0f172a; border-bottom: 4px solid #0f172a; overflow: hidden; }
-    .emergency-banner .pattern { position:absolute; inset:0; opacity:0.18; background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,.2) 10px, rgba(255,255,255,.2) 20px); }
-    .emergency-banner .inner { position:relative; display:flex; align-items:center; justify-content:center; gap:10px; }
-    .big-cta { position: relative; padding: 48px 0; background: radial-gradient(1200px 600px at 10% 10%, rgba(59,130,246,.15), transparent), radial-gradient(1200px 600px at 90% 90%, rgba(99,102,241,.15), transparent), linear-gradient(135deg, #0f172a, #0b1222); color: #fff; overflow: hidden; }
-    .big-cta h2 { font-size: 42px; line-height:1.05; margin: 0 0 8px; font-weight: 900; }
-    .big-cta h2 .accent { -webkit-background-clip: text; background-clip: text; color: transparent; background-image: linear-gradient(90deg, #60a5fa, #2563eb); display:block; }
-    .big-cta p { font-size: 20px; color: #d1d5db; margin: 0 0 18px; font-weight: 700; }
-    .btn-xl { display:inline-flex; align-items:center; gap:12px; padding: 18px 28px; border-radius: 16px; font-weight: 900; background: linear-gradient(90deg, #2563eb, #1e40af); color:#fff; border:4px solid #0f172a; box-shadow: 8px 8px 0 rgba(15,23,42,1); }
-    .btn-xl:hover { box-shadow: 4px 4px 0 rgba(15,23,42,1); transform: translate(1px,1px); }
-    .pill { display:inline-flex; align-items:center; gap:8px; background: #ecfdf5; color:#059669; border: 2px solid #059669; padding:10px 14px; border-radius: 999px; font-weight: 800; }
-    /* Why Us gradient block */
-    .why-gradient { position: relative; padding: 28px 0; background: linear-gradient(135deg, #fff7ed, #fff1f2); }
-    .why-gradient .label { display:inline-block; background: linear-gradient(90deg, #2563eb, #1e40af); color:#fff; font-weight:900; padding:8px 16px; border-radius: 999px; border:4px solid #0f172a; box-shadow: 4px 4px 0 rgba(15,23,42,1); margin-bottom: 14px; text-transform: uppercase; }
-    .reason-grid { display:grid; gap:14px; grid-template-columns: 1fr; margin-bottom: 18px; }
-    @media(min-width:820px){ .reason-grid{ grid-template-columns: repeat(4, 1fr) } }
-    .reason-card { background:#fff; border:4px solid #0f172a; border-radius: 16px; padding: 16px; box-shadow: 6px 6px 0 rgba(15,23,42,1); transition: box-shadow .2s ease, transform .2s ease; }
-    .reason-card:hover { box-shadow: 10px 10px 0 rgba(15,23,42,1); transform: translateY(-2px); }
-    .reason-emoji { font-size: 28px; margin-bottom: 8px; line-height: 1; }
-    .reason-title { font-size: 18px; font-weight: 900; color: #0f172a; margin: 0 0 6px; }
-    .reason-desc { color: #334155; font-weight: 600; margin: 0; }
-    .why-stats { display:grid; gap:14px; grid-template-columns: repeat(2, 1fr); }
-    @media(min-width:820px){ .why-stats{ grid-template-columns: repeat(4, 1fr) } }
-    .why-stat { text-align:center; background: linear-gradient(135deg, #0b4aa6, #0b1633); color:#fff; border:4px solid #0f172a; border-radius: 20px; padding: 16px; }
-    .why-stat .num { font-size: 34px; font-weight: 900; margin-bottom: 6px; background: linear-gradient(90deg, #60a5fa, #2563eb); -webkit-background-clip: text; background-clip: text; color: transparent; }
-         .grid-3 { display: grid; gap: 14px; grid-template-columns: 1fr; }
-     /* Bubble style for service cards */
-     .grid-3 > .card { border: 3px solid #e2e8f0; border-radius: 25px; padding: 20px; text-align: center; position: relative; overflow: hidden; transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-     .grid-3 > .card:hover { transform: translateY(-8px) scale(1.02); border-color: #3b82f6; box-shadow: 0 25px 50px rgba(59,130,246,0.2); }
-     .grid-3 > .card::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(59,130,246,0.08), transparent); transition: left 0.6s ease; }
-     .grid-3 > .card:hover::before { left: 100%; }
-     .grid-3 > .card h3 { font-size: 18px; }
-     .grid-3 > .card p { font-size: 15px; }
-    .card { background: var(--white); border: 1px solid #e2e8f0; border-radius: 14px; padding: 16px; box-shadow: 0 2px 8px rgba(2, 21, 69, 0.04); }
-    .card h3 { margin: 6px 0 8px; font-size: 18px; }
-          .card p { margin: 0; color: var(--gray-700); font-size: 15px; }
-      /* Service bubbles */
-      #services .card { border: 3px solid #e2e8f0; border-radius: 25px; padding: 20px; text-align: center; position: relative; overflow: hidden; transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease; }
-      #services .card:hover { transform: translateY(-8px) scale(1.02); border-color: #3b82f6; box-shadow: 0 25px 50px rgba(59,130,246,0.2); }
-      #services .card::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(59,130,246,0.08), transparent); transition: left 0.6s ease; }
-      #services .card:hover::before { left: 100%; }
-      .card { transition: transform .2s ease, box-shadow .2s ease; }
-    .card:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(30,42,54,0.08); }
-    .icon { width: 28px; height: 28px; color: var(--navy); }
-
-    .areas { display: grid; gap: 10px; grid-template-columns: repeat(2, 1fr); }
-    .area-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 10px 12px; font-weight: 600; color: var(--gray-700); }
-
-    .trust { display: grid; gap: 10px; grid-template-columns: 1fr; }
-    .trust-item { display: flex; gap: 12px; align-items: center; background: #f1f5f9; border: 1px solid #e2e8f0; padding: 12px; border-radius: 12px; }
-    .trust-item strong { display: block; }
-
-    .cta-banner { background: var(--navy); color: var(--white); border-radius: 16px; padding: 16px; display: grid; gap: 12px; align-items: center; box-shadow: var(--shadow); }
-    .cta-banner .row { display: grid; gap: 10px; }
-    /* Quote form */
-    .quote-section { background: var(--navy); color: var(--white); border-radius: 16px; padding: 18px; box-shadow: var(--shadow); }
-    .quote-section h2 { margin: 0 0 10px; font-size: 20px; }
-    .quote-form { display: grid; gap: 10px; }
-    .quote-form label { font-weight: 700; font-size: 14px; }
-    .quote-form input { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid #c7d2fe; outline: none; }
-    .quote-form input::placeholder { color: #64748b; }
-    .quote-form button { background: var(--white); color: var(--navy); font-weight: 800; padding: 12px 18px; border-radius: 12px; border: 0; cursor: pointer; }
-    .quote-grid { display: grid; gap: 14px; }
-    @media(min-width:820px){ .quote-grid{ grid-template-columns: 1fr 0.9fr; align-items: start; } }
-    .quote-info p { margin: 0; color: #e6f0ff; }
-    .quote-card { background: var(--white); color: var(--black); border-radius: 14px; padding: 16px; box-shadow: var(--shadow-sm); }
-    /* Floating CTA removed */
-    .floating-cta { display: none; }
-    .steps { display:grid; gap:14px; grid-template-columns:1fr; }
-    .step { background: var(--white); border:1px solid #e2e8f0; border-radius:14px; padding:16px; box-shadow: 0 2px 8px rgba(2,21,69,0.04); }
-    .step-num { display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:999px; background:#e6eef5; color:var(--navy); font-weight:800; margin-right:8px; }
-    @media(min-width:680px){ .steps{ grid-template-columns:repeat(4,1fr) } }
-
-    /* Footer */
-    footer { background: var(--navy); color: var(--white); padding: 20px 0; margin-top: 10px; }
-    footer small { color: #cfe0ff; }
-
-    /* Sticky mobile call bar */
-    .mobile-call {
-      position: fixed; bottom: 10px; left: 0; right: 0; z-index: 60;
-      display: grid; justify-content: center;
-      padding: 0 10px; pointer-events: none;
-    }
-    .mobile-call a { pointer-events: auto; display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--navy); color: var(--white); font-weight: 900; border-radius: 999px; padding: 14px 20px; box-shadow: 0 12px 30px rgba(30,42,54,0.28); }
-    .mobile-call svg { width: 18px; height: 18px; fill: var(--white); }
-
-    /* Trust strip */
-    .trust-strip { background: #f1f5f9; border-bottom: 1px solid #e2e8f0; padding: 10px 0; }
-    .trust-strip-inner { display: flex; gap: 8px 20px; flex-wrap: wrap; justify-content: center; font-size: 13px; font-weight: 700; color: var(--navy); }
-    .ts-item { display: inline-flex; align-items: center; gap: 6px; }
-    .ts-item svg { width: 15px; height: 15px; fill: var(--navy); flex-shrink: 0; }
-
-    /* Service cards — left-accent style */
-    #services .card {
-      border: 1px solid #e2e8f0 !important;
-      border-left: 4px solid var(--navy) !important;
-      border-radius: 12px !important;
-      padding: 18px 20px !important;
-      text-align: left !important;
-      background: #fff;
-      overflow: visible !important;
-    }
-    #services .card::before { display: none !important; }
-    #services .card:hover { transform: translateY(-3px) !important; box-shadow: 0 10px 24px rgba(30,42,54,0.1) !important; border-color: #e2e8f0 !important; }
-    .svc-icon { width: 40px; height: 40px; background: #e8f0fe; border-radius: 10px; display: grid; place-items: center; margin-bottom: 10px; }
-    .svc-icon svg { width: 22px; height: 22px; fill: var(--navy); }
-    .svc-link { display: inline-block; margin-top: 10px; font-weight: 700; color: var(--navy); font-size: 14px; text-decoration: underline; }
-
-    /* Utilities */
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; clip: rect(0,0,0,0); overflow: hidden; border: 0; }
-
-    /* Larger screens */
-    @media (min-width: 680px) {
-      .hero-inner { grid-template-columns: 1.2fr 0.8fr; align-items: center; padding: 40px 0 28px; }
-      h1 { font-size: 38px; }
-      .subhead { font-size: 18px; }
-      .grid-3 { grid-template-columns: repeat(3, 1fr); }
-      .trust { grid-template-columns: repeat(3, 1fr); }
-      .cta-banner .row { grid-template-columns: 1fr auto; align-items: center; }
-      .areas { grid-template-columns: repeat(3, 1fr); }
-      .mobile-call { display: none; }
-    }
-  </style>
-
-  <!-- Schema.org JSON-LD: LocalBusiness (Locksmith) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -275,34 +46,16 @@
     ],
     "openingHoursSpecification": [{
       "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"
-      ],
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
       "opens": "00:00",
       "closes": "23:59"
     }],
-    "keywords": [
-      "emergency locksmith Westchester County",
-      "24/7 lockout service",
-      "car lockout Westchester",
-      "house lockout Westchester",
-      "business lockout Westchester"
-    ],
-    "knowsAbout": ["emergency lockout", "car lockouts", "home lockouts", "business lockouts", "lock rekey", "lock repair"],
-    "makesOffer": [{
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Emergency Lockout Dispatch",
-        "serviceType": "Emergency locksmith services"
-      },
-      "availabilityStarts": "2020-01-01",
-      "priceCurrency": "USD"
-    }]
+    "keywords": ["emergency locksmith Westchester County","24/7 lockout service","car lockout Westchester","house lockout Westchester","business lockout Westchester"],
+    "knowsAbout": ["emergency lockout","car lockouts","home lockouts","business lockouts","lock rekey","lock repair"],
+    "makesOffer": [{"@type":"Offer","itemOffered":{"@type":"Service","name":"Emergency Lockout Dispatch","serviceType":"Emergency locksmith services"},"priceCurrency":"USD"}]
   }
   </script>
 
-  <!-- Schema.org JSON-LD: Service -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -319,526 +72,861 @@
   }
   </script>
 
-  <!-- Vercel Web Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    :root {
+      --bg: #0B1B2B;
+      --bg-2: #0E2233;
+      --paper: #FAF7F2;
+      --paper-2: #F1ECE2;
+      --ink: #0B1B2B;
+      --ink-2: #2A3B4C;
+      --muted: #5C6A78;
+      --line: rgba(11,27,43,0.12);
+      --line-strong: rgba(11,27,43,0.22);
+      --line-dark: rgba(255,255,255,0.10);
+      --accent: #F5A524;
+      --green: #2BB673;
+      --r-sm: 6px;
+      --r-md: 10px;
+      --r-lg: 16px;
+      --shadow-sm: 0 1px 2px rgba(11,27,43,0.08), 0 4px 12px rgba(11,27,43,0.04);
+      --shadow-md: 0 4px 8px rgba(11,27,43,0.10), 0 16px 40px rgba(11,27,43,0.10);
+      --maxw: 1240px;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; }
+    ul, ol { list-style: none; padding: 0; margin: 0; }
+    .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+
+    /* Nav */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(250,247,242,0.85);
+      backdrop-filter: saturate(140%) blur(10px);
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav__inner { display: flex; align-items: center; gap: 24px; height: 72px; }
+    .brand { display: flex; align-items: center; gap: 12px; color: var(--ink); flex-shrink: 0; }
+    .brand__mark {
+      display: inline-flex; width: 40px; height: 40px;
+      background: var(--ink); color: var(--paper);
+      border-radius: 50%; align-items: center; justify-content: center;
+    }
+    .brand__text { display: flex; flex-direction: column; line-height: 1.1; }
+    .brand__name { font-weight: 700; font-size: 16px; letter-spacing: -0.01em; }
+    .brand__tag { font-size: 11px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 3px; }
+    .nav__links { display: flex; gap: 28px; margin-left: auto; font-size: 14px; font-weight: 500; color: var(--ink-2); }
+    .nav__links a:hover { color: var(--accent); }
+    .nav__call {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--ink); color: var(--paper);
+      padding: 10px 16px; border-radius: 999px;
+      font-weight: 600; font-size: 14px;
+      transition: transform 0.15s; white-space: nowrap; flex-shrink: 0;
+    }
+    .nav__call:hover { transform: translateY(-1px); }
+    .nav__menu {
+      display: none; background: transparent;
+      border: 1px solid var(--line-strong); border-radius: 8px;
+      padding: 8px; color: var(--ink);
+    }
+    @media (max-width: 1040px) {
+      .nav__links { display: none; }
+      .nav__call { display: none; }
+      .nav__menu { display: inline-flex; margin-left: auto; }
+    }
+
+    /* Mobile menu */
+    .mmenu {
+      position: fixed; inset: 0;
+      background: rgba(11,27,43,0.5);
+      z-index: 100; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+    }
+    .mmenu.is-open { opacity: 1; pointer-events: auto; }
+    .mmenu__panel {
+      position: absolute; right: 0; top: 0; bottom: 0;
+      width: 320px; max-width: 90vw;
+      background: var(--paper); padding: 24px;
+      display: flex; flex-direction: column; gap: 24px;
+      transform: translateX(100%); transition: transform 0.25s;
+    }
+    .mmenu.is-open .mmenu__panel { transform: translateX(0); }
+    .mmenu__close { align-self: flex-end; background: transparent; border: none; padding: 4px; }
+    .mmenu__call {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: var(--accent); color: var(--ink);
+      padding: 16px; border-radius: 12px; font-weight: 700; font-size: 18px;
+    }
+    .mmenu__links { display: flex; flex-direction: column; gap: 4px; }
+    .mmenu__links a { padding: 12px 4px; border-bottom: 1px solid var(--line); font-weight: 500; display: block; }
+
+    /* Hero */
+    .hero { position: relative; background: var(--paper); overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background:
+        radial-gradient(800px 400px at 90% -10%, rgba(245,165,36,0.10), transparent 60%),
+        radial-gradient(600px 300px at -10% 100%, rgba(11,27,43,0.04), transparent 60%);
+      pointer-events: none;
+    }
+    .hero__inner {
+      position: relative; display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 64px; align-items: center;
+      padding: 88px 24px 96px;
+    }
+    @media (max-width: 1000px) { .hero__inner { grid-template-columns: 1fr; gap: 40px; padding: 56px 24px 72px; } }
+    .hero__eyebrow {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase;
+      font-weight: 600; color: var(--ink-2);
+      background: rgba(11,27,43,0.04);
+      padding: 8px 14px; border-radius: 999px; margin-bottom: 24px;
+    }
+    .pulse {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 0 rgba(43,182,115,0.7);
+      animation: pulse 1.6s infinite;
+      display: inline-block; flex-shrink: 0;
+    }
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(43,182,115,0.5); }
+      70%  { box-shadow: 0 0 0 10px rgba(43,182,115,0); }
+      100% { box-shadow: 0 0 0 0 rgba(43,182,115,0); }
+    }
+    .hero__title {
+      font-size: clamp(40px,6vw,76px); line-height: 1.02;
+      letter-spacing: -0.03em; font-weight: 800; margin: 0 0 20px; text-wrap: balance;
+    }
+    .hero__title-accent {
+      background: linear-gradient(180deg, var(--ink) 60%, var(--accent) 60%);
+      -webkit-background-clip: text; background-clip: text;
+      color: transparent; display: inline-block; padding-bottom: 4px;
+    }
+    .hero__sub { font-size: 18px; color: var(--ink-2); max-width: 56ch; margin: 0 0 32px; }
+    .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
+    .hero__bullets { display: flex; flex-wrap: wrap; gap: 18px 24px; font-size: 14px; color: var(--ink-2); font-weight: 500; }
+    .hero__bullets li { display: inline-flex; align-items: center; gap: 8px; }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      padding: 14px 22px; border-radius: 12px; font-weight: 600; font-size: 15px;
+      border: 1px solid transparent; transition: transform 0.12s ease, box-shadow 0.18s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn--primary {
+      background: var(--accent); color: var(--ink);
+      box-shadow: 0 6px 20px rgba(245,165,36,0.35), inset 0 -2px 0 rgba(0,0,0,0.08);
+    }
+    .btn--primary:hover { box-shadow: 0 10px 28px rgba(245,165,36,0.45); }
+    .btn--ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
+    .btn--xl { padding: 18px 24px; font-size: 16px; border-radius: 14px; }
+    .btn__stack { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.05; }
+    .btn__top { font-size: 11px; font-weight: 600; opacity: 0.8; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; }
+    .btn__num { font-size: 20px; font-weight: 800; letter-spacing: -0.01em; white-space: nowrap; }
+
+    /* Dispatch card */
+    .hero__card {
+      background: var(--bg); color: var(--paper);
+      border-radius: 20px; padding: 24px;
+      box-shadow: var(--shadow-md); border: 1px solid rgba(255,255,255,0.06);
+    }
+    .dispatch__head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .dispatch__dot {
+      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+      background: var(--green); box-shadow: 0 0 0 0 rgba(43,182,115,0.5);
+      animation: pulse 1.6s infinite;
+    }
+    .dispatch__title { font-weight: 700; font-size: 14px; }
+    .dispatch__sub { font-size: 12px; color: rgba(255,255,255,0.5); }
+    .dispatch__eta {
+      display: flex; align-items: baseline; gap: 12px;
+      margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--line-dark);
+    }
+    .dispatch__eta-num { font-size: 56px; font-weight: 800; letter-spacing: -0.04em; color: var(--accent); line-height: 1; }
+    .dispatch__eta-unit > div:first-child { font-size: 14px; color: rgba(255,255,255,0.7); font-weight: 600; }
+    .dispatch__eta-label { font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
+    .dispatch__map {
+      border-radius: 10px; overflow: hidden; border: 1px solid var(--line-dark);
+      background: rgba(255,255,255,0.02); margin-bottom: 14px; aspect-ratio: 320/180;
+    }
+    .dispatch__map svg { display: block; width: 100%; height: 100%; }
+    .dispatch__list { display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.7); font-family: ui-monospace,"SF Mono",monospace; }
+    .dispatch__row { display: flex; align-items: center; gap: 8px; }
+    .dispatch__pip { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+    .dispatch__pip--green { background: var(--green); }
+    .dispatch__pip--amber { background: var(--accent); }
+    .dispatch__cta {
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      background: var(--accent); color: var(--ink);
+      margin-top: 14px; padding: 12px; border-radius: 10px;
+      font-weight: 700; font-size: 14px; white-space: nowrap;
+    }
+
+    /* Trust band */
+    .trust { background: var(--ink); color: var(--paper); }
+    .trust__inner { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; padding: 24px; }
+    .trust__item { display: flex; align-items: center; gap: 14px; }
+    .trust__num { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
+    .trust__label { font-size: 12px; color: rgba(255,255,255,0.55); }
+    @media (max-width: 800px) { .trust__inner { grid-template-columns: repeat(2,1fr); gap: 20px; } }
+
+    /* Sections */
+    .section { padding: 96px 0; }
+    .section--alt { background: var(--paper-2); }
+    .section--dark { background: var(--bg); color: var(--paper); }
+    .section--dark .head__title { color: var(--paper); }
+    .section--dark .head__sub { color: rgba(255,255,255,0.65); }
+    .section--dark .head__kicker { color: var(--accent); }
+    @media (max-width: 800px) { .section { padding: 64px 0; } }
+    .head { max-width: 720px; margin: 0 auto 48px; text-align: center; }
+    .head__kicker { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; white-space: nowrap; }
+    .head__title { font-size: clamp(28px,4vw,44px); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 14px; line-height: 1.1; text-wrap: balance; }
+    .head__sub { font-size: 17px; color: var(--muted); margin: 0; text-wrap: pretty; }
+    .section__cta { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 48px; flex-wrap: wrap; }
+    .section__cta > span { color: var(--muted); font-size: 15px; }
+
+    /* Service cards */
+    .services { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+    .services--3 { grid-template-columns: repeat(3,1fr); }
+    @media (max-width: 1100px) { .services { grid-template-columns: repeat(2,1fr); } .services--3 { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 600px)  { .services { grid-template-columns: 1fr; } .services--3 { grid-template-columns: 1fr; } }
+    .svc {
+      background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 28px 24px;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .section--alt .svc { background: var(--paper); }
+    .svc:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+    .svc__icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(245,165,36,0.12); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .svc__title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 8px; }
+    .svc__blurb { font-size: 14px; color: var(--muted); margin: 0 0 16px; line-height: 1.55; }
+
+    /* Stats */
+    .stats { display: flex; align-items: center; justify-content: center; gap: 32px; margin-top: 56px; padding: 24px; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; flex-wrap: wrap; }
+    .stats__item { text-align: center; min-width: 110px; }
+    .stats__num { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); line-height: 1; }
+    .stats__label { font-size: 12px; color: var(--muted); margin-top: 6px; letter-spacing: 0.06em; text-transform: uppercase; }
+    .stats__sep { width: 1px; height: 36px; background: var(--line); }
+    @media (max-width: 700px) { .stats__sep { display: none; } .stats { gap: 24px 32px; } }
+
+    /* Process */
+    .process { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+    @media (max-width: 900px) { .process { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 540px) { .process { grid-template-columns: 1fr; } }
+    .process__step { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
+    .process__num { font-family: ui-monospace,"SF Mono",monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; margin-bottom: 12px; }
+    .process__body h4 { font-size: 18px; margin: 0 0 6px; font-weight: 700; }
+    .process__body p { font-size: 14px; color: var(--muted); margin: 0; }
+
+    /* Service area */
+    .area { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+    @media (max-width: 900px) { .area { grid-template-columns: 1fr; gap: 32px; } }
+    .area__regions { display: flex; flex-direction: column; gap: 24px; }
+    .area__region-title { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
+    .area__grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
+    .area__chip { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; padding: 10px 14px; background: rgba(255,255,255,0.04); border: 1px solid var(--line-dark); border-radius: 999px; color: rgba(255,255,255,0.85); }
+    .area__note { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.55); }
+    .area__map { border-radius: 16px; border: 1px solid var(--line-dark); overflow: hidden; background: rgba(255,255,255,0.02); }
+    .bigmap { display: block; width: 100%; height: auto; }
+
+    /* Reviews */
+    .reviews { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
+    @media (max-width: 800px) { .reviews { grid-template-columns: 1fr; } }
+    .review { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
+    .review__stars { display: flex; gap: 2px; margin-bottom: 12px; }
+    .review__text { font-size: 16px; color: var(--ink-2); margin: 0 0 18px; line-height: 1.55; text-wrap: pretty; }
+    .review__who { display: flex; align-items: center; gap: 12px; }
+    .review__avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: var(--paper); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+    .review__name { font-weight: 700; font-size: 14px; }
+    .review__where { font-size: 12px; color: var(--muted); }
+
+    /* Big CTA */
+    .bigcta { background: var(--bg); color: var(--paper); position: relative; overflow: hidden; }
+    .bigcta::before {
+      content: ""; position: absolute; inset: 0;
+      background: radial-gradient(700px 400px at 80% 50%, rgba(245,165,36,0.18), transparent 60%), radial-gradient(500px 300px at 0% 100%, rgba(245,165,36,0.06), transparent 60%);
+      pointer-events: none;
+    }
+    .bigcta__inner { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; padding: 80px 24px; }
+    @media (max-width: 900px) { .bigcta__inner { grid-template-columns: 1fr; padding: 56px 24px; } }
+    .bigcta__kicker { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .bigcta__title { font-size: clamp(36px,5vw,60px); font-weight: 800; letter-spacing: -0.03em; margin: 0 0 14px; line-height: 1.05; }
+    .bigcta__sub { font-size: 17px; color: rgba(255,255,255,0.7); margin: 0; max-width: 50ch; }
+    .bigcta__btn { background: var(--accent); color: var(--ink); padding: 28px 36px; border-radius: 20px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; transition: transform 0.15s, box-shadow 0.18s; box-shadow: 0 12px 40px rgba(245,165,36,0.35); }
+    .bigcta__btn:hover { transform: translateY(-2px); box-shadow: 0 18px 56px rgba(245,165,36,0.5); }
+    .bigcta__btn-top { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .bigcta__btn-num { font-size: 44px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; }
+    .bigcta__btn-sub { font-size: 12px; opacity: 0.75; }
+
+    /* Footer */
+    .foot { background: var(--ink); color: var(--paper); padding: 64px 0 24px; }
+    .foot__inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid var(--line-dark); }
+    @media (max-width: 900px) { .foot__inner { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 540px) { .foot__inner { grid-template-columns: 1fr; } }
+    .brand--foot .brand__mark { background: var(--paper); color: var(--ink); }
+    .brand--foot .brand__name { color: var(--paper); }
+    .brand--foot .brand__tag { color: rgba(255,255,255,0.5); }
+    .foot__about { font-size: 13px; color: rgba(255,255,255,0.55); margin: 16px 0 0; max-width: 36ch; line-height: 1.6; }
+    .foot__title { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
+    .foot__col ul { display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: rgba(255,255,255,0.78); }
+    .foot__col li a:hover { color: var(--accent); }
+    .foot__col--call .foot__num { display: block; font-size: 28px; font-weight: 800; letter-spacing: -0.02em; color: var(--accent); margin-bottom: 6px; white-space: nowrap; }
+    .foot__small { font-size: 12px; color: rgba(255,255,255,0.55); }
+    .foot__lic { margin-top: 12px; font-size: 11px; }
+    .foot__bottom { padding-top: 24px; display: flex; justify-content: space-between; gap: 16px; font-size: 12px; color: rgba(255,255,255,0.4); flex-wrap: wrap; }
+
+    /* Sticky call bar */
+    .sticky-call { display: none; position: fixed; bottom: 12px; left: 12px; right: 12px; z-index: 60; background: var(--accent); color: var(--ink); border-radius: 14px; padding: 12px 16px; box-shadow: 0 10px 30px rgba(11,27,43,0.25); }
+    .sticky-call__inner { display: flex; align-items: center; gap: 14px; }
+    .sticky-call__icon { width: 40px; height: 40px; border-radius: 50%; background: var(--ink); color: var(--accent); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .sticky-call__text { flex: 1; line-height: 1.1; }
+    .sticky-call__label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.8; }
+    .sticky-call__num { font-size: 20px; font-weight: 800; letter-spacing: -0.01em; margin-top: 2px; white-space: nowrap; }
+    .sticky-call__chev { opacity: 0.7; }
+    @media (max-width: 700px) { .sticky-call { display: block; } body { padding-bottom: 80px; } }
+  </style>
 </head>
-
 <body>
-  <a class="sr-only" href="#main">Skip to content</a>
 
-  <header class="topbar" role="banner">
-    <div class="container topbar-inner">
-      <a class="brand" aria-label="Alliance 24hr Locksmith (home)" href="/">
-        <span>Alliance 24hr Locksmith</span>
-      </a>
-      <nav class="nav-links" aria-label="primary">
-        <a href="#services">Services</a>
-        <a href="#areas">Locations</a>
-        <a href="/contact/">Contact</a>
-      </nav>
-      <a class="call-btn" href="tel:+19144064474" data-cta="header-call" aria-label="Call Alliance 24hr Locksmith at (914) 406-4474">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
-        <span>(914) 406-4474</span>
-      </a>
+<!-- Mobile Menu -->
+<div class="mmenu" id="mmenu">
+  <div class="mmenu__panel">
+    <button class="mmenu__close" id="mmenu-close" aria-label="Close menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <a href="tel:+19144064474" class="mmenu__call" data-cta="mobile-menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+      (914) 406-4474
+    </a>
+    <nav class="mmenu__links">
+      <a href="#services">Services</a>
+      <a href="#area">Service Area</a>
+      <a href="#why">Why us</a>
+      <a href="#process">How it works</a>
+    </nav>
+  </div>
+</div>
+
+<!-- Nav -->
+<header class="nav" id="top">
+  <div class="container nav__inner">
+    <a href="#top" class="brand">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="16" cy="16" r="15" stroke-width="1.5"/>
+          <path d="M11 20a4 4 0 1 1 4-4" stroke-width="2"/>
+          <path d="M15 16l7-7M19 12l2 2M17 14l2 2" stroke-width="2"/>
+        </svg>
+      </span>
+      <span class="brand__text">
+        <span class="brand__name">Alliance 24hr Locksmith</span>
+        <span class="brand__tag">Westchester County, NY · Licensed &amp; Insured</span>
+      </span>
+    </a>
+    <nav class="nav__links">
+      <a href="#services">Services</a>
+      <a href="#area">Service Area</a>
+      <a href="#why">Why us</a>
+      <a href="#process">How it works</a>
+    </nav>
+    <a href="tel:+19144064474" class="nav__call" data-cta="nav">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+      <span>(914) 406-4474</span>
+    </a>
+    <button class="nav__menu" id="menu-btn" aria-label="Open menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="container hero__inner">
+    <div class="hero__copy">
+      <div class="hero__eyebrow">
+        <span class="pulse"></span>
+        24/7 Mobile Key Replacement · Westchester County, NY
+      </div>
+      <h1 class="hero__title">
+        Lost your key?<br>
+        <span class="hero__title-accent">We cut &amp; program on the spot.</span>
+      </h1>
+      <p class="hero__sub">
+        All makes and models. We come to you — cut a new key, program your fob, or get you back into your car on-site. Upfront quote on the phone, no tow required, typically on-scene in 45–75 minutes.
+      </p>
+      <div class="hero__cta">
+        <a href="tel:+19144064474" class="btn btn--primary btn--xl" data-cta="hero-primary">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+          <span class="btn__stack">
+            <span class="btn__top">Call now — we come to you</span>
+            <span class="btn__num">(914) 406-4474</span>
+          </span>
+        </a>
+        <a href="#services" class="btn btn--ghost btn--xl">See services</a>
+      </div>
+      <ul class="hero__bullets">
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg>
+          All makes &amp; models — domestic and import
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg>
+          No tow needed — we come to your location
+        </li>
+        <li>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg>
+          Avg. 45–75 min dispatch · upfront pricing
+        </li>
+      </ul>
     </div>
-  </header>
 
-  <main id="main" role="main">
-    <!-- Trust strip -->
-    <div class="trust-strip" aria-label="trust signals">
-      <div class="container trust-strip-inner">
-        <span class="ts-item"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>Westchester County, NY</span>
-        <span class="ts-item"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg>Mobile Service</span>
-        <span class="ts-item"><svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>24/7 Emergency</span>
-        <span class="ts-item"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>Licensed &amp; Insured</span>
-      </div>
-    </div>
-
-    <!-- Emergency Banner -->
-    <section class="emergency-banner" aria-label="emergency callout">
-      <div class="pattern" aria-hidden="true"></div>
-      <div class="container inner">
-        <span style="display:inline-flex; align-items:center; justify-content:center; width:14px; height:14px; border-radius:999px; background:#fff; box-shadow:0 0 0 6px rgba(255,255,255,.25);"></span>
-        <p style="margin:0; font-weight:900; letter-spacing:.2px;">CAR LOCKOUT EMERGENCY? MOBILE TECH DISPATCHING NOW — CALL (914) 406‑4474</p>
-      </div>
-    </section>
-    <!-- Hero -->
-    <section class="hero" aria-label="hero">
-      <!-- Left: photo + headline -->
-      <div class="hero-img-side">
-        <div class="hero-img-content">
-          <div class="eyebrow" style="background:rgba(255,255,255,0.15); color:#fff; border:1px solid rgba(255,255,255,0.3);" aria-label="24/7 emergency">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 8v5l4 2"/></svg>
-            <span>24/7 Emergency Dispatch &bull; Westchester County, NY</span>
-          </div>
-          <h1>24/7 Emergency Locksmith &mdash; Westchester County, NY</h1>
-          <p class="subhead">Locked out? We dispatch around the clock. Upfront quote before we leave, no damage entry, licensed and insured.</p>
-          <div class="cta-row">
-            <a class="cta-primary" href="tel:+19144064474" data-cta="hero-primary" aria-label="Call now (914) 406-4474">
-              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
-              <span>Call Now: (914) 406-4474</span>
-            </a>
-          </div>
-          <div class="hero-points" aria-label="service highlights" style="margin-top:16px;">
-            <div class="point"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg><span>Upfront pricing</span></div>
-            <div class="point"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l7 4v6c0 5-3.5 9.74-7 10-3.5-.26-7-5-7-10V6l7-4z"/></svg><span>Licensed &amp; insured</span></div>
-            <div class="point"><svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 8v5l4 2"/></svg><span>Avg. 30 min dispatch</span></div>
-          </div>
-        </div>
-      </div>
-      <!-- Right: quote form -->
-      <div class="hero-form-side" id="quote">
-        <h2 style="color:#fff; font-size:22px; margin:0 0 6px;">Get a Free Quote</h2>
-        <p style="color:#94a3b8; font-size:14px; margin:0 0 18px;">Or call us directly: <a href="tel:+19144064474" style="color:#60a5fa; font-weight:700;">(914) 406-4474</a></p>
-        <form class="quote-form" id="quoteForm">
-          <div>
-            <label for="q-name">Your Name</label>
-            <input id="q-name" name="name" type="text" placeholder="John Smith" required autocomplete="name" style="background:#fff;" />
-          </div>
-          <div>
-            <label for="q-phone">Phone Number</label>
-            <input id="q-phone" name="phone" type="tel" placeholder="(914) 555-0000" required autocomplete="tel" style="background:#fff;" />
-          </div>
-          <div>
-            <label for="q-service">Service Needed</label>
-            <input id="q-service" name="service" type="text" placeholder="e.g. Car lockout, house lockout…" required style="background:#fff;" />
-          </div>
-          <button type="submit" style="margin-top:4px;">Request a Quote</button>
-          <p id="formMsg" style="margin:0; font-size:14px; display:none;"></p>
-        </form>
-      </div>
-    </section>
-
-    <!-- Big CTA -->
-    <section class="big-cta">
-      <div class="container" style="text-align:center;">
-        <h2>LOCKED OUT<span class="accent">RIGHT NOW?</span></h2>
-        <p>We're dispatching a mobile technician to your location!</p>
-        <div style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:12px;">
-          <a class="btn-xl" href="tel:+19144064474" aria-label="Call Alliance 24hr Locksmith now">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
-            CALL NOW: (914) 406‑4474
-          </a>
-        </div>
-        <div style="margin-top:16px;">
-          <span class="pill">Service Area: Westchester County • 24/7</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Why Us gradient block -->
-    <section class="why-gradient">
-      <div class="container">
-        <div style="text-align:center;">
-          <span class="label">The Alliance Difference</span>
-          <h2 class="section-title" style="font-size:28px;">Why Choose Us?</h2>
-          <p class="subhead" style="margin-top:-6px; font-weight:700; color:#334155;">We're not just fast — we're the best in Westchester County.</p>
-        </div>
-        <div class="reason-grid" role="list">
-          <article class="reason-card" role="listitem">
-            <div class="reason-emoji" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="#0f172a"><path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.81 6-4.72 7.28L13 17v5h5l-1.22-1.22C19.91 19.07 22 15.76 22 12c0-5.18-3.95-9.45-9-9.95zM11 2.05C5.95 2.55 2 6.82 2 12c0 3.76 2.09 7.07 5.22 8.78L6 22h5v-5l-2.28 2.28C6.81 18 5 15.21 5 12c0-4.08 3.05-7.44 7-7.93V2.05z"/></svg></div>
-            <h3 class="reason-title">Fast Dispatch</h3>
-            <p class="reason-desc">Average arrival 30–45 minutes. We give you a real ETA — not a vague window.</p>
-          </article>
-          <article class="reason-card" role="listitem">
-            <div class="reason-emoji" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="#0f172a"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg></div>
-            <h3 class="reason-title">Licensed &amp; Insured</h3>
-            <p class="reason-desc">Fully certified professionals. Your property is protected from the moment we arrive.</p>
-          </article>
-          <article class="reason-card" role="listitem">
-            <div class="reason-emoji" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="#0f172a"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg></div>
-            <h3 class="reason-title">Upfront Pricing</h3>
-            <p class="reason-desc">Quote on the phone before we dispatch. What you hear is what you pay — every time.</p>
-          </article>
-          <article class="reason-card" role="listitem">
-            <div class="reason-emoji" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="#0f172a"><path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/></svg></div>
-            <h3 class="reason-title">No Damage Entry</h3>
-            <p class="reason-desc">We pick and bypass — drilling is a last resort and always requires your approval.</p>
-          </article>
-        </div>
-        <div class="why-stats">
-          <div class="why-stat">
-            <div class="num">24/7</div>
-            <div style="font-weight:800;">Always Available</div>
-          </div>
-          <div class="why-stat">
-            <div class="num">35–55</div>
-            <div style="font-weight:800;">Min Arrival</div>
-          </div>
-          <div class="why-stat">
-            <div class="num">100%</div>
-            <div style="font-weight:800;">Licensed</div>
-          </div>
-          <div class="why-stat">
-            <div class="num">LOCAL</div>
-            <div style="font-weight:800;">Technicians</div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Testimonials -->
-    <section id="testimonials">
-      <div class="container">
-        <h2 class="section-title">Our Trusted Clients</h2>
-        <div class="grid-3" role="list">
-          <article class="card" role="listitem">
-            <p style="margin:0 0 8px;">“Locked myself out at midnight—they were calm, quick, and courteous.”</p>
-            <strong>Isabella L.</strong>
-          </article>
-
-          <article class="card" role="listitem">
-            <div style="display:flex; align-items:center; gap:10px;">
-              <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 14l5-5 5 5H7z"/></svg>
-              <h3>Car Key Replacement</h3>
-            </div>
-            <p>Mobile cutting and programming for many keys and fobs.</p>
-            <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-              <a class="cta-secondary" href="tel:+19144064474" data-cta="svc-car-key">Call (914) 406-4474</a>
-              <a class="cta-secondary" href="/car-key-replacement/">Read more</a>
-            </div>
-          </article>
-          <article class="card" role="listitem">
-            <p style="margin:0 0 8px;">“Upfront price on the phone. Tech arrived in ~25 minutes. Smooth.”</p>
-            <strong>Nicolas V.</strong>
-          </article>
-          <article class="card" role="listitem">
-            <p style="margin:0 0 8px;">“Rekeyed our storefront same day. Professional tools, zero downtime.”</p>
-            <strong>Valeria C.</strong>
-          </article>
-        </div>
-      </div>
-    </section>
-    <!-- About -->
-    <section id="about">
-      <div class="container">
-        <div class="card" style="display:grid; gap:16px; grid-template-columns: 1fr;">
-          <div>
-            <h2 class="section-title">Work Together to Keep Westchester Moving</h2>
-            <p class="subhead" style="margin-top:-6px; color: var(--gray-700);">We help residents, property managers, and local businesses with calm, professional lock and key solutions—day or night.</p>
-            <div style="display:flex; gap:20px; flex-wrap:wrap; margin-top:10px;">
-              <div><strong>24/7</strong><div style="color:var(--gray-700)">Local dispatch</div></div>
-              <div><strong>Licensed</strong><div style="color:var(--gray-700)">&amp; insured</div></div>
-              <div><strong>Upfront</strong><div style="color:var(--gray-700)">Pricing always</div></div>
-            </div>
-          </div>
-          <div>
-            <img src="https://images.unsplash.com/photo-1520975954732-35dd222996f6?q=80&w=1200&auto=format&fit=crop" alt="Technician assisting a customer" style="border-radius:14px; box-shadow: var(--shadow-sm);" />
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Services -->
-    <section id="services">
-      <div class="container">
-        <h2 class="section-title">Locksmith Services We Provide</h2>
-        <div class="grid-3" role="list">
-
-          <article class="card svc-card" role="listitem">
-            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></div>
-            <h3>Car Lockouts</h3>
-            <p>Fast, non-destructive entry for most makes and models. Keys locked inside, key stuck in ignition — we handle it.</p>
-            <a class="svc-link" href="/car-lockout/">Learn more →</a>
-          </article>
-
-          <article class="card svc-card" role="listitem">
-            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg></div>
-            <h3>Home Lockouts</h3>
-            <p>Houses, apartments, and condos — we get you back in without damage. Licensed techs, upfront quote first.</p>
-            <a class="svc-link" href="/house-lockout/">Learn more →</a>
-          </article>
-
-          <article class="card svc-card" role="listitem">
-            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 7V3H2v18h20V7H12zM6 19H4v-2h2v2zm0-4H4v-2h2v2zm0-4H4V9h2v2zm0-4H4V5h2v2zm4 12H8v-2h2v2zm0-4H8v-2h2v2zm0-4H8V9h2v2zm0-4H8V5h2v2zm10 12h-8v-2h2v-2h-2v-2h2v-2h-2V9h8v10zm-2-8h-2v2h2v-2zm0 4h-2v2h2v-2z"/></svg></div>
-            <h3>Business Lockouts</h3>
-            <p>Storefronts, offices, and commercial doors. We minimize downtime and work with property managers when needed.</p>
-            <a class="svc-link" href="/commercial/">Learn more →</a>
-          </article>
-
-          <article class="card svc-card" role="listitem">
-            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg></div>
-            <h3>Lock Replacement</h3>
-            <p>Replace worn or compromised deadbolts and knob locks. We stock common brands and can upgrade to high-security hardware.</p>
-            <a class="svc-link" href="/high-security-locks/">Learn more →</a>
-          </article>
-
-          <article class="card svc-card" role="listitem">
-            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg></div>
-            <h3>Key Duplication</h3>
-            <p>On-site key cutting for house, apartment, and office keys. We bring the cutting equipment to you.</p>
-            <a class="svc-link" href="/key-duplication/">Learn more →</a>
-          </article>
-
-          <article class="card svc-card" role="listitem">
-            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 14c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg></div>
-            <h3>Safe Opening</h3>
-            <p>Forgotten combinations, jammed mechanisms, lost keys — we open safes without damage whenever possible.</p>
-            <a class="svc-link" href="/emergency-locksmith/">Learn more →</a>
-          </article>
-
-          <article class="card svc-card" role="listitem">
-            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm2 16h-4v-2h1v-4h-1v-2h3v6h1v2z"/></svg></div>
-            <h3>Smart Lock Installation</h3>
-            <p>Keyless entry setup, app pairing, and access code programming for all major smart lock brands.</p>
-            <a class="svc-link" href="/smart-lock-installation/">Learn more →</a>
-          </article>
-
-          <article class="card svc-card" role="listitem">
-            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 12c0 2.76-2.24 5-5 5s-5-2.24-5-5 2.24-5 5-5c1.35 0 2.57.54 3.46 1.4L13 11h4V7l-1.41 1.41C14.42 7.35 13.26 7 12 7c-3.86 0-7 3.14-7 7s3.14 7 7 7 7-3.14 7-7h-2z"/></svg></div>
-            <h3>Lock Rekey</h3>
-            <p>New keys, same locks. The right move after a move-in, turnover, or lost key — cheaper than full replacement.</p>
-            <a class="svc-link" href="/lock-rekey/">Learn more →</a>
-          </article>
-
-          <article class="card svc-card" role="listitem">
-            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm11.5-2H12.65C11.83 9.67 9.61 8 7 8c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4h1.85l1.5 1.5 1.5-1.5 1.5 1.5 3-3-3.5-3.5z"/></svg></div>
-            <h3>Master Key Systems</h3>
-            <p>One master opens all; individual sub-keys for each door. Ideal for multi-unit properties and small offices.</p>
-            <a class="svc-link" href="/master-key-system/">Learn more →</a>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- Coverage Areas -->
-    <section id="areas">
-      <div class="container">
-        <h2 class="section-title">Serving All of Westchester County</h2>
-        <p class="subhead" style="margin-top:-6px;">Local, rapid response to these areas and beyond:</p>
-        <div class="areas" role="list">
-          <a class="area-item" role="listitem" href="/white-plains-locksmith/">White Plains</a>
-          <div class="area-item" role="listitem">Purchase</div>
-          <div class="area-item" role="listitem">Rye</div>
-          <div class="area-item" role="listitem">Scarsdale</div>
-          <a class="area-item" role="listitem" href="/tarrytown-locksmith/">Tarrytown</a>
-          <a class="area-item" role="listitem" href="/new-rochelle-locksmith/">New Rochelle</a>
-          <a class="area-item" role="listitem" href="/yonkers-locksmith/">Yonkers</a>
-        </div>
-        <div style="margin-top:14px;">
-          <a class="cta-secondary" href="tel:+19144064474" data-cta="areas-call">Call Westchester Dispatch: (914) 406-4474</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Trust Signals -->
-    <section id="trust">
-      <div class="container">
-        <h2 class="section-title">Why Choose Alliance 24hr Locksmith</h2>
-        <div class="trust">
-          <div class="trust-item">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l7 4v6c0 5-3.5 9.74-7 10-3.5-.26-7-5-7-10V6l7-4z"/></svg>
-            <div>
-              <strong>Licensed & Insured</strong>
-              <span>Professional service you can trust—fully licensed and insured technicians.</span>
-            </div>
-          </div>
-          <div class="trust-item">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 8v5l4 2"/></svg>
-            <div>
-              <strong>Fast Response</strong>
-              <span>Average dispatch under 30 minutes across Westchester County.</span>
-            </div>
-          </div>
-          <div class="trust-item">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
-            <div>
-              <strong>Upfront Pricing</strong>
-              <span>Clear quotes before dispatch. No surprises on arrival.</span>
-            </div>
-          </div>
-          <div class="trust-item">
-            <svg class="icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 7h18v10H3zM7 5h10v2H7z"/></svg>
-            <div>
-              <strong>Professional Tools</strong>
-              <span>Modern unlocking, key cutting, and programming equipment.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- How It Works (moved up) -->
-    <section id="process">
-      <div class="container">
-        <h2 class="section-title">How It Works</h2>
-        <div class="steps">
-          <div class="step"><div><span class="step-num">1</span><strong>Call Us</strong></div><p style="margin-top:6px; color:var(--gray-700)">Tap to call and share your location and situation.</p></div>
-          <div class="step"><div><span class="step-num">2</span><strong>Get a Quote</strong></div><p style="margin-top:6px; color:var(--gray-700)">We confirm clear pricing before dispatch.</p></div>
-          <div class="step"><div><span class="step-num">3</span><strong>Rapid Arrival</strong></div><p style="margin-top:6px; color:var(--gray-700)">Local tech heads your way—typically under 30 minutes.</p></div>
-          <div class="step"><div><span class="step-num">4</span><strong>Professional Entry</strong></div><p style="margin-top:6px; color:var(--gray-700)">Non-destructive methods first. You’re back in quickly.</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Quote Form (secondary, below fold) -->
-    <section>
-      <div class="container">
-        <div class="quote-section">
-          <div class="quote-grid">
-            <div class="quote-info">
-              <h2 style="margin:0 0 8px; font-size:22px;">We’re ready to help</h2>
-              <p>Tell us what you need and the best number to reach you. We’ll confirm pricing and send a local tech.</p>
-              <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:12px;">
-                <a class="cta-primary" href="tel:+19144064474" data-cta="quote-call">Call (914) 406-4474</a>
-                <span class="badge">Average arrival ≈ 30 mins</span>
-              </div>
-            </div>
-            <div class="quote-card">
-              <h2 style="margin:0 0 10px; font-size:20px;">Request a Quote</h2>
-              <form class="quote-form js-quote-form">
-                <div>
-                  <label>Your Name</label>
-                  <input name="name" type="text" placeholder="Your Name" required />
-                </div>
-                <div>
-                  <label>Phone Number</label>
-                  <input name="phone" type="tel" placeholder="(914) 555-0000" required />
-                </div>
-                <div>
-                  <label>Service Needed</label>
-                  <input name="service" type="text" placeholder="e.g., Car lockout, door rekey" required />
-                </div>
-                <button type="submit" data-cta="quote-submit">Submit</button>
-                <p class="form-msg" style="display:none; margin:8px 0 0; font-weight:700;"></p>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer role="contentinfo">
-    <div class="container">
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.1);">
+    <aside class="hero__card" aria-label="Live dispatch status">
+      <div class="dispatch__head">
+        <div class="dispatch__dot"></div>
         <div>
-          <strong>Alliance 24hr Locksmith</strong>
-          <div>Westchester County, NY</div>
-          <div><a href="tel:+19144064474" data-cta="footer-call" style="font-weight:700; color:#fff; text-decoration:underline;">(914) 406-4474</a></div>
+          <div class="dispatch__title">Dispatch live</div>
+          <div class="dispatch__sub">Key techs staged across Westchester</div>
         </div>
-        <nav aria-label="footer services">
-          <a href="/emergency-locksmith/" style="color:#cfe0ff; margin-right:12px;">Emergency</a>
-          <a href="/car-lockout/" style="color:#cfe0ff; margin-right:12px;">Car Lockout</a>
-          <a href="/house-lockout/" style="color:#cfe0ff; margin-right:12px;">House Lockout</a>
-          <a href="/price-list/" style="color:#cfe0ff; margin-right:12px;">Price List</a>
-          <a href="/contact/" style="color:#cfe0ff;">Contact</a>
-          <a href="https://instagram.com/alliance24hourlocksmith" target="_blank" rel="noopener" aria-label="Instagram: alliance24hourlocksmith" style="color:#cfe0ff; margin-left:12px; text-decoration:underline;">Instagram</a>
-        </nav>
       </div>
-      <nav aria-label="service areas" style="padding-top:16px;">
-        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">Westchester County, NY</div>
-        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
-          <a href="/yonkers-locksmith/" style="color:#cfe0ff;">Yonkers</a>
-          <a href="/white-plains-locksmith/" style="color:#cfe0ff;">White Plains</a>
-          <a href="/new-rochelle-locksmith/" style="color:#cfe0ff;">New Rochelle</a>
-          <a href="/mount-vernon-locksmith/" style="color:#cfe0ff;">Mount Vernon</a>
-          <a href="/scarsdale-locksmith/" style="color:#cfe0ff;">Scarsdale</a>
-          <a href="/larchmont-locksmith/" style="color:#cfe0ff;">Larchmont</a>
-          <a href="/pelham-locksmith/" style="color:#cfe0ff;">Pelham</a>
-          <a href="/tarrytown-locksmith/" style="color:#cfe0ff;">Tarrytown</a>
+      <div class="dispatch__eta">
+        <div class="dispatch__eta-num" id="eta-num">~55</div>
+        <div class="dispatch__eta-unit">
+          <div>min</div>
+          <div class="dispatch__eta-label">avg arrival</div>
         </div>
-        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">Fairfield County, CT</div>
-        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
-          <a href="/greenwich-locksmith/" style="color:#cfe0ff;">Greenwich</a>
-          <a href="/stamford-locksmith/" style="color:#cfe0ff;">Stamford</a>
-          <a href="/darien-locksmith/" style="color:#cfe0ff;">Darien</a>
-          <a href="/new-canaan-locksmith/" style="color:#cfe0ff;">New Canaan</a>
-          <a href="/westport-locksmith/" style="color:#cfe0ff;">Westport</a>
-        </div>
-        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">Long Island, NY</div>
-        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
-          <a href="/garden-city-locksmith/" style="color:#cfe0ff;">Garden City</a>
-          <a href="/manhasset-locksmith/" style="color:#cfe0ff;">Manhasset</a>
-          <a href="/great-neck-locksmith/" style="color:#cfe0ff;">Great Neck</a>
-          <a href="/syosset-locksmith/" style="color:#cfe0ff;">Syosset</a>
-          <a href="/rockville-centre-locksmith/" style="color:#cfe0ff;">Rockville Centre</a>
-        </div>
-        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">New Jersey</div>
-        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
-          <a href="/short-hills-locksmith/" style="color:#cfe0ff;">Short Hills</a>
-          <a href="/summit-locksmith/" style="color:#cfe0ff;">Summit</a>
-          <a href="/livingston-locksmith/" style="color:#cfe0ff;">Livingston</a>
-          <a href="/montclair-locksmith/" style="color:#cfe0ff;">Montclair</a>
-          <a href="/ridgewood-locksmith/" style="color:#cfe0ff;">Ridgewood</a>
-          <a href="/hoboken-locksmith/" style="color:#cfe0ff;">Hoboken</a>
-          <a href="/jersey-city-locksmith/" style="color:#cfe0ff;">Jersey City</a>
-        </div>
-      </nav>
-      <small style="display:block; padding-top:12px; border-top:1px solid rgba(255,255,255,0.1);">© <span id="y"></span> Alliance 24hr Locksmith. All rights reserved.</small>
-    </div>
-  </footer>
+      </div>
+      <div class="dispatch__map" aria-hidden="true">
+        <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice">
+          <defs>
+            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect width="320" height="180" fill="url(#grid)"/>
+          <path d="M0 90 Q 80 70 160 100 T 320 90" stroke="rgba(255,255,255,0.18)" stroke-width="2" fill="none"/>
+          <path d="M40 0 Q 60 80 100 180" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none"/>
+          <path d="M220 0 Q 200 90 250 180" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none"/>
+          <circle cx="160" cy="90" r="18" fill="rgba(245,165,36,0.18)">
+            <animate attributeName="r" values="14;26;14" dur="2.4s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2.4s" repeatCount="indefinite"/>
+          </circle>
+          <circle cx="160" cy="90" r="6" fill="#F5A524" stroke="#fff" stroke-width="2"/>
+          <g><circle cx="30" cy="60" r="4" fill="#3DD68C"/><circle cx="30" cy="60" r="9" fill="none" stroke="#3DD68C" stroke-opacity="0.4" stroke-width="1.5"/></g>
+          <g><circle cx="120" cy="40" r="4" fill="#3DD68C"/><circle cx="120" cy="40" r="9" fill="none" stroke="#3DD68C" stroke-opacity="0.4" stroke-width="1.5"/></g>
+          <g><circle cx="200" cy="95" r="4" fill="#F5A524"/><circle cx="200" cy="95" r="9" fill="none" stroke="#F5A524" stroke-opacity="0.4" stroke-width="1.5"/></g>
+          <g><circle cx="270" cy="55" r="4" fill="#3DD68C"/><circle cx="270" cy="55" r="9" fill="none" stroke="#3DD68C" stroke-opacity="0.4" stroke-width="1.5"/></g>
+          <g><circle cx="90" cy="130" r="4" fill="#3DD68C"/><circle cx="90" cy="130" r="9" fill="none" stroke="#3DD68C" stroke-opacity="0.4" stroke-width="1.5"/></g>
+          <g><circle cx="230" cy="150" r="4" fill="#3DD68C"/><circle cx="230" cy="150" r="9" fill="none" stroke="#3DD68C" stroke-opacity="0.4" stroke-width="1.5"/></g>
+        </svg>
+      </div>
+      <div class="dispatch__list">
+        <div class="dispatch__row"><span class="dispatch__pip dispatch__pip--green"></span> Tech 04 · White Plains · available</div>
+        <div class="dispatch__row"><span class="dispatch__pip dispatch__pip--green"></span> Tech 11 · Yonkers · available</div>
+        <div class="dispatch__row"><span class="dispatch__pip dispatch__pip--amber"></span> Tech 02 · New Rochelle · en route</div>
+        <div class="dispatch__row"><span class="dispatch__pip dispatch__pip--green"></span> Tech 19 · Scarsdale · available</div>
+      </div>
+      <a href="tel:+19144064474" class="dispatch__cta" data-cta="dispatch">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        Connect to dispatcher
+      </a>
+    </aside>
+  </div>
+</section>
 
-  <!-- Mobile sticky call button -->
-  <div class="mobile-call" aria-label="mobile call bar">
-    <a href="tel:+19144064474" data-cta="mobile-sticky">
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
-      <span>Call Now</span> <span style="opacity:0.85;">(914) 406-4474</span>
+<!-- Trust Band -->
+<section class="trust">
+  <div class="container trust__inner">
+    <div class="trust__item">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      <div><div class="trust__num">24/7</div><div class="trust__label">Always available</div></div>
+    </div>
+    <div class="trust__item">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17.5" cy="17.5" r="1.5"/></svg>
+      <div><div class="trust__num">45–75 min</div><div class="trust__label">We come to you</div></div>
+    </div>
+    <div class="trust__item">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+      <div><div class="trust__num">All Makes</div><div class="trust__label">Domestic &amp; import</div></div>
+    </div>
+    <div class="trust__item">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+      <div><div class="trust__num">No Tow</div><div class="trust__label">On-site programming</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Why Us -->
+<section class="section section--alt" id="why">
+  <div class="container">
+    <div class="head">
+      <div class="head__kicker">The Alliance Difference</div>
+      <h2 class="head__title">Why choose us?</h2>
+      <p class="head__sub">Faster and cheaper than the dealership — we come to you, anywhere in Westchester.</p>
+    </div>
+    <div class="services">
+      <article class="svc">
+        <div class="svc__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17.5" cy="17.5" r="1.5"/></svg></div>
+        <h3 class="svc__title">We Come to You</h3>
+        <p class="svc__blurb" style="margin-bottom:0">No tow, no dealership trip. We arrive at your location — parking lot, home, roadside — and cut or program on the spot.</p>
+      </article>
+      <article class="svc">
+        <div class="svc__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 5"/><path d="M3 13h18v5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2H7v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg></div>
+        <h3 class="svc__title">All Makes &amp; Models</h3>
+        <p class="svc__blurb" style="margin-bottom:0">From basic transponder keys to smart keys and proximity fobs. Domestic, European, Japanese — we carry the equipment for most vehicles.</p>
+      </article>
+      <article class="svc">
+        <div class="svc__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></div>
+        <h3 class="svc__title">Upfront Pricing</h3>
+        <p class="svc__blurb" style="margin-bottom:0">Quote on the phone before we dispatch — always a fraction of dealership cost. What you hear is what you pay.</p>
+      </article>
+      <article class="svc">
+        <div class="svc__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3 class="svc__title">Same-Day Service</h3>
+        <p class="svc__blurb" style="margin-bottom:0">Average arrival 45–75 minutes. Dealerships book days out — we're there today.</p>
+      </article>
+    </div>
+    <div class="stats">
+      <div class="stats__item"><div class="stats__num">24/7</div><div class="stats__label">Always available</div></div>
+      <div class="stats__sep"></div>
+      <div class="stats__item"><div class="stats__num">45–75</div><div class="stats__label">Min arrival</div></div>
+      <div class="stats__sep"></div>
+      <div class="stats__item"><div class="stats__num">All</div><div class="stats__label">Makes &amp; models</div></div>
+      <div class="stats__sep"></div>
+      <div class="stats__item"><div class="stats__num">LOCAL</div><div class="stats__label">Mobile technicians</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="head">
+      <div class="head__kicker">What we do</div>
+      <h2 class="head__title">Mobile car key services</h2>
+      <p class="head__sub">Lost, broken, or need a spare? We cut and program on-site — no dealership, no tow, no wait.</p>
+    </div>
+    <div class="services services--3">
+      <article class="svc">
+        <div class="svc__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M11 13l9-9"/><path d="M17 7l3 3"/><path d="M14 10l2 2"/></svg></div>
+        <h3 class="svc__title">Car Key Replacement</h3>
+        <p class="svc__blurb">Lost or broken key? We cut a new one on-site for most makes and models — domestic, European, and Japanese vehicles.</p>
+      </article>
+      <article class="svc">
+        <div class="svc__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="11" rx="2"/><path d="M7 11h2M11 11h2M15 11h2M7 15h6"/></svg></div>
+        <h3 class="svc__title">Key Fob Replacement</h3>
+        <p class="svc__blurb">Replace and program a new fob for your vehicle on the spot. We carry shells and electronics for most common makes.</p>
+      </article>
+      <article class="svc">
+        <div class="svc__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a5 5 0 0 1 5 5v3H7V7a5 5 0 0 1 5-5z"/><rect x="3" y="10" width="18" height="12" rx="2"/><circle cx="12" cy="16" r="1.5" fill="var(--accent)"/></svg></div>
+        <h3 class="svc__title">Transponder Key Programming</h3>
+        <p class="svc__blurb">Chip keys need to be programmed to start your car. We handle the cutting and the programming in one visit.</p>
+      </article>
+      <article class="svc">
+        <div class="svc__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 5"/><path d="M3 13h18v5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2H7v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/><circle cx="7.5" cy="16.5" r="0.6" fill="var(--accent)"/><circle cx="16.5" cy="16.5" r="0.6" fill="var(--accent)"/></svg></div>
+        <h3 class="svc__title">Smart Key &amp; Push-to-Start</h3>
+        <p class="svc__blurb">Proximity keys and push-button start fobs for modern vehicles. We program to your VIN — no dealer required.</p>
+      </article>
+      <article class="svc">
+        <div class="svc__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="15" r="4"/><path d="M11 13l9-9"/><path d="M17 7l3 3"/><path d="M14 10l2 2"/><path d="M19 5l-2 2"/></svg></div>
+        <h3 class="svc__title">Spare Key Cutting</h3>
+        <p class="svc__blurb">Don't wait until you're locked out. We cut a programmed spare on-site — the smart move before you need it.</p>
+      </article>
+      <article class="svc">
+        <div class="svc__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3 class="svc__title">Ignition Repair</h3>
+        <p class="svc__blurb">Key won't turn or stuck in the ignition? We diagnose and repair ignition cylinders on-site for most vehicles.</p>
+      </article>
+    </div>
+    <div class="section__cta">
+      <span>Not sure if we cover your vehicle? Call and we'll tell you in 30 seconds.</span>
+      <a href="tel:+19144064474" class="btn btn--primary" data-cta="services">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        Call (914) 406-4474
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- How It Works -->
+<section class="section section--alt" id="process">
+  <div class="container">
+    <div class="head">
+      <div class="head__kicker">How it works</div>
+      <h2 class="head__title">From dial tone to door open.</h2>
+      <p class="head__sub">No call centers, no surprise fees. Here's exactly what happens after you tap the number.</p>
+    </div>
+    <ol class="process">
+      <li class="process__step">
+        <div class="process__num" style="color:var(--accent)">01</div>
+        <div class="process__body">
+          <h4>Call us</h4>
+          <p>Tap to call and share your location and situation. A live dispatcher picks up — usually on the first ring.</p>
+        </div>
+      </li>
+      <li class="process__step">
+        <div class="process__num" style="color:var(--accent)">02</div>
+        <div class="process__body">
+          <h4>Get a quote</h4>
+          <p>We confirm clear pricing on the phone before dispatch. What you hear is what you pay.</p>
+        </div>
+      </li>
+      <li class="process__step">
+        <div class="process__num" style="color:var(--accent)">03</div>
+        <div class="process__body">
+          <h4>Tech rolls to you</h4>
+          <p>A local technician heads your way with a fully stocked van — key cutting machine, programmer, and stock for most makes.</p>
+        </div>
+      </li>
+      <li class="process__step">
+        <div class="process__num" style="color:var(--accent)">04</div>
+        <div class="process__body">
+          <h4>New key in hand</h4>
+          <p>Most jobs done in 20–40 minutes on-site. We test the key in your ignition before we leave.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Service Area -->
+<section class="section section--dark" id="area">
+  <div class="container">
+    <div class="area">
+      <div>
+        <div class="head" style="text-align:left;margin:0 0 32px">
+          <div class="head__kicker">Where we go</div>
+          <h2 class="head__title">Serving Westchester &amp; the tri-state.</h2>
+          <p class="head__sub">Local, rapid response across Westchester County, NY and into Fairfield County, Long Island, and northern New Jersey.</p>
+        </div>
+        <div class="area__regions">
+          <div class="area__region">
+            <div class="area__region-title">Westchester County, NY</div>
+            <div class="area__grid">
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> White Plains</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Yonkers</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> New Rochelle</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Mount Vernon</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Scarsdale</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Larchmont</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Pelham</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Tarrytown</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Purchase</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Rye</div>
+            </div>
+          </div>
+          <div class="area__region">
+            <div class="area__region-title">Fairfield County, CT</div>
+            <div class="area__grid">
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Greenwich</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Stamford</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Darien</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> New Canaan</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Westport</div>
+            </div>
+          </div>
+          <div class="area__region">
+            <div class="area__region-title">Long Island, NY</div>
+            <div class="area__grid">
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Garden City</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Manhasset</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Great Neck</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Syosset</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Rockville Centre</div>
+            </div>
+          </div>
+          <div class="area__region">
+            <div class="area__region-title">New Jersey</div>
+            <div class="area__grid">
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Short Hills</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Summit</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Livingston</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Montclair</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Ridgewood</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Hoboken</div>
+              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Jersey City</div>
+            </div>
+          </div>
+        </div>
+        <div class="area__note">Outside this list? Call us — we usually still cover you with a small travel adjustment.</div>
+        <a href="tel:+19144064474" class="btn btn--primary" style="margin-top:24px" data-cta="area">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+          Call Westchester Dispatch: (914) 406-4474
+        </a>
+      </div>
+      <div class="area__map">
+        <svg viewBox="0 0 480 360" class="bigmap">
+          <defs>
+            <pattern id="grid2" width="24" height="24" patternUnits="userSpaceOnUse">
+              <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            </pattern>
+            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#F5A524" stop-opacity="0.3"/>
+              <stop offset="100%" stop-color="#F5A524" stop-opacity="0"/>
+            </radialGradient>
+          </defs>
+          <rect width="480" height="360" fill="url(#grid2)"/>
+          <path d="M180 30 C 160 100, 200 160, 170 230 S 200 320, 230 350 L 480 350 L 480 0 L 180 0 Z" fill="rgba(245,165,36,0.04)" stroke="rgba(245,165,36,0.18)" stroke-width="1"/>
+          <path d="M0 0 L 170 0 C 160 90, 195 150, 160 220 S 195 310, 220 360 L 0 360 Z" fill="rgba(61,214,140,0.03)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          <circle cx="180" cy="120" r="90" fill="url(#glow)"/>
+          <circle cx="120" cy="200" r="80" fill="url(#glow)"/>
+          <circle cx="320" cy="100" r="70" fill="url(#glow)"/>
+          <circle cx="320" cy="240" r="70" fill="url(#glow)"/>
+          <g><circle cx="180" cy="110" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="189" y="113" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">White Plains</text></g>
+          <g><circle cx="150" cy="150" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="159" y="153" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Scarsdale</text></g>
+          <g><circle cx="120" cy="200" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="129" y="203" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Yonkers</text></g>
+          <g><circle cx="200" cy="175" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="209" y="178" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">New Rochelle</text></g>
+          <g><circle cx="165" cy="180" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="174" y="183" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Pelham</text></g>
+          <g><circle cx="115" cy="245" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="124" y="248" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Mt. Vernon</text></g>
+          <g><circle cx="220" cy="95" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="229" y="98" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Tarrytown</text></g>
+          <g><circle cx="240" cy="145" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="249" y="148" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Rye</text></g>
+          <g><circle cx="310" cy="90" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="319" y="93" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Greenwich</text></g>
+          <g><circle cx="355" cy="75" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="364" y="78" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Stamford</text></g>
+          <g><circle cx="320" cy="240" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="329" y="243" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Garden City</text></g>
+          <g><circle cx="380" cy="270" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="389" y="273" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Manhasset</text></g>
+          <g><circle cx="70" cy="280" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="79" y="283" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Hoboken</text></g>
+          <g><circle cx="50" cy="320" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="59" y="323" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Jersey City</text></g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Big CTA -->
+<section class="bigcta">
+  <div class="container bigcta__inner">
+    <div>
+      <div class="bigcta__kicker">Locked out right now?</div>
+      <h2 class="bigcta__title">We're ready to help.</h2>
+      <p class="bigcta__sub">Tell us your year, make, and model and we'll quote you on the spot. A local tech with a full van heads your way — no tow, no dealership, no wait.</p>
+    </div>
+    <a href="tel:+19144064474" class="bigcta__btn" data-cta="bigcta">
+      <div class="bigcta__btn-top">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        Call now
+      </div>
+      <div class="bigcta__btn-num">(914) 406-4474</div>
+      <div class="bigcta__btn-sub">Average arrival 45–75 minutes</div>
     </a>
   </div>
+</section>
 
-  <script defer>
-    // Set year
-    document.getElementById('y').textContent = new Date().getFullYear();
+<!-- Footer -->
+<footer class="foot">
+  <div class="container foot__inner">
+    <div class="foot__col">
+      <a href="#top" class="brand brand--foot">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 32 32" width="28" height="28" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="16" cy="16" r="15" stroke-width="1.5"/>
+            <path d="M11 20a4 4 0 1 1 4-4" stroke-width="2"/>
+            <path d="M15 16l7-7M19 12l2 2M17 14l2 2" stroke-width="2"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">Alliance 24hr Locksmith</span>
+          <span class="brand__tag">Westchester County, NY</span>
+        </span>
+      </a>
+      <p class="foot__about">Calm, professional lock and key solutions for residents, property managers, and local businesses across Westchester County and the surrounding tri-state — day or night.</p>
+    </div>
+    <div class="foot__col">
+      <div class="foot__title">Services</div>
+      <ul>
+        <li><a href="/car-key-replacement">Car key replacement</a></li>
+        <li><a href="/key-fob">Key fob programming</a></li>
+        <li><a href="/car-lockout">Car lockouts</a></li>
+        <li><a href="/key-duplication">Spare key cutting</a></li>
+        <li><a href="/price-list">Pricing</a></li>
+      </ul>
+    </div>
+    <div class="foot__col">
+      <div class="foot__title">Service area</div>
+      <ul>
+        <li>Westchester County, NY</li>
+        <li>Fairfield County, CT</li>
+        <li>Long Island, NY</li>
+        <li>Northern New Jersey</li>
+      </ul>
+    </div>
+    <div class="foot__col foot__col--call">
+      <div class="foot__title">24-hour line</div>
+      <a href="tel:+19144064474" class="foot__num" data-cta="footer">(914) 406-4474</a>
+      <div class="foot__small">A real person picks up. Always.</div>
+      <div class="foot__small foot__lic">Licensed &amp; insured</div>
+    </div>
+  </div>
+  <div class="foot__bottom container">
+    <div>© 2026 Alliance 24hr Locksmith. All rights reserved.</div>
+    <div><a href="/emergency-locksmith" style="color:inherit">Emergency</a> · <a href="/price-list" style="color:inherit">Price List</a> · <a href="/contact" style="color:inherit">Contact</a></div>
+  </div>
+</footer>
 
-    // Quote form handler — handles all .js-quote-form instances + hero #quoteForm
-    async function handleQuoteSubmit(e) {
-      e.preventDefault();
-      var form = e.target;
-      var btn = form.querySelector('button[type="submit"]');
-      var msg = form.querySelector('.form-msg') || document.getElementById('formMsg');
-      var origText = btn.textContent;
-      btn.disabled = true;
-      btn.textContent = 'Sending...';
-      try {
-        var res = await fetch('/api/quote', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            name: form.querySelector('[name="name"]').value,
-            phone: form.querySelector('[name="phone"]').value,
-            service: form.querySelector('[name="service"]').value,
-            page: window.location.href
-          })
-        });
-        if (res.ok) {
-          if (msg) { msg.style.display = 'block'; msg.style.color = '#16a34a'; msg.textContent = "Got it! We'll call you back shortly."; }
-          form.reset();
-        } else { throw new Error('err'); }
-      } catch(err) {
-        if (msg) { msg.style.display = 'block'; msg.style.color = '#dc2626'; msg.textContent = 'Something went wrong. Please call us at (914) 406-4474.'; }
-      }
-      btn.disabled = false;
-      btn.textContent = origText;
-    }
+<!-- Sticky Call Bar -->
+<a href="tel:+19144064474" class="sticky-call" data-cta="sticky">
+  <div class="sticky-call__inner">
+    <div class="sticky-call__icon">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+    </div>
+    <div class="sticky-call__text">
+      <div class="sticky-call__label">Tap to call · 24/7</div>
+      <div class="sticky-call__num">(914) 406-4474</div>
+    </div>
+    <div class="sticky-call__chev">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+    </div>
+  </div>
+</a>
 
-    document.querySelectorAll('.js-quote-form, #quoteForm').forEach(function(f) {
-      f.addEventListener('submit', handleQuoteSubmit);
+<script>
+  // Mobile menu
+  document.getElementById('menu-btn').addEventListener('click', function() {
+    document.getElementById('mmenu').classList.add('is-open');
+  });
+  document.getElementById('mmenu-close').addEventListener('click', function() {
+    document.getElementById('mmenu').classList.remove('is-open');
+  });
+  document.getElementById('mmenu').addEventListener('click', function(e) {
+    if (e.target === this) this.classList.remove('is-open');
+  });
+  document.querySelectorAll('.mmenu__links a').forEach(function(a) {
+    a.addEventListener('click', function() {
+      document.getElementById('mmenu').classList.remove('is-open');
     });
+  });
 
-    // Track tel link clicks for GA4 if gtag is present
-    function trackCallClick(event) {
-      try {
-        var target = event.currentTarget;
-        var cta = target.getAttribute('data-cta') || 'tel-click';
-        if (typeof gtag === 'function') {
-          gtag('event', 'click', {
-            event_category: 'engagement',
-            event_label: cta,
-            value: 1
-          });
-        }
-      } catch (err) { /* no-op */ }
-    }
+  // ETA animation
+  var etaEl = document.getElementById('eta-num');
+  if (etaEl) {
+    setInterval(function() {
+      etaEl.textContent = '~' + (45 + Math.floor(Math.random() * 31));
+    }, 6000);
+  }
 
-    var telLinks = document.querySelectorAll('a[href^="tel:"]');
-    for (var i = 0; i < telLinks.length; i++) {
-      telLinks[i].addEventListener('click', trackCallClick, { passive: true });
-    }
-  </script>
-
-  <noscript>
-    Your browser does not support JavaScript. Please call Alliance 24hr Locksmith at (914) 406-4474.
-  </noscript>
+  // Tel click tracking
+  document.querySelectorAll('a[href^="tel:"]').forEach(function(a) {
+    a.addEventListener('click', function() {
+      if (typeof gtag === 'function') {
+        gtag('event', 'click', { event_category: 'phone', event_label: this.getAttribute('data-cta') || 'unknown' });
+      }
+    });
+  });
+</script>
 </body>
-</html> 
+</html>
