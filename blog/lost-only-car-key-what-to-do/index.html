@@ -95,7 +95,7 @@
     .mmenu__call{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:var(--ink);padding:16px;border-radius:12px;font-weight:700;font-size:18px;}
     .mmenu__links{display:flex;flex-direction:column;gap:4px;}
     .mmenu__links a{padding:12px 4px;border-bottom:1px solid var(--line);font-weight:500;display:block;}
-    .page-wrap{max-width:860px;margin:0 auto;padding:48px 24px 80px;}
+    .article-content{min-width:0;}
     .breadcrumb{font-size:13px;color:var(--muted);margin-bottom:24px;}
     .breadcrumb a{color:var(--muted);}
     .breadcrumb a:hover{color:var(--accent);}
@@ -134,6 +134,24 @@
     .sticky-call__label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;opacity:0.8;}
     .sticky-call__num{font-size:20px;font-weight:800;letter-spacing:-0.01em;margin-top:2px;white-space:nowrap;}
     @media(max-width:700px){.sticky-call{display:block;}body{padding-bottom:80px;}}
+    .article-layout{display:grid;grid-template-columns:1fr 300px;gap:48px;max-width:1100px;margin:0 auto;padding:48px 24px 80px;align-items:start;}
+    @media(max-width:900px){.article-layout{grid-template-columns:1fr;}.sidebar{display:none;}}
+    .sidebar{position:sticky;top:92px;}
+    .sidebar-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:16px;}
+    .sidebar-card__label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+    .sidebar-card__headline{font-size:18px;font-weight:800;color:var(--ink);line-height:1.2;margin:0 0 8px;}
+    .sidebar-card__sub{font-size:13px;color:var(--muted);margin:0 0 16px;line-height:1.5;}
+    .sidebar-cta{display:flex;flex-direction:column;gap:8px;}
+    .sidebar-cta a{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:10px;font-weight:700;font-size:15px;}
+    .sidebar-cta .btn-call{background:var(--accent);color:var(--ink);box-shadow:0 4px 14px rgba(245,165,36,0.3);}
+    .sidebar-checklist{list-style:none;padding:0;margin:0;}
+    .sidebar-checklist li{font-size:13px;color:var(--ink-2);padding:6px 0;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:flex-start;}
+    .sidebar-checklist li:last-child{border-bottom:none;}
+    .sidebar-checklist li::before{content:"✓";color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+    .breadcrumb{font-size:13px;color:var(--muted);margin-bottom:24px;}
+    .breadcrumb a{color:var(--muted);}
+    .breadcrumb a:hover{color:var(--accent);}
+
   </style>
 </head>
 <body>
@@ -185,7 +203,8 @@
   </div>
 </header>
 
-<div class="page-wrap">
+<div class="article-layout">
+<article class="article-content">
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="/">Home</a> &rsaquo; <a href="/blog/">Blog</a> &rsaquo; Lost Your Only Car Key
   </nav>
@@ -258,6 +277,28 @@
   <h2>What If You Are Not Near Your Car?</h2>
   <p>We can meet you at the vehicle, not at your home. Tell us where the car is parked when you call. As long as you can be present with your ID and registration, we can make a key wherever the vehicle is located. We serve all of Westchester County, Fairfield County CT, Long Island, and northern New Jersey.</p>
 
+
+  <h2>Why Making a Spare Immediately Matters</h2>
+  <p>Most people who lose their only car key had a spare at some point and just stopped keeping track of it. The spare key gets lost, not replaced, and then one day the main key disappears too. You are then in the most expensive possible situation.</p>
+  <p>When a locksmith comes to create a key from scratch with no original, it takes more time and equipment than making a duplicate from a working key. The cost is higher. When a locksmith makes a duplicate while the original is still in front of them, it is significantly faster and cheaper. The same visit that solves your lost key problem can also produce a spare for a fraction of additional cost.</p>
+  <p>Once you have a working key again, the single best thing you can do is ask for a spare in the same appointment. Keep one at home in a fixed location. Give one to a trusted person who lives or works nearby. At the very least, store a lock box somewhere accessible to you.</p>
+
+  <h2>What Happens During the Visit</h2>
+  <p>Understanding the process makes the wait less stressful. Here is what happens when a mobile locksmith arrives to replace a lost key with no original:</p>
+  <ul>
+    <li><strong>Verification.</strong> The technician confirms your identity and vehicle ownership before starting. Have your photo ID and vehicle registration ready. This step protects you as much as anyone.</li>
+    <li><strong>VIN lookup and key code generation.</strong> Using your VIN, the locksmith accesses the key cutting data for your specific vehicle. This tells them the exact cut pattern your key requires.</li>
+    <li><strong>Key cutting.</strong> The blank key is cut on the spot using a mobile key cutting machine. This takes a few minutes for most vehicles.</li>
+    <li><strong>Programming.</strong> The cut key is connected to your vehicle's OBD port or programmed using a dedicated key programming device. The transponder chip in the key is written to match your vehicle's immobilizer. This is the step that takes the most time, typically 10 to 25 minutes depending on the vehicle.</li>
+    <li><strong>Testing.</strong> The technician tests the key in the door lock, in the ignition, and confirms remote functions work if applicable before the job is marked complete.</li>
+  </ul>
+  <p>The whole process for most vehicles in Westchester County runs 20 to 40 minutes on-site. Add in travel time and you are typically looking at 45 to 75 minutes from the moment you call to holding a working key.</p>
+
+  <h2>What If You Are Somewhere Unfamiliar</h2>
+  <p>Losing your only key when you are away from home is a different kind of stressful. You do not know who to call, you are not sure who is legitimate, and you may be in a location that feels uncomfortable to wait in.</p>
+  <p>A few things that help in this situation. First, call ahead and ask for a quote over the phone before anyone dispatches. Any legitimate mobile locksmith will give you a price based on your year, make, and model before sending a technician. Second, ask for an estimated arrival time and stay in a well-lit, populated area while you wait. Third, pay with a credit card. If any service provider insists on cash or a payment app only, call a different company.</p>
+  <p>Alliance 24hr Locksmith serves all of Westchester County, Fairfield County CT, Long Island, and northern New Jersey. If you are in any of those areas and need a mobile locksmith for a lost key situation, call (914) 406-4474 and we will help you through it.</p>
+
   <div class="cta-box">
     <h2>Lost Your Key? We Come to You.</h2>
     <p>Tell us your year, make, and model. We give you a firm price and send someone out. No tow needed.</p>
@@ -282,6 +323,40 @@
   <p>Yes. <a href="/yonkers-locksmith/">Yonkers</a> is one of our most active service areas. Same for <a href="/white-plains-locksmith/">White Plains</a>, <a href="/new-rochelle-locksmith/">New Rochelle</a>, <a href="/mount-vernon-locksmith/">Mount Vernon</a>, and all surrounding communities. Call (914) 406-4474 and we will give you an ETA.</p>
 </div>
 
+</article>
+<aside class="sidebar">
+  <div class="sidebar-card">
+    <div class="sidebar-card__label">Get a Quote</div>
+    <div class="sidebar-card__headline">Real price before we dispatch.</div>
+    <div class="sidebar-card__sub">Tell us your year, make, and model. We quote you over the phone. No surprises.</div>
+    <div class="sidebar-cta">
+      <a href="tel:+19144064474" class="btn-call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        (914) 406-4474
+      </a>
+    </div>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card__label">Have Ready When You Call</div>
+    <ul class="sidebar-checklist">
+      <li>Year, make, and model</li>
+      <li>VIN number</li>
+      <li>Vehicle registration or title</li>
+      <li>Photo ID</li>
+      <li>Your exact location</li>
+    </ul>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card__label">Service Area</div>
+    <ul class="sidebar-checklist">
+      <li>Westchester County, NY</li>
+      <li>Fairfield County, CT</li>
+      <li>Long Island, NY</li>
+      <li>Northern New Jersey</li>
+    </ul>
+  </div>
+</aside>
+</div><!-- /.article-layout -->
 <footer class="foot">
   <div class="container foot__inner">
     <div class="foot__col">

@@ -90,7 +90,7 @@
     .mmenu__call{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:var(--ink);padding:16px;border-radius:12px;font-weight:700;font-size:18px;}
     .mmenu__links{display:flex;flex-direction:column;gap:4px;}
     .mmenu__links a{padding:12px 4px;border-bottom:1px solid var(--line);font-weight:500;display:block;}
-    .page-wrap{max-width:860px;margin:0 auto;padding:48px 24px 80px;}
+    .article-content{min-width:0;}
     .breadcrumb{font-size:13px;color:var(--muted);margin-bottom:24px;}
     .breadcrumb a{color:var(--muted);}
     .breadcrumb a:hover{color:var(--accent);}
@@ -129,6 +129,24 @@
     .sticky-call__label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;opacity:0.8;}
     .sticky-call__num{font-size:20px;font-weight:800;letter-spacing:-0.01em;margin-top:2px;white-space:nowrap;}
     @media(max-width:700px){.sticky-call{display:block;}body{padding-bottom:80px;}}
+    .article-layout{display:grid;grid-template-columns:1fr 300px;gap:48px;max-width:1100px;margin:0 auto;padding:48px 24px 80px;align-items:start;}
+    @media(max-width:900px){.article-layout{grid-template-columns:1fr;}.sidebar{display:none;}}
+    .sidebar{position:sticky;top:92px;}
+    .sidebar-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:16px;}
+    .sidebar-card__label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+    .sidebar-card__headline{font-size:18px;font-weight:800;color:var(--ink);line-height:1.2;margin:0 0 8px;}
+    .sidebar-card__sub{font-size:13px;color:var(--muted);margin:0 0 16px;line-height:1.5;}
+    .sidebar-cta{display:flex;flex-direction:column;gap:8px;}
+    .sidebar-cta a{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:10px;font-weight:700;font-size:15px;}
+    .sidebar-cta .btn-call{background:var(--accent);color:var(--ink);box-shadow:0 4px 14px rgba(245,165,36,0.3);}
+    .sidebar-checklist{list-style:none;padding:0;margin:0;}
+    .sidebar-checklist li{font-size:13px;color:var(--ink-2);padding:6px 0;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:flex-start;}
+    .sidebar-checklist li:last-child{border-bottom:none;}
+    .sidebar-checklist li::before{content:"✓";color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+    .breadcrumb{font-size:13px;color:var(--muted);margin-bottom:24px;}
+    .breadcrumb a{color:var(--muted);}
+    .breadcrumb a:hover{color:var(--accent);}
+
   </style>
 </head>
 <body>
@@ -180,7 +198,8 @@
   </div>
 </header>
 
-<div class="page-wrap">
+<div class="article-layout">
+<article class="article-content">
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="/">Home</a> &rsaquo; <a href="/blog/">Blog</a> &rsaquo; Car Key Replacement Cost in Westchester County
   </nav>
@@ -253,6 +272,25 @@
   <h2>Serving All of Westchester County</h2>
   <p>Alliance 24hr Locksmith provides mobile car key replacement and programming across Westchester County. We come to you in White Plains, Yonkers, New Rochelle, Mount Vernon, Scarsdale, Larchmont, Tarrytown, Pelham, New Canaan, and all points in between. We also serve parts of Fairfield County CT, Long Island, and northern New Jersey.</p>
 
+
+  <h2>Common Makes We Replace Keys For in Westchester</h2>
+  <p>The vast majority of calls we receive in Westchester County involve a small number of popular vehicle makes. Here is what replacement typically looks like for the most common vehicles in the area:</p>
+  <ul>
+    <li><strong>Toyota (Camry, RAV4, Highlander, Corolla):</strong> Transponder and proximity keys are the standard. Key fob programming is done on-site. Most Toyota replacements in Westchester run $150 to $275.</li>
+    <li><strong>Honda (Civic, Accord, CR-V, Pilot):</strong> Similar technology to Toyota. Transponder keys run $125 to $225. Smart keys for newer Hondas are $200 to $350.</li>
+    <li><strong>Ford (F-150, Escape, Explorer, Edge):</strong> Ford uses a range of key types depending on model year. Older F-150s are straightforward and less expensive. Newer Ford push-button start systems run $225 to $375.</li>
+    <li><strong>Chevrolet and GMC (Silverado, Equinox, Tahoe):</strong> GM transponder keys and fobs are among the most common replacements we do in Yonkers and White Plains. Typical range is $150 to $300.</li>
+    <li><strong>Nissan and Hyundai:</strong> Mid-range pricing for transponder keys. Smart keys on newer Nissans and Hyundais run $200 to $375.</li>
+    <li><strong>Subaru:</strong> Slightly more involved programming for proximity keys. Budget $225 to $400 depending on trim and year.</li>
+  </ul>
+  <p>European brands like BMW, Audi, Mercedes-Benz, and Volvo involve additional security layers that can increase cost and time. Call us with your specific year and model and we will give you an honest answer about whether we can handle it and what it will cost.</p>
+
+  <h2>How Car Key Programming Actually Works</h2>
+  <p>Most people assume a locksmith just cuts a key and hands it over. For basic mechanical keys on older vehicles, that is true. For any car made after roughly 2000, there is a second step that matters a great deal: programming.</p>
+  <p>Modern car keys contain a transponder chip that communicates with your vehicle's immobilizer system. When you insert the key or press the start button, your car checks whether the chip frequency matches what is programmed into the ECU. If it does not match, the engine will not start even if the key is cut correctly.</p>
+  <p>A mobile locksmith carries OBD-II programming tools that connect directly to your vehicle's diagnostic port and either read or write the key data. The locksmith generates the key code from your VIN, programs the blank to match your immobilizer, and tests it before leaving. The entire process happens in your driveway or parking lot, with no need to tow the vehicle anywhere.</p>
+  <p>This is the same fundamental process a dealer performs. The difference is that the dealer charges dealer-level labor rates, requires the vehicle at their facility, and often needs an appointment. A mobile locksmith brings the same capability to you, typically in 45 to 75 minutes from the time you call, at a significantly lower cost.</p>
+
   <div class="cta-box">
     <h2>Get an Exact Price Before We Dispatch</h2>
     <p>Tell us your year, make, and model and we give you a firm quote over the phone. No surprises when we arrive.</p>
@@ -277,6 +315,40 @@
   <p>Yes. We serve <a href="/greenwich-locksmith/">Greenwich</a>, <a href="/stamford-locksmith/">Stamford</a>, <a href="/darien-locksmith/">Darien</a>, and <a href="/westport-locksmith/">Westport</a> in Fairfield County as part of our regular service area.</p>
 </div>
 
+</article>
+<aside class="sidebar">
+  <div class="sidebar-card">
+    <div class="sidebar-card__label">Get a Quote</div>
+    <div class="sidebar-card__headline">Real price before we dispatch.</div>
+    <div class="sidebar-card__sub">Tell us your year, make, and model. We quote you over the phone. No surprises.</div>
+    <div class="sidebar-cta">
+      <a href="tel:+19144064474" class="btn-call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        (914) 406-4474
+      </a>
+    </div>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card__label">Have Ready When You Call</div>
+    <ul class="sidebar-checklist">
+      <li>Year, make, and model</li>
+      <li>VIN number</li>
+      <li>Vehicle registration or title</li>
+      <li>Photo ID</li>
+      <li>Your exact location</li>
+    </ul>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card__label">Service Area</div>
+    <ul class="sidebar-checklist">
+      <li>Westchester County, NY</li>
+      <li>Fairfield County, CT</li>
+      <li>Long Island, NY</li>
+      <li>Northern New Jersey</li>
+    </ul>
+  </div>
+</aside>
+</div><!-- /.article-layout -->
 <footer class="foot">
   <div class="container foot__inner">
     <div class="foot__col">

@@ -90,7 +90,7 @@
     .mmenu__call{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:var(--ink);padding:16px;border-radius:12px;font-weight:700;font-size:18px;}
     .mmenu__links{display:flex;flex-direction:column;gap:4px;}
     .mmenu__links a{padding:12px 4px;border-bottom:1px solid var(--line);font-weight:500;display:block;}
-    .page-wrap{max-width:860px;margin:0 auto;padding:48px 24px 80px;}
+    .article-content{min-width:0;}
     .breadcrumb{font-size:13px;color:var(--muted);margin-bottom:24px;}
     .breadcrumb a{color:var(--muted);}
     .breadcrumb a:hover{color:var(--accent);}
@@ -141,6 +141,24 @@
     .sticky-call__label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;opacity:0.8;}
     .sticky-call__num{font-size:20px;font-weight:800;letter-spacing:-0.01em;margin-top:2px;white-space:nowrap;}
     @media(max-width:700px){.sticky-call{display:block;}body{padding-bottom:80px;}}
+    .article-layout{display:grid;grid-template-columns:1fr 300px;gap:48px;max-width:1100px;margin:0 auto;padding:48px 24px 80px;align-items:start;}
+    @media(max-width:900px){.article-layout{grid-template-columns:1fr;}.sidebar{display:none;}}
+    .sidebar{position:sticky;top:92px;}
+    .sidebar-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:16px;}
+    .sidebar-card__label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+    .sidebar-card__headline{font-size:18px;font-weight:800;color:var(--ink);line-height:1.2;margin:0 0 8px;}
+    .sidebar-card__sub{font-size:13px;color:var(--muted);margin:0 0 16px;line-height:1.5;}
+    .sidebar-cta{display:flex;flex-direction:column;gap:8px;}
+    .sidebar-cta a{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:10px;font-weight:700;font-size:15px;}
+    .sidebar-cta .btn-call{background:var(--accent);color:var(--ink);box-shadow:0 4px 14px rgba(245,165,36,0.3);}
+    .sidebar-checklist{list-style:none;padding:0;margin:0;}
+    .sidebar-checklist li{font-size:13px;color:var(--ink-2);padding:6px 0;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:flex-start;}
+    .sidebar-checklist li:last-child{border-bottom:none;}
+    .sidebar-checklist li::before{content:"✓";color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+    .breadcrumb{font-size:13px;color:var(--muted);margin-bottom:24px;}
+    .breadcrumb a{color:var(--muted);}
+    .breadcrumb a:hover{color:var(--accent);}
+
   </style>
 </head>
 <body>
@@ -192,7 +210,8 @@
   </div>
 </header>
 
-<div class="page-wrap">
+<div class="article-layout">
+<article class="article-content">
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="/">Home</a> &rsaquo; <a href="/blog/">Blog</a> &rsaquo; Locksmith vs. Dealership: Car Key Replacement
   </nav>
@@ -291,6 +310,22 @@
   </ul>
   <p>The difference is real. Call (914) 406-4474 with your year, make, and model and we will give you a firm number.</p>
 
+
+  <h2>Breaking Down the Dealer Cost in Westchester</h2>
+  <p>When a Westchester resident calls a local Toyota, Honda, or Ford dealer about a lost key, the conversation tends to follow a predictable path. The service advisor asks for the model year, looks up the OEM key part number, quotes the key price, then adds the programming labor charge on top. Dealer labor in Westchester commonly runs $150 to $200 per hour, and key programming is typically billed at one to two hours minimum.</p>
+  <p>Then comes the tow question. If you have no working key and cannot drive the vehicle in, you need to arrange transportation. A local tow in Westchester to a dealer service center adds another $75 to $150. By the time you total the parts, programming labor, and towing, a single lost key at a dealer in White Plains or New Rochelle can easily reach $500 to $700 for a common Honda or Toyota.</p>
+  <p>Dealer appointments for key replacement typically run same-day to next-day for common vehicles, longer for less common models or if the parts need to be ordered. You may be without your vehicle for one or two days, which means rental costs on top of everything else.</p>
+
+  <h2>What the Locksmith Pricing Structure Actually Looks Like</h2>
+  <p>A mobile locksmith's pricing works differently. The cost covers parts (the key blank itself), programming time (flat rate, not hourly), and a travel and service charge. There is no shop overhead, no dealer markup on parts, and no separate towing bill because the locksmith comes to you.</p>
+  <p>When you call Alliance 24hr Locksmith with your year, make, and model, the price you hear is the total price. Cut, programmed, and tested. The technician arrives at your location in Westchester County, handles the full job on-site, and leaves you with a working key.</p>
+  <p>For the most common vehicles on Westchester roads, the difference between locksmith and dealer pricing is typically $150 to $350 per key. On a two-key replacement, that gap doubles. Add in towing costs and the time value of being without your vehicle for a day or two, and the practical advantage of a mobile locksmith is significant.</p>
+
+  <h2>Can a Locksmith Handle European and Luxury Vehicles?</h2>
+  <p>This is a fair and common question. BMW, Audi, Mercedes-Benz, Volkswagen, Volvo, and Land Rover all use more advanced key security systems than standard domestic or Japanese vehicles. Some require dealer-only software for certain programming steps. Some require coding that is tied to the vehicle's security server.</p>
+  <p>A trained automotive locksmith can handle many of these vehicles, but it depends on the year and model. Some 2018 and newer BMWs, for example, require a step that currently can only be done through BMW's proprietary system. Some Mercedes models have similar restrictions. These are the narrow cases where a dealer visit may actually be necessary.</p>
+  <p>When you call us, we will ask for your year, make, and model. If your vehicle has a dealer-only requirement we cannot get around, we will tell you that upfront rather than dispatch and then discover the limitation on-site. For the large majority of vehicles driven in Westchester County, we can handle the full replacement.</p>
+
   <div class="cta-box">
     <h2>Skip the Dealer. We Come to You.</h2>
     <p>Same programming. No appointment. No tow. A firm quote before we dispatch.</p>
@@ -315,6 +350,40 @@
   <p>Yes. Honda transponder keys and key fobs are among the most common replacements we do across Westchester. A Honda key fob replacement typically runs $150 to $275 through us versus $300 to $450 or more at the dealer, without the tow. See our <a href="/car-key-replacement/">car key replacement page</a> for more details.</p>
 </div>
 
+</article>
+<aside class="sidebar">
+  <div class="sidebar-card">
+    <div class="sidebar-card__label">Get a Quote</div>
+    <div class="sidebar-card__headline">Real price before we dispatch.</div>
+    <div class="sidebar-card__sub">Tell us your year, make, and model. We quote you over the phone. No surprises.</div>
+    <div class="sidebar-cta">
+      <a href="tel:+19144064474" class="btn-call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        (914) 406-4474
+      </a>
+    </div>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card__label">Have Ready When You Call</div>
+    <ul class="sidebar-checklist">
+      <li>Year, make, and model</li>
+      <li>VIN number</li>
+      <li>Vehicle registration or title</li>
+      <li>Photo ID</li>
+      <li>Your exact location</li>
+    </ul>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card__label">Service Area</div>
+    <ul class="sidebar-checklist">
+      <li>Westchester County, NY</li>
+      <li>Fairfield County, CT</li>
+      <li>Long Island, NY</li>
+      <li>Northern New Jersey</li>
+    </ul>
+  </div>
+</aside>
+</div><!-- /.article-layout -->
 <footer class="foot">
   <div class="container foot__inner">
     <div class="foot__col">

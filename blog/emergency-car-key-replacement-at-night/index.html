@@ -90,7 +90,7 @@
     .mmenu__call{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--accent);color:var(--ink);padding:16px;border-radius:12px;font-weight:700;font-size:18px;}
     .mmenu__links{display:flex;flex-direction:column;gap:4px;}
     .mmenu__links a{padding:12px 4px;border-bottom:1px solid var(--line);font-weight:500;display:block;}
-    .page-wrap{max-width:860px;margin:0 auto;padding:48px 24px 80px;}
+    .article-content{min-width:0;}
     .breadcrumb{font-size:13px;color:var(--muted);margin-bottom:24px;}
     .breadcrumb a{color:var(--muted);}
     .breadcrumb a:hover{color:var(--accent);}
@@ -126,6 +126,24 @@
     .sticky-call__label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;opacity:0.8;}
     .sticky-call__num{font-size:20px;font-weight:800;letter-spacing:-0.01em;margin-top:2px;white-space:nowrap;}
     @media(max-width:700px){.sticky-call{display:block;}body{padding-bottom:80px;}}
+    .article-layout{display:grid;grid-template-columns:1fr 300px;gap:48px;max-width:1100px;margin:0 auto;padding:48px 24px 80px;align-items:start;}
+    @media(max-width:900px){.article-layout{grid-template-columns:1fr;}.sidebar{display:none;}}
+    .sidebar{position:sticky;top:92px;}
+    .sidebar-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:16px;}
+    .sidebar-card__label{font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+    .sidebar-card__headline{font-size:18px;font-weight:800;color:var(--ink);line-height:1.2;margin:0 0 8px;}
+    .sidebar-card__sub{font-size:13px;color:var(--muted);margin:0 0 16px;line-height:1.5;}
+    .sidebar-cta{display:flex;flex-direction:column;gap:8px;}
+    .sidebar-cta a{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 16px;border-radius:10px;font-weight:700;font-size:15px;}
+    .sidebar-cta .btn-call{background:var(--accent);color:var(--ink);box-shadow:0 4px 14px rgba(245,165,36,0.3);}
+    .sidebar-checklist{list-style:none;padding:0;margin:0;}
+    .sidebar-checklist li{font-size:13px;color:var(--ink-2);padding:6px 0;border-bottom:1px solid var(--line);display:flex;gap:8px;align-items:flex-start;}
+    .sidebar-checklist li:last-child{border-bottom:none;}
+    .sidebar-checklist li::before{content:"✓";color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
+    .breadcrumb{font-size:13px;color:var(--muted);margin-bottom:24px;}
+    .breadcrumb a{color:var(--muted);}
+    .breadcrumb a:hover{color:var(--accent);}
+
   </style>
 </head>
 <body>
@@ -177,7 +195,8 @@
   </div>
 </header>
 
-<div class="page-wrap">
+<div class="article-layout">
+<article class="article-content">
   <nav class="breadcrumb" aria-label="Breadcrumb">
     <a href="/">Home</a> &rsaquo; <a href="/blog/">Blog</a> &rsaquo; Emergency Car Key Replacement at Night
   </nav>
@@ -239,6 +258,30 @@
   <h2>Save Our Number Now</h2>
   <p>The worst time to search for a locksmith is when you are already stranded at 1am. Scammers dominate the top of Google search results and count on urgent, panicked searches to find victims. Save a legitimate number before you need it: <strong>(914) 406-4474</strong>. That is all you need to have a direct line to a real locksmith who covers all of Westchester County, Fairfield County CT, Long Island, and northern New Jersey.</p>
 
+
+  <h2>What to Say When You Call</h2>
+  <p>When you call at midnight from a parking lot in Yonkers or a train station in Scarsdale, the person who answers needs a few pieces of information to help you quickly. Having these ready speeds things up considerably:</p>
+  <ul>
+    <li><strong>Your exact location.</strong> Not just the city. The specific address, parking lot name, or nearest intersection. Landmarks help. "I'm at the Starbucks on Mamaroneck Ave near the White Plains train station" is more useful than "I'm in White Plains."</li>
+    <li><strong>Year, make, and model of the vehicle.</strong> This is how we quote you a price and make sure the technician has the right key blank and programming equipment on board.</li>
+    <li><strong>What you need.</strong> Are you locked out with keys inside? Did you lose your keys entirely? Is your key fob dead or broken? The answer affects what the technician brings and what the job involves.</li>
+    <li><strong>Your phone number.</strong> So we can call you if the technician needs directions or is running behind.</li>
+  </ul>
+  <p>The call should take about two minutes. You get a price, an ETA, and confirmation that someone is on the way. No guessing, no waiting to find out if help is coming.</p>
+
+  <h2>Common Westchester Locations We Serve After Hours</h2>
+  <p>Late-night locksmith calls in Westchester County follow patterns we have come to know well. Here are the situations we handle regularly after hours:</p>
+  <ul>
+    <li><strong>Metro-North parking lots.</strong> Larchmont, Scarsdale, Tarrytown, and Pelham stations all see late-night calls from commuters who realize they locked their keys in the car or lost them on the train. Call us and wait inside the station if it is still open.</li>
+    <li><strong>Restaurant and venue parking in White Plains.</strong> City Center, Mamaroneck Avenue, and Westchester Avenue see regular after-hours calls from diners and event-goers discovering a problem when they return to their car.</li>
+    <li><strong>Residential driveways in Scarsdale, New Canaan, and Darien.</strong> It is not always an emergency in a parking lot. Sometimes it is a locked set of keys visible through the window of a car in your own driveway at 11pm. We handle those calls just as readily.</li>
+    <li><strong>Highway stops on I-87 and I-95.</strong> Drivers pulling over near Yonkers, New Rochelle, or Greenwich who have a key issue can call us and we will come to a safe roadside location.</li>
+  </ul>
+
+  <h2>After-Hours vs. Daytime: The Real Difference</h2>
+  <p>People sometimes expect a dramatically different experience calling a locksmith at 2am versus 10am. In terms of the actual service delivered, the experience should be essentially the same: you call, you get a price, a technician arrives, the job gets done. The only substantive differences are the after-hours premium on the price (which we tell you upfront) and a potentially wider arrival window depending on conditions.</p>
+  <p>The emotional experience is often different because you are stressed, you may be alone, and it is dark. Those factors are about the situation, not the service. Once you have a firm price, a confirmed ETA, and someone on the way, most of that stress drops significantly. That is why the first thing we do when you call, at any hour, is give you clear information rather than keeping you in suspense.</p>
+
   <div class="cta-box">
     <h2>Locked Out or Lost Your Key After Hours?</h2>
     <p>Call now. Real person answers. Firm quote before dispatch. We come to you anywhere in Westchester County.</p>
@@ -263,6 +306,40 @@
   <p>We cover <a href="/scarsdale-locksmith/">Scarsdale</a>, <a href="/larchmont-locksmith/">Larchmont</a>, and all surrounding Westchester communities 24 hours. Call (914) 406-4474 and we will get someone moving toward you.</p>
 </div>
 
+</article>
+<aside class="sidebar">
+  <div class="sidebar-card">
+    <div class="sidebar-card__label">Get a Quote</div>
+    <div class="sidebar-card__headline">Real price before we dispatch.</div>
+    <div class="sidebar-card__sub">Tell us your year, make, and model. We quote you over the phone. No surprises.</div>
+    <div class="sidebar-cta">
+      <a href="tel:+19144064474" class="btn-call">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+        (914) 406-4474
+      </a>
+    </div>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card__label">Have Ready When You Call</div>
+    <ul class="sidebar-checklist">
+      <li>Year, make, and model</li>
+      <li>VIN number</li>
+      <li>Vehicle registration or title</li>
+      <li>Photo ID</li>
+      <li>Your exact location</li>
+    </ul>
+  </div>
+  <div class="sidebar-card">
+    <div class="sidebar-card__label">Service Area</div>
+    <ul class="sidebar-checklist">
+      <li>Westchester County, NY</li>
+      <li>Fairfield County, CT</li>
+      <li>Long Island, NY</li>
+      <li>Northern New Jersey</li>
+    </ul>
+  </div>
+</aside>
+</div><!-- /.article-layout -->
 <footer class="foot">
   <div class="container foot__inner">
     <div class="foot__col">
