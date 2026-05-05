@@ -213,6 +213,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Blog Index -->
+  <url>
+    <loc>https://alliance24hourlocksmith.com/blog/</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
   <!-- Blog Posts -->
   <url>
     <loc>https://alliance24hourlocksmith.com/blog/car-key-replacement-cost-westchester/</loc>
