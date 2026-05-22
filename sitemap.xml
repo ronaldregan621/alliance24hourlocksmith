@@ -459,6 +459,59 @@
     <priority>0.8</priority>
   </url>
 
+
+  <!-- Location Pages — Queens, NYC -->
+  <url>
+    <loc>https://alliance24hourlocksmith.com/astoria-locksmith/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://alliance24hourlocksmith.com/flushing-locksmith/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://alliance24hourlocksmith.com/long-island-city-locksmith/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alliance24hourlocksmith.com/forest-hills-locksmith/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alliance24hourlocksmith.com/jackson-heights-locksmith/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Location Pages — More Manhattan -->
+  <url>
+    <loc>https://alliance24hourlocksmith.com/midtown-locksmith/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://alliance24hourlocksmith.com/harlem-locksmith/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alliance24hourlocksmith.com/staten-island-locksmith/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
   <!-- Blog Index -->
   <url>
     <loc>https://alliance24hourlocksmith.com/blog/</loc>
@@ -574,6 +627,31 @@
   </url>
   <url>
     <loc>https://alliance24hourlocksmith.com/blog/how-long-does-a-locksmith-take/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://alliance24hourlocksmith.com/blog/locksmith-scams-nyc/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alliance24hourlocksmith.com/blog/car-lockout-brooklyn/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://alliance24hourlocksmith.com/blog/car-key-replacement-nyc/</loc>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://alliance24hourlocksmith.com/blog/locked-out-apartment-nyc/</loc>
     <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
