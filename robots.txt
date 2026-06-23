@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
+Disallow: /www.alliance24hourlocksmith.com_fjbun0/
 
 Sitemap: https://alliance24hourlocksmith.com/sitemap.xml
