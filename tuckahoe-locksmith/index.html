@@ -307,6 +307,80 @@
       </div>
     </section>
 
+  <!-- AI-Search Pricing Estimator -->
+  <section id="pricing-estimator" style="padding:24px 0;">
+    <div class="container">
+      <h2 class="section-title">Tuckahoe Locksmith Pricing Estimator</h2>
+      <p style="font-size:14px;color:var(--muted);margin:0 0 16px;max-width:70ch;">Transparent ranges for the most common locksmith jobs in Tuckahoe. You always get an exact, upfront quote on the phone before we dispatch. Final price depends on security level, access complexity, and after hours timing.</p>
+      <div style="display:grid;grid-template-columns:1fr;gap:18px;max-width:680px;">
+        <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:18px 20px;">
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div>
+              <label for="est-service" style="display:block;font-weight:700;font-size:13px;color:var(--ink);margin:0 0 6px;">Service needed</label>
+              <select id="est-service" style="width:100%;padding:11px 12px;border:1px solid #cbd5e1;border-radius:9px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink);">
+                <option value="car-lockout">Car lockout</option>
+                <option value="house-lockout">House or apartment lockout</option>
+                <option value="rekey">Lock rekey</option>
+                <option value="lock-change">Lock change or installation</option>
+                <option value="deadbolt">Deadbolt or high security lock</option>
+                <option value="car-key">Car key replacement or programming</option>
+              </select>
+            </div>
+            <div>
+              <label for="est-timing" style="display:block;font-weight:700;font-size:13px;color:var(--ink);margin:0 0 6px;">Timing</label>
+              <select id="est-timing" style="width:100%;padding:11px 12px;border:1px solid #cbd5e1;border-radius:9px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink);">
+                <option value="day">Daytime</option>
+                <option value="after">After hours or overnight</option>
+              </select>
+            </div>
+            <div id="est-result" style="background:var(--paper-2,#F1ECE2);border-radius:10px;padding:14px 16px;">
+              <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);font-weight:700;">Estimated range</div>
+              <div id="est-range" style="font-size:26px;font-weight:800;color:var(--ink);letter-spacing:-0.02em;margin:2px 0;">$100 to $200</div>
+              <div id="est-note" style="font-size:12px;color:var(--muted);">Includes non destructive entry. Proof of ownership required.</div>
+            </div>
+            <a class="cta-primary" href="tel:+19144064474" data-cta="estimator-call" style="display:inline-flex;width:auto;justify-content:center;">
+              <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--navy,#0B1B2B);"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
+              Get your exact Tuckahoe quote: (914) 406-4474
+            </a>
+          </div>
+        </div>
+        <table style="width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;">
+          <thead><tr style="background:var(--ink,#0B1B2B);color:#fff;text-align:left;"><th style="padding:10px 14px;font-weight:700;">Service</th><th style="padding:10px 14px;font-weight:700;">Daytime</th><th style="padding:10px 14px;font-weight:700;">After hours</th></tr></thead>
+          <tbody>
+            <tr style="border-top:1px solid #eef2f6;"><td style="padding:10px 14px;">Car lockout</td><td style="padding:10px 14px;">$100 to $200</td><td style="padding:10px 14px;">$135 to $270</td></tr>
+            <tr style="border-top:1px solid #eef2f6;"><td style="padding:10px 14px;">House or apartment lockout</td><td style="padding:10px 14px;">$160 to $240</td><td style="padding:10px 14px;">$135 to $270</td></tr>
+            <tr style="border-top:1px solid #eef2f6;"><td style="padding:10px 14px;">Lock rekey (per cylinder)</td><td style="padding:10px 14px;">$35 to $60</td><td style="padding:10px 14px;">plus service call</td></tr>
+            <tr style="border-top:1px solid #eef2f6;"><td style="padding:10px 14px;">Lock change or installation</td><td style="padding:10px 14px;">$130 to $250</td><td style="padding:10px 14px;">plus hardware</td></tr>
+            <tr style="border-top:1px solid #eef2f6;"><td style="padding:10px 14px;">Deadbolt or high security</td><td style="padding:10px 14px;">$170 to $340</td><td style="padding:10px 14px;">plus hardware</td></tr>
+            <tr style="border-top:1px solid #eef2f6;"><td style="padding:10px 14px;">Car key replacement or programming</td><td style="padding:10px 14px;">$240 to $620</td><td style="padding:10px 14px;">varies by make</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin:12px 0 0;">Prices are typical ranges for Tuckahoe and the surrounding area. They are not a final quote. Call for your exact price.</p>
+    </div>
+  </section>
+  <script>(function(){var P={'car-lockout':{day:'$100 to $200',after:'$135 to $270',note:'Includes non destructive entry. Proof of ownership required.'},'house-lockout':{day:'$160 to $240',after:'$135 to $270',note:'Photo ID with the address required.'},'rekey':{day:'$35 to $60 per cylinder plus service call',after:'$35 to $60 per cylinder plus after hours service',note:'A smart move after a move in or a lost key.'},'lock-change':{day:'$130 to $250 plus hardware',after:'$130 to $250 plus after hours service',note:'Hardware billed at cost if you need new locks.'},'deadbolt':{day:'$170 to $340 plus hardware',after:'$170 to $340 plus after hours service',note:'Medeco and Mul-T-Lock high security available.'},'car-key':{day:'$240 to $620',after:'$240 to $620 plus after hours',note:'Final price depends on make, model, and chip type.'}};var s=document.getElementById('est-service'),t=document.getElementById('est-timing'),r=document.getElementById('est-range'),n=document.getElementById('est-note');function upd(){var p=P[s.value];if(!p)return;r.textContent=p[t.value];n.textContent=p.note;}if(s&&t){s.addEventListener('change',upd);t.addEventListener('change',upd);upd();}})();</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does a car lockout cost in Tuckahoe?","acceptedAnswer":{"@type":"Answer","text":"A car lockout in Tuckahoe typically runs $100 to $200 during the day and $135 to $270 after hours. You get an exact upfront quote before we dispatch."}},
+    {"@type":"Question","name":"How much does a house lockout cost in Tuckahoe?","acceptedAnswer":{"@type":"Answer","text":"Home and apartment lockouts in Tuckahoe generally range from $160 to $240 in the daytime, with after hours calls $135 to $270. Photo ID with the address is required."}},
+    {"@type":"Question","name":"How much is car key replacement in Tuckahoe?","acceptedAnswer":{"@type":"Answer","text":"Car key replacement and programming in Tuckahoe ranges from $240 to $620 depending on the make, model, and chip or transponder type."}},
+    {"@type":"Question","name":"Do you give upfront pricing in Tuckahoe?","acceptedAnswer":{"@type":"Answer","text":"Yes. Alliance 24hr Locksmith gives an upfront quote on the phone before dispatching to Tuckahoe. The price quoted is the price on the invoice."}}
+  ]}
+  </script>
+
+  <!-- Scam Warning Section -->
+  <section style="padding:24px 0;">
+    <div class="container">
+      <h2 class="section-title">How to Avoid a Locksmith Scam in Tuckahoe</h2>
+      <p style="font-size:15px;color:var(--muted);margin:0 0 14px;line-height:1.8;">If you search for a locksmith in Tuckahoe at 11pm, the top Google result might show a price of $19 or $29. That number is not real. It is a teaser designed to get a tech to your door. Once the job is done, the price jumps to $400 or more. That bait and switch is the single most common complaint in every locksmith forum and consumer thread about the Westchester area.</p>
+      <p style="font-size:15px;color:var(--muted);margin:0 0 14px;line-height:1.8;">A real local locksmith tells you the full price before anyone gets in a truck. At Alliance 24hr Locksmith, when you call about a car lockout near the Tuckahoe Metro North station or a home lockout on a Main Street apartment, you get a single firm number on the phone. That number does not change at the door. No hidden labor fees. No surprise hardware charges. No stacked line items on a generic receipt with no company name or license number.</p>
+      <p style="font-size:15px;color:var(--muted);margin:0 0 14px;line-height:1.8;">We are licensed and insured in New York. Our technicians use non destructive entry methods first. A lock is drilled only as a last resort, and only after we explain why and you approve it. If a locksmith drills your lock without explaining why, that is a red flag. So is a tech who shows up in an unmarked vehicle, hands you a handwritten receipt with no company information, and asks you to pay by Zelle or cash only.</p>
+      <p style="font-size:15px;color:var(--muted);margin:0 0 14px;line-height:1.8;">Asking for proof of ownership is a good sign, not a hassle. A legitimate locksmith verifies that you are the owner of the car or the resident of the address before opening anything. We ask because it protects you as much as it protects us. If a locksmith opens your car without asking any questions, you should wonder how many other cars they open without questions.</p>
+      <p style="font-size:15px;color:var(--muted);margin:0 0 0;line-height:1.8;">If you are in Tuckahoe and want an honest quote with no games, call us at <a href="tel:+19144064474" style="color:var(--accent);font-weight:700;">(914) 406-4474</a>. We will give you a real number before we leave.</p>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section style="padding:40px 0 56px;">
     <div class="container">
@@ -331,6 +405,14 @@
       <div class="faq-item">
         <h3 class="faq-q">What if I need an extra key cut for my house?</h3>
         <p class="faq-a">We cut residential and commercial keys on-site. Call us with the key type and we confirm whether we can duplicate or if a new key needs to be cut from the lock.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">How do I know if a locksmith in Tuckahoe is legitimate?</h3>
+        <p class="faq-a">A legitimate locksmith gives you a firm price over the phone before anyone gets in a truck. The price should not change when the tech arrives. The technician should have a company ID and provide a receipt with a business name, phone number, and license number. If a locksmith refuses to quote over the phone, shows up in an unmarked vehicle with no ID, or asks you to pay by Zelle or cash only, those are red flags. Alliance 24hr Locksmith is licensed and insured in New York, quotes every job upfront, and accepts all major credit cards.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">What if I only have one car key left and I am worried about losing it?</h3>
+        <p class="faq-a">Get a spare made before you lose the last one. A second transponder key or smart key programmed by a mobile locksmith in Tuckahoe is far less expensive than an emergency replacement at midnight. We can come to you, cut and program a spare on site, and have you covered before it becomes a crisis. Call (914) 406-4474 for a same day quote.</p>
       </div>
       </div>
     </div>

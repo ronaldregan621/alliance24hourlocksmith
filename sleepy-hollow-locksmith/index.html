@@ -242,14 +242,14 @@
 
       <div style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:20px;">
         <h3 style="font-size:16px;font-weight:700;margin:0 0 12px;">We Know Sleepy Hollow</h3>
-        <p style="margin:0;color:var(--muted);line-height:1.8;">Sleepy Hollow is best known for tourism along the Hudson, but it is also a residential village with a mix of waterfront condos, historic homes near Beekman Avenue, and apartment buildings along Route 9. The Sleepy Hollow Metro-North station and the parking areas near Philipsburg Manor are frequent lockout spots, particularly on fall weekends. We handle residential lock work on the side streets off Broadway as well as car key programming for the mix of American and European vehicles common to the area.</p>
+        <p style="margin:0;color:var(--muted);line-height:1.8;">Sleepy Hollow is best known for tourism along the Hudson, but it is also a residential village with a mix of waterfront condos, historic homes near Beekman Avenue, and apartment buildings along Route 9. The Sleepy Hollow Metro North station and the parking areas near Philipsburg Manor are frequent lockout spots, particularly on fall weekends. We handle residential lock work on the side streets off Broadway as well as car key programming for the mix of American and European vehicles common to the area.</p>
       </div>
 
       <div style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;margin-bottom:20px;">
         <h3 style="font-size:16px;font-weight:700;margin:0 0 12px;">Common Sleepy Hollow Situations We Handle</h3>
         <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:14px;color:#334155;">
             <li style="padding-left:20px; position:relative;"><span style="position:absolute;left:0;color:#F5A524;font-weight:700;">&#10003;</span> Keys locked in near Philipsburg Manor or Sleepy Hollow Cemetery parking</li>
-            <li style="padding-left:20px; position:relative;"><span style="position:absolute;left:0;color:#F5A524;font-weight:700;">&#10003;</span> Car lockout at Sleepy Hollow Metro-North station lot</li>
+            <li style="padding-left:20px; position:relative;"><span style="position:absolute;left:0;color:#F5A524;font-weight:700;">&#10003;</span> Car lockout at Sleepy Hollow Metro North station lot</li>
             <li style="padding-left:20px; position:relative;"><span style="position:absolute;left:0;color:#F5A524;font-weight:700;">&#10003;</span> Luxury or European vehicle key replacement (BMW, Mercedes, Lexus, Audi)</li>
             <li style="padding-left:20px; position:relative;"><span style="position:absolute;left:0;color:#F5A524;font-weight:700;">&#10003;</span> Home lockout on Beekman Avenue or Broadway residential streets</li>
             <li style="padding-left:20px; position:relative;"><span style="position:absolute;left:0;color:#F5A524;font-weight:700;">&#10003;</span> Lock rekey after moving into a Sleepy Hollow rental or purchase</li>
@@ -307,6 +307,80 @@
       </div>
     </section>
 
+  <!-- AI-Search Pricing Estimator -->
+  <section id="pricing-estimator" style="padding:24px 0;">
+    <div class="container">
+      <h2 class="section-title">Sleepy Hollow Locksmith Pricing Estimator</h2>
+      <p style="font-size:14px;color:var(--muted);margin:0 0 16px;max-width:70ch;">Transparent ranges for the most common locksmith jobs in Sleepy Hollow. You always get an exact, upfront quote on the phone before we dispatch. Final price depends on security level, access complexity, and after hours timing.</p>
+      <div style="display:grid;grid-template-columns:1fr;gap:18px;max-width:680px;">
+        <div style="background:#fff;border:1px solid #e2e8f0;border-radius:14px;padding:18px 20px;">
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div>
+              <label for="est-service" style="display:block;font-weight:700;font-size:13px;color:var(--ink);margin:0 0 6px;">Service needed</label>
+              <select id="est-service" style="width:100%;padding:11px 12px;border:1px solid #cbd5e1;border-radius:9px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink);">
+                <option value="car-lockout">Car lockout</option>
+                <option value="house-lockout">House or apartment lockout</option>
+                <option value="rekey">Lock rekey</option>
+                <option value="lock-change">Lock change or installation</option>
+                <option value="deadbolt">Deadbolt or high security lock</option>
+                <option value="car-key">Car key replacement or programming</option>
+              </select>
+            </div>
+            <div>
+              <label for="est-timing" style="display:block;font-weight:700;font-size:13px;color:var(--ink);margin:0 0 6px;">Timing</label>
+              <select id="est-timing" style="width:100%;padding:11px 12px;border:1px solid #cbd5e1;border-radius:9px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink);">
+                <option value="day">Daytime</option>
+                <option value="after">After hours or overnight</option>
+              </select>
+            </div>
+            <div id="est-result" style="background:var(--paper-2,#F1ECE2);border-radius:10px;padding:14px 16px;">
+              <div style="font-size:12px;text-transform:uppercase;letter-spacing:0.05em;color:var(--muted);font-weight:700;">Estimated range</div>
+              <div id="est-range" style="font-size:26px;font-weight:800;color:var(--ink);letter-spacing:-0.02em;margin:2px 0;">$100 to $200</div>
+              <div id="est-note" style="font-size:12px;color:var(--muted);">Includes non destructive entry. Proof of ownership required.</div>
+            </div>
+            <a class="cta-primary" href="tel:+19144064474" data-cta="estimator-call" style="display:inline-flex;width:auto;justify-content:center;">
+              <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:var(--navy,#0B1B2B);"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.56.57 1 1 0 011 1v3.61a1 1 0 01-1 1A17 17 0 013 5a1 1 0 011-1h3.61a1 1 0 011 1 11.36 11.36 0 00.57 3.56 1 1 0 01-.24 1.01l-2.32 2.22z"/></svg>
+              Get your exact Sleepy Hollow quote: (914) 406-4474
+            </a>
+          </div>
+        </div>
+        <table style="width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;">
+          <thead><tr style="background:var(--ink,#0B1B2B);color:#fff;text-align:left;"><th style="padding:10px 14px;font-weight:700;">Service</th><th style="padding:10px 14px;font-weight:700;">Daytime</th><th style="padding:10px 14px;font-weight:700;">After hours</th></tr></thead>
+          <tbody>
+            <tr style="border-top:1px solid #eef2f6;"><td style="padding:10px 14px;">Car lockout</td><td style="padding:10px 14px;">$100 to $200</td><td style="padding:10px 14px;">$135 to $270</td></tr>
+            <tr style="border-top:1px solid #eef2f6;"><td style="padding:10px 14px;">House or apartment lockout</td><td style="padding:10px 14px;">$160 to $240</td><td style="padding:10px 14px;">$135 to $270</td></tr>
+            <tr style="border-top:1px solid #eef2f6;"><td style="padding:10px 14px;">Lock rekey (per cylinder)</td><td style="padding:10px 14px;">$35 to $60</td><td style="padding:10px 14px;">plus service call</td></tr>
+            <tr style="border-top:1px solid #eef2f6;"><td style="padding:10px 14px;">Lock change or installation</td><td style="padding:10px 14px;">$130 to $250</td><td style="padding:10px 14px;">plus hardware</td></tr>
+            <tr style="border-top:1px solid #eef2f6;"><td style="padding:10px 14px;">Deadbolt or high security</td><td style="padding:10px 14px;">$170 to $340</td><td style="padding:10px 14px;">plus hardware</td></tr>
+            <tr style="border-top:1px solid #eef2f6;"><td style="padding:10px 14px;">Car key replacement or programming</td><td style="padding:10px 14px;">$240 to $620</td><td style="padding:10px 14px;">varies by make</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin:12px 0 0;">Prices are typical ranges for Sleepy Hollow and the surrounding area. They are not a final quote. Call for your exact price.</p>
+    </div>
+  </section>
+  <script>(function(){var P={'car-lockout':{day:'$100 to $200',after:'$135 to $270',note:'Includes non destructive entry. Proof of ownership required.'},'house-lockout':{day:'$160 to $240',after:'$135 to $270',note:'Photo ID with the address required.'},'rekey':{day:'$35 to $60 per cylinder plus service call',after:'$35 to $60 per cylinder plus after hours service',note:'A smart move after a move in or a lost key.'},'lock-change':{day:'$130 to $250 plus hardware',after:'$130 to $250 plus after hours service',note:'Hardware billed at cost if you need new locks.'},'deadbolt':{day:'$170 to $340 plus hardware',after:'$170 to $340 plus after hours service',note:'Medeco and Mul-T-Lock high security available.'},'car-key':{day:'$240 to $620',after:'$240 to $620 plus after hours',note:'Final price depends on make, model, and chip type.'}};var s=document.getElementById('est-service'),t=document.getElementById('est-timing'),r=document.getElementById('est-range'),n=document.getElementById('est-note');function upd(){var p=P[s.value];if(!p)return;r.textContent=p[t.value];n.textContent=p.note;}if(s&&t){s.addEventListener('change',upd);t.addEventListener('change',upd);upd();}})();</script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+    {"@type":"Question","name":"How much does a car lockout cost in Sleepy Hollow?","acceptedAnswer":{"@type":"Answer","text":"A car lockout in Sleepy Hollow typically runs $100 to $200 during the day and $135 to $270 after hours. You get an exact upfront quote before we dispatch."}},
+    {"@type":"Question","name":"How much does a house lockout cost in Sleepy Hollow?","acceptedAnswer":{"@type":"Answer","text":"Home and apartment lockouts in Sleepy Hollow generally range from $160 to $240 in the daytime, with after hours calls $135 to $270. Photo ID with the address is required."}},
+    {"@type":"Question","name":"How much is car key replacement in Sleepy Hollow?","acceptedAnswer":{"@type":"Answer","text":"Car key replacement and programming in Sleepy Hollow ranges from $240 to $620 depending on the make, model, and chip or transponder type."}},
+    {"@type":"Question","name":"Do you give upfront pricing in Sleepy Hollow?","acceptedAnswer":{"@type":"Answer","text":"Yes. Alliance 24hr Locksmith gives an upfront quote on the phone before dispatching to Sleepy Hollow. The price quoted is the price on the invoice."}}
+  ]}
+  </script>
+
+  <!-- Scam Warning Section -->
+  <section style="padding:24px 0;">
+    <div class="container">
+      <h2 class="section-title">How to Avoid a Locksmith Scam in Sleepy Hollow</h2>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;margin:0 0 14px;">The most common locksmith scam in the Westchester area works the same way every time. You search for a locksmith in Sleepy Hollow, and the first result advertises a $19 or $35 service call. That price is not real. A technician arrives at your car on Beekman Avenue or at the Sleepy Hollow Cemetery lot, does the work, then tells you the total is $400 or more. You are already unlocked, it is late, and you are alone. That is not an accident.</p>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;margin:0 0 14px;">A legitimate locksmith quotes the full price before dispatch, not a teaser service call fee. The number on the phone is the number on the invoice. If a company refuses to give you a complete range when you describe your situation, hang up and call someone else.</p>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;margin:0 0 14px;">Alliance 24hr Locksmith is licensed and insured in New York State. Our technicians always attempt non destructive entry first. If drilling is necessary, we explain why and ask your permission before touching the lock. We never drill first to charge for a replacement.</p>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;margin:0 0 14px;">We ask for proof of ownership before every job. That is not a hassle, it is a protection for you. A company that does not ask for ID before opening your car or home is not one you want working on your property.</p>
+      <p style="font-size:15px;color:var(--muted);line-height:1.8;margin:0 0 0;">For an honest quote with no surprises, call (914) 406-4474. We will tell you the full price before we leave our base.</p>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section style="padding:40px 0 56px;">
     <div class="container">
@@ -331,6 +405,14 @@
       <div class="faq-item">
         <h3 class="faq-q">What proof of ownership do I need?</h3>
         <p class="faq-a">A government-issued ID matching the registration or lease. If your ID is locked inside, we work through alternate verification on-site.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">Why is the phone price sometimes lower than what I hear from other locksmiths at the door?</h3>
+        <p class="faq-a">That gap is the bait and switch. Some companies advertise a low service call fee and then add labor, parts, and complexity charges once the job is done. We do not do that. The full price range we give you over the phone is what you pay. If anything is genuinely different once our technician assesses the job, we tell you before we start and you decide whether to proceed.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">I only have one car key left. Can you make a spare before I lose it?</h3>
+        <p class="faq-a">Yes, and we strongly recommend it. A spare key cut and programmed from your working original costs significantly less than a full replacement from scratch. We come to you in Sleepy Hollow and handle everything on site. If you drive a BMW, Mercedes, Audi, Lexus, or another luxury make with a chip or smart key, call us with the year and model and we will confirm exactly what is involved and the price before we come out.</p>
       </div>
       </div>
     </div>
