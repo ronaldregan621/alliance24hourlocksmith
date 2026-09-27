@@ -123,7 +123,7 @@
     .foot__title{font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:12px;}
     .foot__col ul{display:flex;flex-direction:column;gap:7px;font-size:14px;color:rgba(255,255,255,0.75);}
     .foot__col li a:hover{color:var(--accent);}
-    .foot__num{display:block;font-size:26px;font-weight:800;letter-spacing:-0.02em;color:var(--accent);margin-bottom:4px;white-space:nowrap;}
+    .foot__num{display:block;font-size:16px;font-weight:700;color:var(--accent);margin-bottom:4px;white-space:nowrap;}
     .foot__small{font-size:12px;color:rgba(255,255,255,0.5);}
     .foot__bottom{padding-top:20px;display:flex;justify-content:space-between;gap:12px;font-size:12px;color:rgba(255,255,255,0.35);flex-wrap:wrap;}
     /* Sticky call bar */
@@ -182,12 +182,11 @@
     .cta-banner p{color:rgba(255,255,255,0.7);margin:0 0 24px;}
     .btn-cta{display:inline-flex;align-items:center;gap:10px;background:var(--accent);color:var(--ink);padding:14px 28px;border-radius:999px;font-weight:700;font-size:16px;}
     .btn-cta svg{width:18px;height:18px;fill:var(--ink);}
-    footer{background:var(--bg);color:#fff;padding:48px 24px 28px;font-size:14px;}
-    footer a{color:#cfe0ff;}footer a:hover{color:var(--accent);}
     .foot-bar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;color:rgba(255,255,255,0.35);margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);}
   </style>
 <style id="nav-fit">@media(max-width:600px){.nav__inner{gap:12px}.brand{min-width:0}.brand__tag{display:none}.nav__call{padding:10px}.nav__call span{display:none}}</style>
 <style id="cta-fit">.sticky-call{border-radius:999px}@media(max-width:700px){.emg-bar{display:none!important}body.sticky-js:not(.show-sticky) .sticky-call{display:none}}</style>
+<style id="foot-merge">.foot__areas{padding:28px 24px 8px;border-bottom:1px solid rgba(255,255,255,0.1)}.foot__links{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:14px;margin:0 0 22px;color:rgba(250,247,242,0.85)}.foot__areas-title{margin:0 0 8px;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:rgba(250,247,242,0.55)}.foot__areas-list{display:flex;flex-wrap:wrap;gap:6px 14px;margin-bottom:18px;font-size:13px;color:rgba(250,247,242,0.85)}.foot__areas a:hover{color:var(--accent)}</style>
 </head>
 <body>
 <!-- Emergency Line Bar -->
@@ -490,7 +489,7 @@
             </a>
           </div>
         </div>
-        <table style="width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;">
+        <div class="tbl-wrap" style="overflow-x:auto;-webkit-overflow-scrolling:touch;"><table style="width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;">
           <thead><tr style="background:var(--ink,#0B1B2B);color:#fff;text-align:left;"><th style="padding:10px 14px;font-weight:700;">Service</th><th style="padding:10px 14px;font-weight:700;">Daytime</th><th style="padding:10px 14px;font-weight:700;">After hours</th></tr></thead>
           <tbody>
             <tr style="border-top:1px solid #eef2f6;"><td style="padding:10px 14px;">Car lockout</td><td style="padding:10px 14px;">$100 to $200</td><td style="padding:10px 14px;">$135 to $270</td></tr>
@@ -500,7 +499,7 @@
             <tr style="border-top:1px solid #eef2f6;"><td style="padding:10px 14px;">Deadbolt or high security</td><td style="padding:10px 14px;">$170 to $340</td><td style="padding:10px 14px;">plus hardware</td></tr>
             <tr style="border-top:1px solid #eef2f6;"><td style="padding:10px 14px;">Car key replacement or programming</td><td style="padding:10px 14px;">$240 to $620</td><td style="padding:10px 14px;">varies by make</td></tr>
           </tbody>
-        </table>
+        </table></div>
       </div>
       <p style="font-size:12px;color:var(--muted);margin:12px 0 0;">Prices are typical ranges for Ridgefield and lower Fairfield County. They are not a final quote. Call for your exact price.</p>
     </div>
@@ -559,115 +558,6 @@
 
   </main>
 
-  <footer role="contentinfo">
-    <div class="container">
-      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; padding-bottom:20px; border-bottom:1px solid rgba(255,255,255,0.1);">
-        <div>
-          <strong>Alliance 24hr Locksmith</strong>
-          <div>24/7 Emergency Mobile Locksmith</div>
-          <div><a href="tel:+19144064474" data-cta="footer-call" style="font-weight:700; color:#fff; text-decoration:underline;">(914) 406-4474</a></div>
-        </div>
-        <nav aria-label="footer services">
-          <a href="/emergency-locksmith/" style="color:#cfe0ff; margin-right:12px;">Emergency</a>
-          <a href="/car-lockout/" style="color:#cfe0ff; margin-right:12px;">Car Lockout</a>
-          <a href="/house-lockout/" style="color:#cfe0ff; margin-right:12px;">House Lockout</a>
-          <a href="/price-list/" style="color:#cfe0ff; margin-right:12px;">Price List</a>
-          <a href="/contact/" style="color:#cfe0ff;">Contact</a>
-        </nav>
-      </div>
-      <nav aria-label="service areas" style="padding-top:16px;">
-        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">Westchester County, NY</div>
-        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
-          <a href="/yonkers-locksmith/" style="color:#cfe0ff;">Yonkers</a>
-          <a href="/white-plains-locksmith/" style="color:#cfe0ff;">White Plains</a>
-          <a href="/new-rochelle-locksmith/" style="color:#cfe0ff;">New Rochelle</a>
-          <a href="/mount-vernon-locksmith/" style="color:#cfe0ff;">Mount Vernon</a>
-          <a href="/scarsdale-locksmith/" style="color:#cfe0ff;">Scarsdale</a>
-          <a href="/larchmont-locksmith/" style="color:#cfe0ff;">Larchmont</a>
-          <a href="/pelham-locksmith/" style="color:#cfe0ff;">Pelham</a>
-          <a href="/tarrytown-locksmith/" style="color:#cfe0ff;">Tarrytown</a>
-          <a href="/hastings-on-hudson-locksmith/" style="color:#cfe0ff;">Hastings on Hudson</a>
-          <a href="/ossining-locksmith/" style="color:#cfe0ff;">Ossining</a>
-          <a href="/pleasantville-locksmith/" style="color:#cfe0ff;">Pleasantville</a>
-          <a href="/sleepy-hollow-locksmith/" style="color:#cfe0ff;">Sleepy Hollow</a>
-          <a href="/tuckahoe-locksmith/" style="color:#cfe0ff;">Tuckahoe</a>
-          <a href="/ardsley-locksmith/" style="color:#cfe0ff;">Ardsley</a>
-          <a href="/elmsford-locksmith/" style="color:#cfe0ff;">Elmsford</a>
-          <a href="/eastchester-locksmith/" style="color:#cfe0ff;">Eastchester</a>
-          <a href="/hartsdale-locksmith/" style="color:#cfe0ff;">Hartsdale</a>
-          <a href="/greenburgh-locksmith/" style="color:#cfe0ff;">Greenburgh</a>
-          <a href="/edgemont-locksmith/" style="color:#cfe0ff;">Edgemont</a>
-          <a href="/croton-on-hudson-locksmith/" style="color:#cfe0ff;">Croton on Hudson</a>
-          <a href="/briarcliff-manor-locksmith/" style="color:#cfe0ff;">Briarcliff Manor</a>
-          <a href="/peekskill-locksmith/" style="color:#cfe0ff;">Peekskill</a>
-        </div>
-        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">New York City</div>
-        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
-          <a href="/manhattan-locksmith/" style="color:#cfe0ff;">Manhattan</a>
-          <a href="/brooklyn-locksmith/" style="color:#cfe0ff;">Brooklyn</a>
-          <a href="/bronx-locksmith/" style="color:#cfe0ff;">Bronx</a>
-          <a href="/staten-island-locksmith/" style="color:#cfe0ff;">Staten Island</a>
-          <a href="/upper-east-side-locksmith/" style="color:#cfe0ff;">Upper East Side</a>
-          <a href="/upper-west-side-locksmith/" style="color:#cfe0ff;">Upper West Side</a>
-          <a href="/harlem-locksmith/" style="color:#cfe0ff;">Harlem</a>
-          <a href="/midtown-locksmith/" style="color:#cfe0ff;">Midtown</a>
-          <a href="/hells-kitchen-locksmith/" style="color:#cfe0ff;">Hells Kitchen</a>
-          <a href="/washington-heights-locksmith/" style="color:#cfe0ff;">Washington Heights</a>
-          <a href="/riverdale-locksmith/" style="color:#cfe0ff;">Riverdale</a>
-          <a href="/astoria-locksmith/" style="color:#cfe0ff;">Astoria</a>
-          <a href="/long-island-city-locksmith/" style="color:#cfe0ff;">Long Island City</a>
-          <a href="/flushing-locksmith/" style="color:#cfe0ff;">Flushing</a>
-          <a href="/forest-hills-locksmith/" style="color:#cfe0ff;">Forest Hills</a>
-          <a href="/jackson-heights-locksmith/" style="color:#cfe0ff;">Jackson Heights</a>
-          <a href="/jamaica-locksmith/" style="color:#cfe0ff;">Jamaica</a>
-          <a href="/bayside-locksmith/" style="color:#cfe0ff;">Bayside</a>
-          <a href="/williamsburg-locksmith/" style="color:#cfe0ff;">Williamsburg</a>
-          <a href="/park-slope-locksmith/" style="color:#cfe0ff;">Park Slope</a>
-          <a href="/bay-ridge-locksmith/" style="color:#cfe0ff;">Bay Ridge</a>
-          <a href="/brooklyn-heights-locksmith/" style="color:#cfe0ff;">Brooklyn Heights</a>
-          <a href="/crown-heights-locksmith/" style="color:#cfe0ff;">Crown Heights</a>
-          <a href="/flatbush-locksmith/" style="color:#cfe0ff;">Flatbush</a>
-          <a href="/bedford-stuyvesant-locksmith/" style="color:#cfe0ff;">Bedford Stuyvesant</a>
-          <a href="/greenpoint-locksmith/" style="color:#cfe0ff;">Greenpoint</a>
-        </div>
-        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">Fairfield County, CT</div>
-        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
-          <a href="/ridgefield-locksmith/" style="color:#cfe0ff;">Ridgefield</a>
-          <a href="/stamford-locksmith/" style="color:#cfe0ff;">Stamford</a>
-          <a href="/darien-locksmith/" style="color:#cfe0ff;">Darien</a>
-          <a href="/new-canaan-locksmith/" style="color:#cfe0ff;">New Canaan</a>
-          <a href="/westport-locksmith/" style="color:#cfe0ff;">Westport</a>
-          <a href="/norwalk-locksmith/" style="color:#cfe0ff;">Norwalk</a>
-          <a href="/wilton-locksmith/" style="color:#cfe0ff;">Wilton</a>
-          <a href="/weston-locksmith/" style="color:#cfe0ff;">Weston</a>
-          <a href="/fairfield-locksmith/" style="color:#cfe0ff;">Fairfield</a>
-          <a href="/ridgefield-locksmith/" style="color:#cfe0ff;">Ridgefield</a>
-          <a href="/trumbull-locksmith/" style="color:#cfe0ff;">Trumbull</a>
-          <a href="/easton-locksmith/" style="color:#cfe0ff;">Easton</a>
-          <a href="/redding-locksmith/" style="color:#cfe0ff;">Redding</a>
-        </div>
-        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">Long Island, NY</div>
-        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
-          <a href="/garden-city-locksmith/" style="color:#cfe0ff;">Garden City</a>
-          <a href="/manhasset-locksmith/" style="color:#cfe0ff;">Manhasset</a>
-          <a href="/great-neck-locksmith/" style="color:#cfe0ff;">Great Neck</a>
-          <a href="/syosset-locksmith/" style="color:#cfe0ff;">Syosset</a>
-          <a href="/rockville-centre-locksmith/" style="color:#cfe0ff;">Rockville Centre</a>
-        </div>
-        <div style="margin-bottom:10px; font-size:13px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#94a3b8;">New Jersey</div>
-        <div style="display:flex; flex-wrap:wrap; gap:8px 16px; margin-bottom:16px; font-size:13px;">
-          <a href="/short-hills-locksmith/" style="color:#cfe0ff;">Short Hills</a>
-          <a href="/summit-locksmith/" style="color:#cfe0ff;">Summit</a>
-          <a href="/livingston-locksmith/" style="color:#cfe0ff;">Livingston</a>
-          <a href="/montclair-locksmith/" style="color:#cfe0ff;">Montclair</a>
-          <a href="/ridgewood-locksmith/" style="color:#cfe0ff;">Ridgewood</a>
-          <a href="/hoboken-locksmith/" style="color:#cfe0ff;">Hoboken</a>
-          <a href="/jersey-city-locksmith/" style="color:#cfe0ff;">Jersey City</a>
-        </div>
-      </nav>
-      <small style="display:block; padding-top:12px; border-top:1px solid rgba(255,255,255,0.1);">&#169; <span id="y"></span> Alliance 24hr Locksmith. All rights reserved.</small>
-    </div>
-  </footer>
 
   <script defer>
     var yEl=document.getElementById('y'); if (yEl) yEl.textContent = new Date().getFullYear();
@@ -735,10 +625,109 @@
     </div>
     <div class="foot__col">
       <div class="foot__title">24-hour line</div>
-      <a href="tel:+19144064474" class="foot__num">(914) 406-4474</a>
+      <a href="tel:+19144064474" class="foot__num" data-cta="footer">(914) 406-4474</a>
       <div class="foot__small">A real person picks up. Always.</div>
       <div class="foot__small" style="margin-top:8px;">Licensed &amp; insured</div>
     </div>
+  </div>
+  <div class="container foot__areas">
+    <nav aria-label="footer services" class="foot__links">
+          <a href="/emergency-locksmith/">Emergency</a>
+          <a href="/car-lockout/">Car Lockout</a>
+          <a href="/house-lockout/">House Lockout</a>
+          <a href="/price-list/">Price List</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+    <nav aria-label="service areas">
+        <div class="foot__areas-title">Westchester County, NY</div>
+        <div class="foot__areas-list">
+          <a href="/yonkers-locksmith/">Yonkers</a>
+          <a href="/white-plains-locksmith/">White Plains</a>
+          <a href="/new-rochelle-locksmith/">New Rochelle</a>
+          <a href="/mount-vernon-locksmith/">Mount Vernon</a>
+          <a href="/scarsdale-locksmith/">Scarsdale</a>
+          <a href="/larchmont-locksmith/">Larchmont</a>
+          <a href="/pelham-locksmith/">Pelham</a>
+          <a href="/tarrytown-locksmith/">Tarrytown</a>
+          <a href="/hastings-on-hudson-locksmith/">Hastings on Hudson</a>
+          <a href="/ossining-locksmith/">Ossining</a>
+          <a href="/pleasantville-locksmith/">Pleasantville</a>
+          <a href="/sleepy-hollow-locksmith/">Sleepy Hollow</a>
+          <a href="/tuckahoe-locksmith/">Tuckahoe</a>
+          <a href="/ardsley-locksmith/">Ardsley</a>
+          <a href="/elmsford-locksmith/">Elmsford</a>
+          <a href="/eastchester-locksmith/">Eastchester</a>
+          <a href="/hartsdale-locksmith/">Hartsdale</a>
+          <a href="/greenburgh-locksmith/">Greenburgh</a>
+          <a href="/edgemont-locksmith/">Edgemont</a>
+          <a href="/croton-on-hudson-locksmith/">Croton on Hudson</a>
+          <a href="/briarcliff-manor-locksmith/">Briarcliff Manor</a>
+          <a href="/peekskill-locksmith/">Peekskill</a>
+        </div>
+        <div class="foot__areas-title">New York City</div>
+        <div class="foot__areas-list">
+          <a href="/manhattan-locksmith/">Manhattan</a>
+          <a href="/brooklyn-locksmith/">Brooklyn</a>
+          <a href="/bronx-locksmith/">Bronx</a>
+          <a href="/staten-island-locksmith/">Staten Island</a>
+          <a href="/upper-east-side-locksmith/">Upper East Side</a>
+          <a href="/upper-west-side-locksmith/">Upper West Side</a>
+          <a href="/harlem-locksmith/">Harlem</a>
+          <a href="/midtown-locksmith/">Midtown</a>
+          <a href="/hells-kitchen-locksmith/">Hells Kitchen</a>
+          <a href="/washington-heights-locksmith/">Washington Heights</a>
+          <a href="/riverdale-locksmith/">Riverdale</a>
+          <a href="/astoria-locksmith/">Astoria</a>
+          <a href="/long-island-city-locksmith/">Long Island City</a>
+          <a href="/flushing-locksmith/">Flushing</a>
+          <a href="/forest-hills-locksmith/">Forest Hills</a>
+          <a href="/jackson-heights-locksmith/">Jackson Heights</a>
+          <a href="/jamaica-locksmith/">Jamaica</a>
+          <a href="/bayside-locksmith/">Bayside</a>
+          <a href="/williamsburg-locksmith/">Williamsburg</a>
+          <a href="/park-slope-locksmith/">Park Slope</a>
+          <a href="/bay-ridge-locksmith/">Bay Ridge</a>
+          <a href="/brooklyn-heights-locksmith/">Brooklyn Heights</a>
+          <a href="/crown-heights-locksmith/">Crown Heights</a>
+          <a href="/flatbush-locksmith/">Flatbush</a>
+          <a href="/bedford-stuyvesant-locksmith/">Bedford Stuyvesant</a>
+          <a href="/greenpoint-locksmith/">Greenpoint</a>
+        </div>
+        <div class="foot__areas-title">Fairfield County, CT</div>
+        <div class="foot__areas-list">
+          <a href="/ridgefield-locksmith/">Ridgefield</a>
+          <a href="/stamford-locksmith/">Stamford</a>
+          <a href="/darien-locksmith/">Darien</a>
+          <a href="/new-canaan-locksmith/">New Canaan</a>
+          <a href="/westport-locksmith/">Westport</a>
+          <a href="/norwalk-locksmith/">Norwalk</a>
+          <a href="/wilton-locksmith/">Wilton</a>
+          <a href="/weston-locksmith/">Weston</a>
+          <a href="/fairfield-locksmith/">Fairfield</a>
+          <a href="/ridgefield-locksmith/">Ridgefield</a>
+          <a href="/trumbull-locksmith/">Trumbull</a>
+          <a href="/easton-locksmith/">Easton</a>
+          <a href="/redding-locksmith/">Redding</a>
+        </div>
+        <div class="foot__areas-title">Long Island, NY</div>
+        <div class="foot__areas-list">
+          <a href="/garden-city-locksmith/">Garden City</a>
+          <a href="/manhasset-locksmith/">Manhasset</a>
+          <a href="/great-neck-locksmith/">Great Neck</a>
+          <a href="/syosset-locksmith/">Syosset</a>
+          <a href="/rockville-centre-locksmith/">Rockville Centre</a>
+        </div>
+        <div class="foot__areas-title">New Jersey</div>
+        <div class="foot__areas-list">
+          <a href="/short-hills-locksmith/">Short Hills</a>
+          <a href="/summit-locksmith/">Summit</a>
+          <a href="/livingston-locksmith/">Livingston</a>
+          <a href="/montclair-locksmith/">Montclair</a>
+          <a href="/ridgewood-locksmith/">Ridgewood</a>
+          <a href="/hoboken-locksmith/">Hoboken</a>
+          <a href="/jersey-city-locksmith/">Jersey City</a>
+        </div>
+      </nav>
   </div>
   <div class="foot__bottom container">
     <div>&copy; 2026 Alliance 24hr Locksmith. All rights reserved.</div>

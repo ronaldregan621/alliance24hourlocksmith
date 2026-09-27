@@ -2,10 +2,35 @@
 """
 Rebuild all 25 location pages with homepage-matching design.
 Preserves: title, meta, canonical, JSON-LD schemas, H1, intro text, services, FAQs.
+
+OUT OF DATE, DO NOT RE-RUN WITHOUT UPDATING (2026-09-26).
+The live city pages were hand-fixed after this script last ran and its templates
+still carry the old problems. A re-run would overwrite every page in PAGES with:
+  - the old navy template (CSS_BLOCK below), not the current paper/orange design
+    that the city pages now share with the homepage (body CSS restored from the
+    Ardsley template, .cta-primary orange pill, .foot footer, .sticky-call bar)
+  - a second footer (FOOTER_HTML) instead of the merged footer with the town link
+    groups inside <footer class="foot"> (.foot__areas / .foot__links / .foot__areas-list)
+  - no <style id="cta-fit"> (hides the red emergency bar under 700px and lets
+    body.sticky-js hide the sticky bar while the hero call button is on screen)
+    and no <script id="sticky-fit"> IntersectionObserver
+  - no class="emg-bar" data-cta="emergency-bar" on the red emergency line anchor
+  - a quote form that does not POST to /api/quote/
+  - the old "Mobile sticky call bar" markup (data-cta="mobile-sticky") alongside
+    the current a.sticky-call, which stacked two bars on phones
+Before running again: rebuild CSS_BLOCK, FOOTER_HTML and build_page() from a
+current page (white-plains-locksmith/index.html is a good reference), then run
+with --i-updated-the-templates.
 """
 
 import re
 import os
+import sys
+
+if "--i-updated-the-templates" not in sys.argv:
+    sys.exit("build_location_pages.py is out of date and would reintroduce the old "
+             "template. Read the note at the top of the file, update it, then pass "
+             "--i-updated-the-templates.")
 
 BASE = "/Users/kamaalmorrison/Documents/Agent 51/alliance24hourlocksmith"
 

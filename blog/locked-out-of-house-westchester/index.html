@@ -149,7 +149,7 @@
     .foot__title{font-size:11px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:12px;}
     .foot__col ul{display:flex;flex-direction:column;gap:7px;font-size:14px;color:rgba(255,255,255,0.75);}
     .foot__col li a:hover{color:var(--accent);}
-    .foot__num{display:block;font-size:26px;font-weight:800;letter-spacing:-0.02em;color:var(--accent);margin-bottom:4px;white-space:nowrap;}
+    .foot__num{display:block;font-size:16px;font-weight:700;color:var(--accent);margin-bottom:4px;white-space:nowrap;}
     .foot__small{font-size:12px;color:rgba(255,255,255,0.5);}
     .foot__bottom{padding-top:20px;display:flex;justify-content:space-between;gap:12px;font-size:12px;color:rgba(255,255,255,0.35);flex-wrap:wrap;}
     .sticky-call{display:none;position:fixed;bottom:12px;left:12px;right:12px;z-index:60;background:var(--accent);color:var(--ink);border-radius:14px;padding:12px 16px;box-shadow:0 10px 30px rgba(11,27,43,0.25);}
@@ -291,7 +291,7 @@
       <p>Price ranges for a residential lockout in Westchester depend on the time of day, your location in the county, and whether anything needs to be replaced rather than just opened. These are real numbers from actual jobs, not teaser quotes.</p>
 
       <section class="inset-box">
-        <table class="price-table">
+        <div class="tbl-wrap" style="overflow-x:auto;-webkit-overflow-scrolling:touch;"><table class="price-table">
           <thead>
             <tr>
               <th>Service</th>
@@ -321,7 +321,7 @@
               <td class="price">$270 to $650</td>
             </tr>
           </tbody>
-        </table>
+        </table></div>
         <p style="font-size:13px;color:var(--muted);margin:0;">Final price confirmed over the phone before dispatch. Ranges reflect the Westchester County market. Specific jobs vary by lock type and access complexity.</p>
       </section>
 
