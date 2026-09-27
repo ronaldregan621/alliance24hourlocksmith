@@ -430,6 +430,7 @@
     .bigcta__btn-top { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 0.06em; }
     .bigcta__btn-num { font-size: 44px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; }
     .bigcta__btn-sub { font-size: 12px; opacity: 0.75; }
+    @media (max-width: 600px) { .bigcta__btn { padding: 20px 16px; } .bigcta__btn-num { font-size: clamp(28px, 9vw, 44px); } }
 
     /* Footer */
     .foot { background: var(--ink); color: var(--paper); padding: 64px 0 24px; }
@@ -458,6 +459,7 @@
     .sticky-call__chev { opacity: 0.7; }
     @media (max-width: 700px) { .sticky-call { display: block; } body { padding-bottom: 80px; } }
   </style>
+<style id="nav-fit">@media(max-width:600px){.nav__inner{gap:12px}.brand{min-width:0}.brand__tag{display:none}.nav__call{padding:10px}.nav__call span{display:none}}</style>
 </head>
 <body>
 <!-- Emergency Line Bar -->

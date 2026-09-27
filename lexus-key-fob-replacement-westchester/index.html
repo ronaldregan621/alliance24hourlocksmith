@@ -127,6 +127,7 @@
     footer a{color:#cfe0ff;}footer a:hover{color:var(--accent);}
     .foot-bar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:12px;color:rgba(255,255,255,0.35);margin-top:24px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);}
   </style>
+<style id="nav-fit">@media(max-width:600px){.nav__inner{gap:12px}.brand{min-width:0}.brand__tag{display:none}.nav__call{padding:10px}.nav__call span{display:none}}</style>
 </head>
 <body>
 <!-- Emergency Line Bar -->
@@ -355,5 +356,13 @@
     this.reset();
   });
 </script>
+<script>/* quote form: send to /api/quote/ (Slack) before the page's own thank-you handler runs */
+document.addEventListener('submit',function(e){var f=e.target;if(!f||f.id!=='quoteForm')return;
+var v=function(n){var i=f.querySelector('[name="'+n+'"]');return i?i.value.trim():'';};
+var d={name:v('name'),phone:v('phone'),service:v('service'),page:location.href};
+if(!d.name||!d.phone||!d.service)return;
+fetch('/api/quote/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d),keepalive:true})
+.then(function(r){if(!r.ok)throw 0;}).catch(function(){var m=document.getElementById('formMsg');if(m){m.style.display='block';m.textContent='Something went wrong. Please call us at (914) 406-4474.';}});
+},true);</script>
 </body>
 </html>
