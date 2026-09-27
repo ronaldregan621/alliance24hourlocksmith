@@ -175,11 +175,12 @@
     .sidebar-checklist li::before{content:"✓";color:var(--green);font-weight:700;flex-shrink:0;margin-top:1px;}
   </style>
 <style id="nav-fit">@media(max-width:600px){.nav__inner{gap:12px}.brand{min-width:0}.brand__tag{display:none}.nav__call{padding:10px}.nav__call span{display:none}}</style>
+<style id="cta-fit">.sticky-call{border-radius:999px}@media(max-width:700px){.emg-bar{display:none!important}body.sticky-js:not(.show-sticky) .sticky-call{display:none}}</style>
 </head>
 <body>
 <!-- Emergency Line Bar -->
 <style>.emg-pulse{width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 0 0 rgba(255,255,255,0.7);animation:emg-pulse 1.6s infinite;display:inline-block;flex-shrink:0}@keyframes emg-pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,0.5)}70%{box-shadow:0 0 0 8px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}</style>
-<a href="tel:+19144064474" style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;background:#B91C1C;color:#fff;text-align:center;padding:11px 24px;font-size:13px;font-weight:600;text-decoration:none;font-family:inherit;line-height:1.3;">
+<a href="tel:+19144064474" class="emg-bar" data-cta="emergency-bar" style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;background:#B91C1C;color:#fff;text-align:center;padding:11px 24px;font-size:13px;font-weight:600;text-decoration:none;font-family:inherit;line-height:1.3;">
   <span style="display:inline-flex;align-items:center;gap:7px;"><span class="emg-pulse"></span>24/7 Emergency Line</span>
   <span style="font-size:17px;font-weight:800;letter-spacing:-0.02em;">(914) 406-4474</span>
   <span style="opacity:0.88;font-weight:400;">Real person answers, day or night.</span>
@@ -532,5 +533,6 @@
   document.getElementById('mmenu').addEventListener('click',function(e){if(e.target===this)this.classList.remove('is-open');});
   document.querySelectorAll('.mmenu__links a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('mmenu').classList.remove('is-open');});});
 </script>
+<script id="sticky-fit">(function(){if(!('IntersectionObserver' in window))return;var c=document.querySelector('a[href^="tel:"][data-cta="hero-primary"],a[href^="tel:"][data-cta="hero-call"],a[href^="tel:"].cta-primary,a[href^="tel:"].cta-btn');var s=document.querySelector('a.sticky-call');if(!c||!s)return;document.body.classList.add('sticky-js');new IntersectionObserver(function(e){document.body.classList.toggle('show-sticky',!e[0].isIntersecting);}).observe(c);})();</script>
 </body>
 </html>

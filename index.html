@@ -133,24 +133,26 @@
 
   <style>
     :root {
-      --bg: #0B1B2B;
-      --bg-2: #0E2233;
       --paper: #FAF7F2;
       --paper-2: #F1ECE2;
+      --paper-dim: rgba(250,247,242,0.65); /* muted text on dark panels, derived from --paper */
       --ink: #0B1B2B;
       --ink-2: #2A3B4C;
       --muted: #5C6A78;
       --line: rgba(11,27,43,0.12);
-      --line-strong: rgba(11,27,43,0.22);
       --line-dark: rgba(255,255,255,0.10);
       --accent: #F5A524;
       --green: #2BB673;
-      --r-sm: 6px;
-      --r-md: 10px;
-      --r-lg: 16px;
       --shadow-sm: 0 1px 2px rgba(11,27,43,0.08), 0 4px 12px rgba(11,27,43,0.04);
-      --shadow-md: 0 4px 8px rgba(11,27,43,0.10), 0 16px 40px rgba(11,27,43,0.10);
+      --shadow-btn: 0 6px 20px rgba(245,165,36,0.35);
       --maxw: 1240px;
+      /* Type scale: six sizes */
+      --fs-xs: 12px;
+      --fs-sm: 14px;
+      --fs-md: 16px;
+      --fs-lg: 18px;
+      --fs-h2: clamp(26px, 4vw, 40px);
+      --fs-h1: clamp(34px, 6vw, 64px);
     }
     * { box-sizing: border-box; }
     html, body { margin: 0; padding: 0; }
@@ -160,11 +162,11 @@
       color: var(--ink);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
-      font-size: 16px;
+      font-size: var(--fs-md);
       line-height: 1.55;
     }
     a { color: inherit; text-decoration: none; }
-    button { font-family: inherit; cursor: pointer; }
+    button { font: inherit; cursor: pointer; }
     ul, ol { list-style: none; padding: 0; margin: 0; }
     .container { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
 
@@ -184,21 +186,21 @@
       border-radius: 50%; align-items: center; justify-content: center;
     }
     .brand__text { display: flex; flex-direction: column; line-height: 1.1; }
-    .brand__name { font-weight: 700; font-size: 16px; letter-spacing: -0.01em; }
-    .brand__tag { font-size: 11px; color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 3px; }
-    .nav__links { display: flex; gap: 28px; margin-left: auto; font-size: 14px; font-weight: 500; color: var(--ink-2); }
+    .brand__name { font-weight: 700; font-size: var(--fs-md); letter-spacing: -0.01em; }
+    .brand__tag { font-size: var(--fs-xs); color: var(--muted); letter-spacing: 0.04em; text-transform: uppercase; margin-top: 3px; }
+    .nav__links { display: flex; gap: 28px; margin-left: auto; font-size: var(--fs-sm); font-weight: 500; color: var(--ink-2); }
     .nav__links a:hover { color: var(--accent); }
     .nav__call {
       display: inline-flex; align-items: center; gap: 8px;
       background: var(--ink); color: var(--paper);
       padding: 10px 16px; border-radius: 999px;
-      font-weight: 600; font-size: 14px;
+      font-weight: 600; font-size: var(--fs-sm);
       transition: transform 0.15s; white-space: nowrap; flex-shrink: 0;
     }
     .nav__call:hover { transform: translateY(-1px); }
     .nav__menu {
       display: none; background: transparent;
-      border: 1px solid var(--line-strong); border-radius: 8px;
+      border: 1px solid var(--line); border-radius: 8px;
       padding: 8px; color: var(--ink);
     }
     @media (max-width: 1040px) {
@@ -226,7 +228,8 @@
     .mmenu__call {
       display: flex; align-items: center; justify-content: center; gap: 10px;
       background: var(--accent); color: var(--ink);
-      padding: 16px; border-radius: 12px; font-weight: 700; font-size: 18px;
+      padding: 14px; border-radius: 999px; font-weight: 700; font-size: var(--fs-lg);
+      box-shadow: var(--shadow-btn);
     }
     .mmenu__links { display: flex; flex-direction: column; gap: 4px; }
     .mmenu__links a { padding: 12px 4px; border-bottom: 1px solid var(--line); font-weight: 500; display: block; }
@@ -240,19 +243,14 @@
         radial-gradient(600px 300px at -10% 100%, rgba(11,27,43,0.04), transparent 60%);
       pointer-events: none;
     }
-    .hero__inner {
-      position: relative; display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 64px; align-items: center;
-      padding: 88px 24px 96px;
-    }
-    @media (max-width: 1000px) { .hero__inner { grid-template-columns: 1fr; gap: 40px; padding: 56px 24px 72px; } }
+    .hero__inner { position: relative; max-width: 820px; padding: 72px 24px 80px; }
+    @media (max-width: 700px) { .hero__inner { padding: 32px 24px 40px; } }
     .hero__eyebrow {
       display: inline-flex; align-items: center; gap: 10px;
-      font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase;
+      font-size: var(--fs-xs); letter-spacing: 0.04em; text-transform: uppercase;
       font-weight: 600; color: var(--ink-2);
       background: rgba(11,27,43,0.04);
-      padding: 8px 14px; border-radius: 999px; margin-bottom: 24px;
+      padding: 7px 14px; border-radius: 999px; margin-bottom: 18px; white-space: nowrap;
     }
     .pulse {
       width: 8px; height: 8px; border-radius: 50%;
@@ -267,204 +265,132 @@
       100% { box-shadow: 0 0 0 0 rgba(43,182,115,0); }
     }
     .hero__title {
-      font-size: clamp(40px,6vw,76px); line-height: 1.02;
-      letter-spacing: -0.03em; font-weight: 800; margin: 0 0 20px; text-wrap: balance;
+      font-size: var(--fs-h1); line-height: 1.04;
+      letter-spacing: -0.03em; font-weight: 800; margin: 0 0 14px; text-wrap: balance;
     }
     .hero__title-accent {
       background: linear-gradient(180deg, var(--ink) 60%, var(--accent) 60%);
       -webkit-background-clip: text; background-clip: text;
       color: transparent; display: inline-block; padding-bottom: 4px;
     }
-    .hero__sub { font-size: 18px; color: var(--ink-2); max-width: 56ch; margin: 0 0 32px; }
-    .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 32px; }
-    .hero__bullets { display: flex; flex-wrap: wrap; gap: 18px 24px; font-size: 14px; color: var(--ink-2); font-weight: 500; }
+    .hero__sub { font-size: var(--fs-lg); color: var(--ink-2); max-width: 52ch; margin: 0 0 22px; text-wrap: pretty; }
+    @media (max-width: 700px) { .hero__sub { font-size: var(--fs-md); } }
+    .hero__cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 22px; }
+    .hero__bullets { display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: var(--fs-sm); color: var(--ink-2); font-weight: 500; }
     .hero__bullets li { display: inline-flex; align-items: center; gap: 8px; }
 
-    /* Buttons */
+    /* Buttons: one dark nav pill (.nav__call) and one orange pill (.btn--primary) */
     .btn {
       display: inline-flex; align-items: center; gap: 12px;
-      padding: 14px 22px; border-radius: 12px; font-weight: 600; font-size: 15px;
+      padding: 14px 24px; border-radius: 999px; font-weight: 700; font-size: var(--fs-md);
       border: 1px solid transparent; transition: transform 0.12s ease, box-shadow 0.18s ease;
     }
     .btn:hover { transform: translateY(-1px); }
-    .btn--primary {
-      background: var(--accent); color: var(--ink);
-      box-shadow: 0 6px 20px rgba(245,165,36,0.35), inset 0 -2px 0 rgba(0,0,0,0.08);
-    }
+    .btn--primary { background: var(--accent); color: var(--ink); box-shadow: var(--shadow-btn); }
     .btn--primary:hover { box-shadow: 0 10px 28px rgba(245,165,36,0.45); }
-    .btn--ghost { background: transparent; color: var(--ink); border-color: var(--line-strong); }
-    .btn--xl { padding: 18px 24px; font-size: 16px; border-radius: 14px; }
+    .btn--xl { padding: 16px 28px; }
     .btn__stack { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.05; }
-    .btn__top { font-size: 11px; font-weight: 600; opacity: 0.8; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; }
-    .btn__num { font-size: 20px; font-weight: 800; letter-spacing: -0.01em; white-space: nowrap; }
-
-    /* Dispatch card */
-    .hero__card {
-      background: var(--bg); color: var(--paper);
-      border-radius: 20px; padding: 24px;
-      box-shadow: var(--shadow-md); border: 1px solid rgba(255,255,255,0.06);
-    }
-    .dispatch__head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
-    .dispatch__dot {
-      width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
-      background: var(--green); box-shadow: 0 0 0 0 rgba(43,182,115,0.5);
-      animation: pulse 1.6s infinite;
-    }
-    .dispatch__title { font-weight: 700; font-size: 14px; }
-    .dispatch__sub { font-size: 12px; color: rgba(255,255,255,0.5); }
-    .dispatch__eta {
-      display: flex; align-items: baseline; gap: 12px;
-      margin-bottom: 16px; padding-bottom: 16px; border-bottom: 1px solid var(--line-dark);
-    }
-    .dispatch__eta-num { font-size: 56px; font-weight: 800; letter-spacing: -0.04em; color: var(--accent); line-height: 1; }
-    .dispatch__eta-unit > div:first-child { font-size: 14px; color: rgba(255,255,255,0.7); font-weight: 600; }
-    .dispatch__eta-label { font-size: 11px; color: rgba(255,255,255,0.45); letter-spacing: 0.06em; text-transform: uppercase; margin-top: 4px; }
-    .dispatch__map {
-      border-radius: 10px; overflow: hidden; border: 1px solid var(--line-dark);
-      background: rgba(255,255,255,0.02); margin-bottom: 14px; aspect-ratio: 320/180;
-    }
-    .dispatch__map svg { display: block; width: 100%; height: 100%; }
-    .dispatch__list { display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: rgba(255,255,255,0.7); font-family: ui-monospace,"SF Mono",monospace; }
-    .dispatch__row { display: flex; align-items: center; gap: 8px; }
-    .dispatch__pip { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
-    .dispatch__pip--green { background: var(--green); }
-    .dispatch__pip--amber { background: var(--accent); }
-    .dispatch__cta {
-      display: flex; align-items: center; justify-content: center; gap: 8px;
-      background: var(--accent); color: var(--ink);
-      margin-top: 14px; padding: 12px; border-radius: 10px;
-      font-weight: 700; font-size: 14px; white-space: nowrap;
-    }
-
-    /* Trust band */
-    .trust { background: var(--ink); color: var(--paper); }
-    .trust__inner { display: grid; grid-template-columns: repeat(4,1fr); gap: 32px; padding: 24px; }
-    .trust__item { display: flex; align-items: center; gap: 14px; }
-    .trust__num { font-size: 22px; font-weight: 700; letter-spacing: -0.02em; }
-    .trust__label { font-size: 12px; color: rgba(255,255,255,0.55); }
-    @media (max-width: 800px) { .trust__inner { grid-template-columns: repeat(2,1fr); gap: 20px; } }
+    .btn__top { font-size: var(--fs-xs); font-weight: 600; opacity: 0.8; letter-spacing: 0.04em; text-transform: uppercase; white-space: nowrap; }
+    .btn__num { font-size: var(--fs-lg); font-weight: 800; letter-spacing: -0.01em; white-space: nowrap; }
 
     /* Sections */
-    .section { padding: 96px 0; }
+    .section { padding: 88px 0; }
     .section--alt { background: var(--paper-2); }
-    .section--dark { background: var(--bg); color: var(--paper); }
-    .section--dark .head__title { color: var(--paper); }
-    .section--dark .head__sub { color: rgba(255,255,255,0.65); }
-    .section--dark .head__kicker { color: var(--accent); }
-    @media (max-width: 800px) { .section { padding: 64px 0; } }
-    .head { max-width: 720px; margin: 0 auto 48px; text-align: center; }
-    .head__kicker { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; white-space: nowrap; }
-    .head__title { font-size: clamp(28px,4vw,44px); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 14px; line-height: 1.1; text-wrap: balance; }
-    .head__sub { font-size: 17px; color: var(--muted); margin: 0; text-wrap: pretty; }
-    .section__cta { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 48px; flex-wrap: wrap; }
-    .section__cta > span { color: var(--muted); font-size: 15px; }
+    @media (max-width: 800px) { .section { padding: 56px 0; } }
+    .head { max-width: 720px; margin: 0 auto 40px; text-align: center; }
+    .head__kicker { display: inline-block; font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; white-space: nowrap; }
+    .head__title { font-size: var(--fs-h2); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 12px; line-height: 1.1; text-wrap: balance; }
+    .head__sub { font-size: var(--fs-md); color: var(--muted); margin: 0; text-wrap: pretty; }
+    .section__cta { display: flex; align-items: center; justify-content: center; gap: 18px; margin-top: 40px; flex-wrap: wrap; text-align: center; }
+    .section__cta > span { color: var(--muted); font-size: var(--fs-sm); }
 
     /* Service cards */
-    .services { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
-    .services--3 { grid-template-columns: repeat(3,1fr); }
-    @media (max-width: 1100px) { .services { grid-template-columns: repeat(2,1fr); } .services--3 { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 600px)  { .services { grid-template-columns: 1fr; } .services--3 { grid-template-columns: 1fr; } }
+    .services { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+    .services--2 { grid-template-columns: repeat(2,1fr); gap: 12px; }
+    @media (max-width: 900px) { .services { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 600px) { .services { grid-template-columns: 1fr; } .services--2 { grid-template-columns: repeat(2,1fr); } }
     .svc {
-      background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 28px 24px;
+      background: var(--paper); border: 1px solid var(--line); border-radius: 16px; padding: 24px 22px;
       transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
     }
-    .section--alt .svc { background: var(--paper); }
+    .services--2 .svc { padding: 18px 16px; }
     .svc:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
-    .svc__icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(245,165,36,0.12); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 16px; }
-    .svc__title { font-size: 20px; font-weight: 700; letter-spacing: -0.01em; margin: 0 0 8px; }
-    .svc__blurb { font-size: 14px; color: var(--muted); margin: 0 0 16px; line-height: 1.55; }
-
-    /* Stats */
-    .stats { display: flex; align-items: center; justify-content: center; gap: 32px; margin-top: 56px; padding: 24px; background: var(--paper); border: 1px solid var(--line); border-radius: 14px; flex-wrap: wrap; }
-    .stats__item { text-align: center; min-width: 110px; }
-    .stats__num { font-size: 32px; font-weight: 800; letter-spacing: -0.02em; color: var(--ink); line-height: 1; }
-    .stats__label { font-size: 12px; color: var(--muted); margin-top: 6px; letter-spacing: 0.06em; text-transform: uppercase; }
-    .stats__sep { width: 1px; height: 36px; background: var(--line); }
-    @media (max-width: 700px) { .stats__sep { display: none; } .stats { gap: 24px 32px; } }
+    .svc__icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(245,165,36,0.12); display: inline-flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+    .svc__title { font-size: var(--fs-lg); font-weight: 700; letter-spacing: -0.01em; margin: 0 0 6px; }
+    .services--2 .svc__title { font-size: var(--fs-md); }
+    .svc__blurb { font-size: var(--fs-sm); color: var(--muted); margin: 0; line-height: 1.5; }
 
     /* Process */
-    .process { display: grid; grid-template-columns: repeat(4,1fr); gap: 24px; }
+    .process { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
     @media (max-width: 900px) { .process { grid-template-columns: repeat(2,1fr); } }
-    @media (max-width: 540px) { .process { grid-template-columns: 1fr; } }
-    .process__step { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
-    .process__num { font-family: ui-monospace,"SF Mono",monospace; font-size: 13px; font-weight: 700; letter-spacing: 0.06em; margin-bottom: 12px; }
-    .process__body h4 { font-size: 18px; margin: 0 0 6px; font-weight: 700; }
-    .process__body p { font-size: 14px; color: var(--muted); margin: 0; }
-
-    /* Service area */
-    .area { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
-    @media (max-width: 900px) { .area { grid-template-columns: 1fr; gap: 32px; } }
-    .area__regions { display: flex; flex-direction: column; gap: 24px; }
-    .area__region-title { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); margin-bottom: 10px; }
-    .area__grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 8px; }
-    .area__chip { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; padding: 10px 14px; background: rgba(255,255,255,0.04); border: 1px solid var(--line-dark); border-radius: 999px; color: rgba(255,255,255,0.85); }
-    .area__note { margin-top: 20px; font-size: 13px; color: rgba(255,255,255,0.55); }
-    .area__map { border-radius: 16px; border: 1px solid var(--line-dark); overflow: hidden; background: rgba(255,255,255,0.02); }
-    .bigmap { display: block; width: 100%; height: auto; }
-
-    /* Reviews */
-    .reviews { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; }
-    @media (max-width: 800px) { .reviews { grid-template-columns: 1fr; } }
-    .review { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 24px; }
-    .review__stars { display: flex; gap: 2px; margin-bottom: 12px; }
-    .review__text { font-size: 16px; color: var(--ink-2); margin: 0 0 18px; line-height: 1.55; text-wrap: pretty; }
-    .review__who { display: flex; align-items: center; gap: 12px; }
-    .review__avatar { width: 36px; height: 36px; border-radius: 50%; background: var(--ink); color: var(--paper); display: inline-flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
-    .review__name { font-weight: 700; font-size: 14px; }
-    .review__where { font-size: 12px; color: var(--muted); }
+    @media (max-width: 540px) { .process { grid-template-columns: 1fr; gap: 12px; } }
+    .process__step { background: var(--paper); border: 1px solid var(--line); border-radius: 14px; padding: 22px; }
+    .process__num { font-family: ui-monospace,"SF Mono",monospace; font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.06em; margin-bottom: 10px; color: var(--accent); }
+    .process__body h4 { font-size: var(--fs-lg); margin: 0 0 6px; font-weight: 700; }
+    .process__body p { font-size: var(--fs-sm); color: var(--muted); margin: 0; }
 
     /* Big CTA */
-    .bigcta { background: var(--bg); color: var(--paper); position: relative; overflow: hidden; }
+    .bigcta { background: var(--ink); color: var(--paper); position: relative; overflow: hidden; }
     .bigcta::before {
       content: ""; position: absolute; inset: 0;
       background: radial-gradient(700px 400px at 80% 50%, rgba(245,165,36,0.18), transparent 60%), radial-gradient(500px 300px at 0% 100%, rgba(245,165,36,0.06), transparent 60%);
       pointer-events: none;
     }
-    .bigcta__inner { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 48px; align-items: center; padding: 80px 24px; }
-    @media (max-width: 900px) { .bigcta__inner { grid-template-columns: 1fr; padding: 56px 24px; } }
-    .bigcta__kicker { font-size: 12px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
-    .bigcta__title { font-size: clamp(36px,5vw,60px); font-weight: 800; letter-spacing: -0.03em; margin: 0 0 14px; line-height: 1.05; }
-    .bigcta__sub { font-size: 17px; color: rgba(255,255,255,0.7); margin: 0; max-width: 50ch; }
-    .bigcta__btn { background: var(--accent); color: var(--ink); padding: 28px 36px; border-radius: 20px; display: flex; flex-direction: column; align-items: center; gap: 6px; text-align: center; transition: transform 0.15s, box-shadow 0.18s; box-shadow: 0 12px 40px rgba(245,165,36,0.35); }
-    .bigcta__btn:hover { transform: translateY(-2px); box-shadow: 0 18px 56px rgba(245,165,36,0.5); }
-    .bigcta__btn-top { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: 0.06em; }
-    .bigcta__btn-num { font-size: 44px; font-weight: 800; letter-spacing: -0.02em; line-height: 1; white-space: nowrap; }
-    .bigcta__btn-sub { font-size: 12px; opacity: 0.75; }
-    @media (max-width: 600px) { .bigcta__btn { padding: 20px 16px; } .bigcta__btn-num { font-size: clamp(28px, 9vw, 44px); } }
+    .bigcta__inner { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 40px; align-items: center; padding: 72px 24px; }
+    @media (max-width: 900px) { .bigcta__inner { grid-template-columns: 1fr; padding: 48px 24px; } }
+    .bigcta__kicker { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+    .bigcta__title { font-size: var(--fs-h2); font-weight: 800; letter-spacing: -0.03em; margin: 0 0 12px; line-height: 1.05; }
+    .bigcta__sub { font-size: var(--fs-md); color: var(--paper-dim); margin: 0; max-width: 50ch; }
+
+    /* Areas we serve */
+    .areas { padding: 56px 0; background: var(--paper-2); }
+    @media (max-width: 800px) { .areas { padding: 40px 0; } }
+    .areas__title { font-size: var(--fs-h2); font-weight: 800; letter-spacing: -0.02em; margin: 0 0 8px; }
+    .areas__sub { color: var(--muted); margin: 0 0 24px; font-size: var(--fs-md); }
+    .area-group { margin-bottom: 18px; border-top: 1px solid var(--line); }
+    .area-group summary { cursor: pointer; list-style: none; display: flex; align-items: center; justify-content: space-between; padding: 12px 0; font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+    .area-group summary::-webkit-details-marker { display: none; }
+    .area-group summary::after { content: "+"; font-size: var(--fs-lg); color: var(--muted); line-height: 1; }
+    .area-group[open] summary::after { content: "\2013"; }
+    .area-group__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; padding-bottom: 8px; }
+    .area-link { display: block; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; font-size: var(--fs-sm); font-weight: 500; color: var(--ink); }
+    .area-link:hover { border-color: var(--accent); }
+    .areas__note { margin: 8px 0 0; font-size: var(--fs-sm); color: var(--muted); }
 
     /* Footer */
-    .foot { background: var(--ink); color: var(--paper); padding: 64px 0 24px; }
-    .foot__inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid var(--line-dark); }
+    .foot { background: var(--ink); color: var(--paper); padding: 56px 0 24px; }
+    .foot__inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 40px; border-bottom: 1px solid var(--line-dark); }
     @media (max-width: 900px) { .foot__inner { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 540px) { .foot__inner { grid-template-columns: 1fr; } }
+    @media (max-width: 540px) { .foot__inner { grid-template-columns: 1fr; gap: 28px; } }
     .brand--foot .brand__mark { background: var(--paper); color: var(--ink); }
     .brand--foot .brand__name { color: var(--paper); }
-    .brand--foot .brand__tag { color: rgba(255,255,255,0.5); }
-    .foot__about { font-size: 13px; color: rgba(255,255,255,0.55); margin: 16px 0 0; max-width: 36ch; line-height: 1.6; }
-    .foot__title { font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 16px; }
-    .foot__col ul { display: flex; flex-direction: column; gap: 8px; font-size: 14px; color: rgba(255,255,255,0.78); }
+    .brand--foot .brand__tag { color: var(--paper-dim); }
+    .foot__about { font-size: var(--fs-sm); color: var(--paper-dim); margin: 16px 0 0; max-width: 36ch; line-height: 1.6; }
+    .foot__title { font-size: var(--fs-xs); font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--paper-dim); margin-bottom: 14px; }
+    .foot__col ul { display: flex; flex-direction: column; gap: 8px; font-size: var(--fs-sm); color: var(--paper); }
     .foot__col li a:hover { color: var(--accent); }
-    .foot__col--call .foot__num { display: block; font-size: 28px; font-weight: 800; letter-spacing: -0.02em; color: var(--accent); margin-bottom: 6px; white-space: nowrap; }
-    .foot__small { font-size: 12px; color: rgba(255,255,255,0.55); }
-    .foot__lic { margin-top: 12px; font-size: 11px; }
-    .foot__bottom { padding-top: 24px; display: flex; justify-content: space-between; gap: 16px; font-size: 12px; color: rgba(255,255,255,0.4); flex-wrap: wrap; }
+    .foot__col--call .foot__num { display: block; font-size: var(--fs-md); font-weight: 700; color: var(--accent); margin-bottom: 6px; white-space: nowrap; }
+    .foot__small { font-size: var(--fs-xs); color: var(--paper-dim); }
+    .foot__lic { margin-top: 10px; }
+    .foot__bottom { padding-top: 24px; display: flex; justify-content: space-between; gap: 16px; font-size: var(--fs-xs); color: var(--paper-dim); flex-wrap: wrap; }
 
-    /* Sticky call bar */
-    .sticky-call { display: none; position: fixed; bottom: 12px; left: 12px; right: 12px; z-index: 60; background: var(--accent); color: var(--ink); border-radius: 14px; padding: 12px 16px; box-shadow: 0 10px 30px rgba(11,27,43,0.25); }
+    /* Sticky call bar (mobile). Hidden by JS while the hero call button is on screen; see cta-fit. */
+    .sticky-call { display: none; position: fixed; bottom: 12px; left: 12px; right: 12px; z-index: 60; background: var(--accent); color: var(--ink); border-radius: 999px; padding: 10px 14px; box-shadow: 0 10px 30px rgba(11,27,43,0.25); }
     .sticky-call__inner { display: flex; align-items: center; gap: 14px; }
     .sticky-call__icon { width: 40px; height: 40px; border-radius: 50%; background: var(--ink); color: var(--accent); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .sticky-call__text { flex: 1; line-height: 1.1; }
-    .sticky-call__label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.8; }
-    .sticky-call__num { font-size: 20px; font-weight: 800; letter-spacing: -0.01em; margin-top: 2px; white-space: nowrap; }
-    .sticky-call__chev { opacity: 0.7; }
+    .sticky-call__label { font-size: var(--fs-xs); font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; opacity: 0.8; }
+    .sticky-call__num { font-size: var(--fs-lg); font-weight: 800; letter-spacing: -0.01em; margin-top: 2px; white-space: nowrap; }
+    .sticky-call__chev { opacity: 0.7; margin-right: 6px; }
     @media (max-width: 700px) { .sticky-call { display: block; } body { padding-bottom: 80px; } }
   </style>
 <style id="nav-fit">@media(max-width:600px){.nav__inner{gap:12px}.brand{min-width:0}.brand__tag{display:none}.nav__call{padding:10px}.nav__call span{display:none}}</style>
+<style id="cta-fit">.sticky-call{border-radius:999px}@media(max-width:700px){.emg-bar{display:none!important}body.sticky-js:not(.show-sticky) .sticky-call{display:none}}</style>
 </head>
 <body>
 <!-- Emergency Line Bar -->
 <style>.emg-pulse{width:8px;height:8px;border-radius:50%;background:#fff;box-shadow:0 0 0 0 rgba(255,255,255,0.7);animation:emg-pulse 1.6s infinite;display:inline-block;flex-shrink:0}@keyframes emg-pulse{0%{box-shadow:0 0 0 0 rgba(255,255,255,0.5)}70%{box-shadow:0 0 0 8px rgba(255,255,255,0)}100%{box-shadow:0 0 0 0 rgba(255,255,255,0)}}</style>
-<a href="tel:+19144064474" style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;background:#B91C1C;color:#fff;text-align:center;padding:11px 24px;font-size:13px;font-weight:600;text-decoration:none;font-family:inherit;line-height:1.3;">
+<a href="tel:+19144064474" class="emg-bar" data-cta="emergency-bar" style="display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;background:#B91C1C;color:#fff;text-align:center;padding:11px 24px;font-size:13px;font-weight:600;text-decoration:none;font-family:inherit;line-height:1.3;">
   <span style="display:inline-flex;align-items:center;gap:7px;"><span class="emg-pulse"></span>24/7 Emergency Line</span>
   <span style="font-size:17px;font-weight:800;letter-spacing:-0.02em;">(914) 406-4474</span>
   <span style="opacity:0.88;font-weight:400;">Real person answers, day or night.</span>
@@ -529,14 +455,13 @@
     <div class="hero__copy">
       <div class="hero__eyebrow">
         <span class="pulse"></span>
-        24/7 Mobile Key Replacement · Westchester County, NY
+        24/7 · Westchester County
       </div>
       <h1 class="hero__title">
-        Lost your key?<br>
-        <span class="hero__title-accent">We cut &amp; program on the spot.</span>
+        Locked out or <span class="hero__title-accent">lost your key?</span>
       </h1>
       <p class="hero__sub">
-        All makes and models. We come to you. Cut a new key, program your fob, or get you back into your car on-site. Upfront quote on the phone, no tow required, typically on-scene in 45 to 75 minutes.
+        We come to you, cut and program keys on site, and give you the price before we roll.
       </p>
       <div class="hero__cta">
         <a href="tel:+19144064474" class="btn btn--primary btn--xl" data-cta="hero-primary">
@@ -546,7 +471,6 @@
             <span class="btn__num">(914) 406-4474</span>
           </span>
         </a>
-        <a href="#services" class="btn btn--ghost btn--xl">See services</a>
       </div>
       <ul class="hero__bullets">
         <li>
@@ -564,78 +488,6 @@
       </ul>
     </div>
 
-    <aside class="hero__card" aria-label="Live dispatch status">
-      <div class="dispatch__head">
-        <div class="dispatch__dot"></div>
-        <div>
-          <div class="dispatch__title">Dispatch live</div>
-          <div class="dispatch__sub">Key techs staged across Westchester</div>
-        </div>
-      </div>
-      <div class="dispatch__eta">
-        <div class="dispatch__eta-num" id="eta-num">~55</div>
-        <div class="dispatch__eta-unit">
-          <div>min</div>
-          <div class="dispatch__eta-label">avg arrival</div>
-        </div>
-      </div>
-      <div class="dispatch__map" aria-hidden="true">
-        <svg viewBox="0 0 320 180" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-              <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-            </pattern>
-          </defs>
-          <rect width="320" height="180" fill="url(#grid)"/>
-          <path d="M0 90 Q 80 70 160 100 T 320 90" stroke="rgba(255,255,255,0.18)" stroke-width="2" fill="none"/>
-          <path d="M40 0 Q 60 80 100 180" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none"/>
-          <path d="M220 0 Q 200 90 250 180" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" fill="none"/>
-          <circle cx="160" cy="90" r="18" fill="rgba(245,165,36,0.18)">
-            <animate attributeName="r" values="14;26;14" dur="2.4s" repeatCount="indefinite"/>
-            <animate attributeName="opacity" values="0.5;0.1;0.5" dur="2.4s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="160" cy="90" r="6" fill="#F5A524" stroke="#fff" stroke-width="2"/>
-          <g><circle cx="30" cy="60" r="4" fill="#3DD68C"/><circle cx="30" cy="60" r="9" fill="none" stroke="#3DD68C" stroke-opacity="0.4" stroke-width="1.5"/></g>
-          <g><circle cx="120" cy="40" r="4" fill="#3DD68C"/><circle cx="120" cy="40" r="9" fill="none" stroke="#3DD68C" stroke-opacity="0.4" stroke-width="1.5"/></g>
-          <g><circle cx="200" cy="95" r="4" fill="#F5A524"/><circle cx="200" cy="95" r="9" fill="none" stroke="#F5A524" stroke-opacity="0.4" stroke-width="1.5"/></g>
-          <g><circle cx="270" cy="55" r="4" fill="#3DD68C"/><circle cx="270" cy="55" r="9" fill="none" stroke="#3DD68C" stroke-opacity="0.4" stroke-width="1.5"/></g>
-          <g><circle cx="90" cy="130" r="4" fill="#3DD68C"/><circle cx="90" cy="130" r="9" fill="none" stroke="#3DD68C" stroke-opacity="0.4" stroke-width="1.5"/></g>
-          <g><circle cx="230" cy="150" r="4" fill="#3DD68C"/><circle cx="230" cy="150" r="9" fill="none" stroke="#3DD68C" stroke-opacity="0.4" stroke-width="1.5"/></g>
-        </svg>
-      </div>
-      <div class="dispatch__list">
-        <div class="dispatch__row"><span class="dispatch__pip dispatch__pip--green"></span> Tech 04 · White Plains · available</div>
-        <div class="dispatch__row"><span class="dispatch__pip dispatch__pip--green"></span> Tech 11 · Yonkers · available</div>
-        <div class="dispatch__row"><span class="dispatch__pip dispatch__pip--amber"></span> Tech 02 · New Rochelle · en route</div>
-        <div class="dispatch__row"><span class="dispatch__pip dispatch__pip--green"></span> Tech 19 · Scarsdale · available</div>
-      </div>
-      <a href="tel:+19144064474" class="dispatch__cta" data-cta="dispatch">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-        Connect to dispatcher
-      </a>
-    </aside>
-  </div>
-</section>
-
-<!-- Trust Band -->
-<section class="trust">
-  <div class="container trust__inner">
-    <div class="trust__item">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-      <div><div class="trust__num">24/7</div><div class="trust__label">Always available</div></div>
-    </div>
-    <div class="trust__item">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17.5" cy="17.5" r="1.5"/></svg>
-      <div><div class="trust__num">45 to 75 min</div><div class="trust__label">We come to you</div></div>
-    </div>
-    <div class="trust__item">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
-      <div><div class="trust__num">All Makes</div><div class="trust__label">Domestic &amp; import</div></div>
-    </div>
-    <div class="trust__item">
-      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
-      <div><div class="trust__num">No Tow</div><div class="trust__label">On-site programming</div></div>
-    </div>
   </div>
 </section>
 
@@ -647,36 +499,27 @@
       <h2 class="head__title">Why choose us?</h2>
       <p class="head__sub">Faster and cheaper than the dealership, we come to you, anywhere in Westchester.</p>
     </div>
-    <div class="services">
+    <div class="services services--2">
       <article class="svc">
-        <div class="svc__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17.5" cy="17.5" r="1.5"/></svg></div>
-        <h3 class="svc__title">We Come to You</h3>
-        <p class="svc__blurb" style="margin-bottom:0">No tow, no dealership trip. We arrive at your location, parking lot, home, roadside, and cut or program on the spot.</p>
+        <div class="svc__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.5"/><circle cx="17.5" cy="17.5" r="1.5"/></svg></div>
+        <h3 class="svc__title">We come to you</h3>
+        <p class="svc__blurb">Parking lot, driveway or roadside. No tow, no dealership trip.</p>
       </article>
       <article class="svc">
-        <div class="svc__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 5"/><path d="M3 13h18v5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2H7v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg></div>
-        <h3 class="svc__title">All Makes &amp; Models</h3>
-        <p class="svc__blurb" style="margin-bottom:0">From basic transponder keys to smart keys and proximity fobs. Domestic, European, Japanese, we carry the equipment for most vehicles.</p>
+        <div class="svc__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13l2-5a3 3 0 0 1 3-2h8a3 3 0 0 1 3 2l2 5"/><path d="M3 13h18v5a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-2H7v2a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1z"/></svg></div>
+        <h3 class="svc__title">All makes and models</h3>
+        <p class="svc__blurb">Transponder keys, smart keys and fobs. Domestic, European, Japanese.</p>
       </article>
       <article class="svc">
-        <div class="svc__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></div>
-        <h3 class="svc__title">Upfront Pricing</h3>
-        <p class="svc__blurb" style="margin-bottom:0">Quote on the phone before we dispatch, always a fraction of dealership cost. What you hear is what you pay.</p>
+        <div class="svc__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 6"/></svg></div>
+        <h3 class="svc__title">Upfront pricing</h3>
+        <p class="svc__blurb">Quoted on the phone before dispatch. What you hear is what you pay.</p>
       </article>
       <article class="svc">
-        <div class="svc__icon"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
-        <h3 class="svc__title">Same-Day Service</h3>
-        <p class="svc__blurb" style="margin-bottom:0">Average arrival 45 to 75 minutes. Dealerships book days out, we're there today.</p>
+        <div class="svc__icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+        <h3 class="svc__title">Same day service</h3>
+        <p class="svc__blurb">Typical arrival 45 to 75 minutes. Dealerships book days out.</p>
       </article>
-    </div>
-    <div class="stats">
-      <div class="stats__item"><div class="stats__num">24/7</div><div class="stats__label">Always available</div></div>
-      <div class="stats__sep"></div>
-      <div class="stats__item"><div class="stats__num">45 to 75</div><div class="stats__label">Min arrival</div></div>
-      <div class="stats__sep"></div>
-      <div class="stats__item"><div class="stats__num">All</div><div class="stats__label">Makes &amp; models</div></div>
-      <div class="stats__sep"></div>
-      <div class="stats__item"><div class="stats__num">LOCAL</div><div class="stats__label">Mobile technicians</div></div>
     </div>
   </div>
 </section>
@@ -772,110 +615,6 @@
   </div>
 </section>
 
-<!-- Service Area -->
-<section class="section section--dark" id="area">
-  <div class="container">
-    <div class="area">
-      <div>
-        <div class="head" style="text-align:left;margin:0 0 32px">
-          <div class="head__kicker">Where we go</div>
-          <h2 class="head__title">Serving Westchester &amp; the tri-state.</h2>
-          <p class="head__sub">Local, rapid response across Westchester County, NY and into Fairfield County, Long Island, and northern New Jersey.</p>
-        </div>
-        <div class="area__regions">
-          <div class="area__region">
-            <div class="area__region-title">Westchester County, NY</div>
-            <div class="area__grid">
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> White Plains</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Yonkers</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> New Rochelle</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Mount Vernon</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Scarsdale</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Larchmont</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Pelham</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Tarrytown</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Purchase</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Rye</div>
-            </div>
-          </div>
-          <div class="area__region">
-            <div class="area__region-title">Fairfield County, CT</div>
-            <div class="area__grid">
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Greenwich</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Stamford</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Darien</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> New Canaan</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Westport</div>
-            </div>
-          </div>
-          <div class="area__region">
-            <div class="area__region-title">Long Island, NY</div>
-            <div class="area__grid">
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Garden City</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Manhasset</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Great Neck</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Syosset</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Rockville Centre</div>
-            </div>
-          </div>
-          <div class="area__region">
-            <div class="area__region-title">New Jersey</div>
-            <div class="area__grid">
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Short Hills</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Summit</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Livingston</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Montclair</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Ridgewood</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Hoboken</div>
-              <div class="area__chip"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6-7-12a7 7 0 0 1 14 0c0 6-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> Jersey City</div>
-            </div>
-          </div>
-        </div>
-        <div class="area__note">Outside this list? Call us, we usually still cover you with a small travel adjustment.</div>
-        <a href="tel:+19144064474" class="btn btn--primary" style="margin-top:24px" data-cta="area">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-          Call Westchester Dispatch: (914) 406-4474
-        </a>
-      </div>
-      <div class="area__map">
-        <svg viewBox="0 0 480 360" class="bigmap">
-          <defs>
-            <pattern id="grid2" width="24" height="24" patternUnits="userSpaceOnUse">
-              <path d="M 24 0 L 0 0 0 24" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
-            </pattern>
-            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stop-color="#F5A524" stop-opacity="0.3"/>
-              <stop offset="100%" stop-color="#F5A524" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <rect width="480" height="360" fill="url(#grid2)"/>
-          <path d="M180 30 C 160 100, 200 160, 170 230 S 200 320, 230 350 L 480 350 L 480 0 L 180 0 Z" fill="rgba(245,165,36,0.04)" stroke="rgba(245,165,36,0.18)" stroke-width="1"/>
-          <path d="M0 0 L 170 0 C 160 90, 195 150, 160 220 S 195 310, 220 360 L 0 360 Z" fill="rgba(61,214,140,0.03)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
-          <circle cx="180" cy="120" r="90" fill="url(#glow)"/>
-          <circle cx="120" cy="200" r="80" fill="url(#glow)"/>
-          <circle cx="320" cy="100" r="70" fill="url(#glow)"/>
-          <circle cx="320" cy="240" r="70" fill="url(#glow)"/>
-          <g><circle cx="180" cy="110" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="189" y="113" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">White Plains</text></g>
-          <g><circle cx="150" cy="150" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="159" y="153" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Scarsdale</text></g>
-          <g><circle cx="120" cy="200" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="129" y="203" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Yonkers</text></g>
-          <g><circle cx="200" cy="175" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="209" y="178" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">New Rochelle</text></g>
-          <g><circle cx="165" cy="180" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="174" y="183" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Pelham</text></g>
-          <g><circle cx="115" cy="245" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="124" y="248" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Mt. Vernon</text></g>
-          <g><circle cx="220" cy="95" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="229" y="98" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Tarrytown</text></g>
-          <g><circle cx="240" cy="145" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="249" y="148" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Rye</text></g>
-          <g><circle cx="310" cy="90" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="319" y="93" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Greenwich</text></g>
-          <g><circle cx="355" cy="75" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="364" y="78" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Stamford</text></g>
-          <g><circle cx="320" cy="240" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="329" y="243" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Garden City</text></g>
-          <g><circle cx="380" cy="270" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="389" y="273" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Manhasset</text></g>
-          <g><circle cx="70" cy="280" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="79" y="283" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Hoboken</text></g>
-          <g><circle cx="50" cy="320" r="5" fill="#3DD68C" stroke="#0B1B2B" stroke-width="1.5"/><text x="59" y="323" fill="rgba(255,255,255,0.7)" font-size="10" font-family="ui-monospace,monospace">Jersey City</text></g>
-        </svg>
-      </div>
-    </div>
-  </div>
-</section>
-
-
 <!-- Big CTA -->
 <section class="bigcta">
   <div class="container bigcta__inner">
@@ -884,122 +623,123 @@
       <h2 class="bigcta__title">We're ready to help.</h2>
       <p class="bigcta__sub">Tell us your year, make, and model and we'll quote you on the spot. A local tech with a full van heads your way, no tow, no dealership, no wait.</p>
     </div>
-    <a href="tel:+19144064474" class="bigcta__btn" data-cta="bigcta">
-      <div class="bigcta__btn-top">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
-        Call now
-      </div>
-      <div class="bigcta__btn-num">(914) 406-4474</div>
-      <div class="bigcta__btn-sub">Average arrival 45 to 75 minutes</div>
+    <a href="tel:+19144064474" class="btn btn--primary btn--xl" data-cta="bigcta">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3l2 5-2 1a11 11 0 0 0 6 6l1-2 5 2v3a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg>
+      <span class="btn__stack">
+        <span class="btn__top">Call now · arrival 45 to 75 min</span>
+        <span class="btn__num">(914) 406-4474</span>
+      </span>
     </a>
   </div>
 </section>
 
 <!-- Areas We Serve -->
-<section style="padding:48px 0;background:var(--paper-2,#F1ECE2);">
+<section class="areas" id="area">
   <div class="container">
-    <h2 style="font-size:clamp(20px,3vw,28px);font-weight:800;letter-spacing:-0.02em;margin:0 0 8px;">Areas We Serve</h2>
-    <p style="color:var(--muted,#5C6A78);margin:0 0 28px;font-size:15px;">24/7 emergency mobile locksmith service across New York City, Westchester County, Fairfield County CT, and Northern NJ.</p>
+    <h2 class="areas__title">Areas We Serve</h2>
+    <p class="areas__sub">24/7 emergency mobile locksmith service across New York City, Westchester County, Fairfield County CT, and Northern NJ.</p>
 
-    <div style="margin-bottom:20px;">
-      <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent,#F5A524);margin-bottom:10px;">NYC</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;">
-        <a href="/upper-east-side-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Upper East Side</a>
-        <a href="/upper-west-side-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Upper West Side</a>
-        <a href="/manhattan-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Manhattan</a>
-        <a href="/bronx-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">The Bronx</a>
-        <a href="/riverdale-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Riverdale</a>
-        <a href="/brooklyn-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Brooklyn</a>
-        <a href="/park-slope-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Park Slope</a>
-        <a href="/brooklyn-heights-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Brooklyn Heights</a>
-        <a href="/williamsburg-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Williamsburg</a>
-        <a href="/bay-ridge-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Bay Ridge</a>
+    <details class="area-group" open>
+      <summary>NYC</summary>
+      <div class="area-group__grid">
+        <a href="/upper-east-side-locksmith/" class="area-link">Upper East Side</a>
+        <a href="/upper-west-side-locksmith/" class="area-link">Upper West Side</a>
+        <a href="/manhattan-locksmith/" class="area-link">Manhattan</a>
+        <a href="/bronx-locksmith/" class="area-link">The Bronx</a>
+        <a href="/riverdale-locksmith/" class="area-link">Riverdale</a>
+        <a href="/brooklyn-locksmith/" class="area-link">Brooklyn</a>
+        <a href="/park-slope-locksmith/" class="area-link">Park Slope</a>
+        <a href="/brooklyn-heights-locksmith/" class="area-link">Brooklyn Heights</a>
+        <a href="/williamsburg-locksmith/" class="area-link">Williamsburg</a>
+        <a href="/bay-ridge-locksmith/" class="area-link">Bay Ridge</a>
       </div>
-    </div>
+    </details>
 
-    <div style="margin-bottom:20px;">
-      <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent,#F5A524);margin-bottom:10px;">Westchester County, NY</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;">
-        <a href="/yonkers-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Yonkers</a>
-        <a href="/white-plains-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">White Plains</a>
-        <a href="/new-rochelle-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">New Rochelle</a>
-        <a href="/mount-vernon-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Mount Vernon</a>
-        <a href="/scarsdale-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Scarsdale</a>
-        <a href="/larchmont-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Larchmont</a>
-        <a href="/pelham-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Pelham</a>
-        <a href="/tarrytown-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Tarrytown</a>
-        <a href="/ardsley-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Ardsley</a>
-        <a href="/elmsford-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Elmsford</a>
-        <a href="/eastchester-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Eastchester</a>
-        <a href="/hartsdale-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Hartsdale</a>
-        <a href="/greenburgh-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Greenburgh</a>
-        <a href="/edgemont-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Edgemont</a>
-        <a href="/croton-on-hudson-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Croton on Hudson</a>
-        <a href="/briarcliff-manor-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Briarcliff Manor</a>
-        <a href="/peekskill-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Peekskill</a>
-        <a href="/bronxville-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Bronxville</a>
-        <a href="/rye-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Rye</a>
-        <a href="/mamaroneck-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Mamaroneck</a>
-        <a href="/harrison-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Harrison</a>
-        <a href="/armonk-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Armonk</a>
-        <a href="/chappaqua-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Chappaqua</a>
-        <a href="/dobbs-ferry-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Dobbs Ferry</a>
-        <a href="/irvington-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Irvington</a>
-        <a href="/ossining-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Ossining</a>
-        <a href="/pleasantville-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Pleasantville</a>
-        <a href="/mount-kisco-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Mount Kisco</a>
-        <a href="/bedford-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Bedford</a>
-        <a href="/sleepy-hollow-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Sleepy Hollow</a>
-        <a href="/port-chester-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Port Chester</a>
-        <a href="/tuckahoe-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Tuckahoe</a>
-        <a href="/hastings-on-hudson-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Hastings-on-Hudson</a>
+    <details class="area-group" open>
+      <summary>Westchester County, NY</summary>
+      <div class="area-group__grid">
+        <a href="/yonkers-locksmith/" class="area-link">Yonkers</a>
+        <a href="/white-plains-locksmith/" class="area-link">White Plains</a>
+        <a href="/new-rochelle-locksmith/" class="area-link">New Rochelle</a>
+        <a href="/mount-vernon-locksmith/" class="area-link">Mount Vernon</a>
+        <a href="/scarsdale-locksmith/" class="area-link">Scarsdale</a>
+        <a href="/larchmont-locksmith/" class="area-link">Larchmont</a>
+        <a href="/pelham-locksmith/" class="area-link">Pelham</a>
+        <a href="/tarrytown-locksmith/" class="area-link">Tarrytown</a>
+        <a href="/ardsley-locksmith/" class="area-link">Ardsley</a>
+        <a href="/elmsford-locksmith/" class="area-link">Elmsford</a>
+        <a href="/eastchester-locksmith/" class="area-link">Eastchester</a>
+        <a href="/hartsdale-locksmith/" class="area-link">Hartsdale</a>
+        <a href="/greenburgh-locksmith/" class="area-link">Greenburgh</a>
+        <a href="/edgemont-locksmith/" class="area-link">Edgemont</a>
+        <a href="/croton-on-hudson-locksmith/" class="area-link">Croton on Hudson</a>
+        <a href="/briarcliff-manor-locksmith/" class="area-link">Briarcliff Manor</a>
+        <a href="/peekskill-locksmith/" class="area-link">Peekskill</a>
+        <a href="/bronxville-locksmith/" class="area-link">Bronxville</a>
+        <a href="/rye-locksmith/" class="area-link">Rye</a>
+        <a href="/mamaroneck-locksmith/" class="area-link">Mamaroneck</a>
+        <a href="/harrison-locksmith/" class="area-link">Harrison</a>
+        <a href="/armonk-locksmith/" class="area-link">Armonk</a>
+        <a href="/chappaqua-locksmith/" class="area-link">Chappaqua</a>
+        <a href="/dobbs-ferry-locksmith/" class="area-link">Dobbs Ferry</a>
+        <a href="/irvington-locksmith/" class="area-link">Irvington</a>
+        <a href="/ossining-locksmith/" class="area-link">Ossining</a>
+        <a href="/pleasantville-locksmith/" class="area-link">Pleasantville</a>
+        <a href="/mount-kisco-locksmith/" class="area-link">Mount Kisco</a>
+        <a href="/bedford-locksmith/" class="area-link">Bedford</a>
+        <a href="/sleepy-hollow-locksmith/" class="area-link">Sleepy Hollow</a>
+        <a href="/port-chester-locksmith/" class="area-link">Port Chester</a>
+        <a href="/tuckahoe-locksmith/" class="area-link">Tuckahoe</a>
+        <a href="/hastings-on-hudson-locksmith/" class="area-link">Hastings-on-Hudson</a>
       </div>
-    </div>
+    </details>
 
-    <div style="margin-bottom:20px;">
-      <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent,#F5A524);margin-bottom:10px;">Connecticut</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;">
-        <a href="/greenwich-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Greenwich CT</a>
-        <a href="/stamford-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Stamford CT</a>
-        <a href="/darien-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Darien CT</a>
-        <a href="/new-canaan-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">New Canaan CT</a>
-        <a href="/westport-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Westport CT</a>
-        <a href="/norwalk-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Norwalk CT</a>
-        <a href="/wilton-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Wilton CT</a>
-        <a href="/weston-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Weston CT</a>
-        <a href="/fairfield-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Fairfield CT</a>
-        <a href="/ridgefield-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Ridgefield CT</a>
-        <a href="/trumbull-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Trumbull CT</a>
-        <a href="/easton-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Easton CT</a>
-        <a href="/redding-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Redding CT</a>
+    <details class="area-group" open>
+      <summary>Connecticut</summary>
+      <div class="area-group__grid">
+        <a href="/greenwich-locksmith/" class="area-link">Greenwich CT</a>
+        <a href="/stamford-locksmith/" class="area-link">Stamford CT</a>
+        <a href="/darien-locksmith/" class="area-link">Darien CT</a>
+        <a href="/new-canaan-locksmith/" class="area-link">New Canaan CT</a>
+        <a href="/westport-locksmith/" class="area-link">Westport CT</a>
+        <a href="/norwalk-locksmith/" class="area-link">Norwalk CT</a>
+        <a href="/wilton-locksmith/" class="area-link">Wilton CT</a>
+        <a href="/weston-locksmith/" class="area-link">Weston CT</a>
+        <a href="/fairfield-locksmith/" class="area-link">Fairfield CT</a>
+        <a href="/ridgefield-locksmith/" class="area-link">Ridgefield CT</a>
+        <a href="/trumbull-locksmith/" class="area-link">Trumbull CT</a>
+        <a href="/easton-locksmith/" class="area-link">Easton CT</a>
+        <a href="/redding-locksmith/" class="area-link">Redding CT</a>
       </div>
-    </div>
+    </details>
 
-    <div style="margin-bottom:20px;">
-      <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent,#F5A524);margin-bottom:10px;">Nassau County</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;">
-        <a href="/garden-city-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Garden City</a>
-        <a href="/manhasset-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Manhasset</a>
-        <a href="/great-neck-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Great Neck</a>
-        <a href="/syosset-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Syosset</a>
-        <a href="/rockville-centre-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Rockville Centre</a>
+    <details class="area-group" open>
+      <summary>Nassau County</summary>
+      <div class="area-group__grid">
+        <a href="/garden-city-locksmith/" class="area-link">Garden City</a>
+        <a href="/manhasset-locksmith/" class="area-link">Manhasset</a>
+        <a href="/great-neck-locksmith/" class="area-link">Great Neck</a>
+        <a href="/syosset-locksmith/" class="area-link">Syosset</a>
+        <a href="/rockville-centre-locksmith/" class="area-link">Rockville Centre</a>
       </div>
-    </div>
+    </details>
 
-    <div>
-      <div style="font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent,#F5A524);margin-bottom:10px;">New Jersey</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;">
-        <a href="/hoboken-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Hoboken NJ</a>
-        <a href="/jersey-city-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Jersey City NJ</a>
-        <a href="/montclair-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Montclair NJ</a>
-        <a href="/ridgewood-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Ridgewood NJ</a>
-        <a href="/short-hills-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Short Hills NJ</a>
-        <a href="/summit-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Summit NJ</a>
-        <a href="/livingston-locksmith/" style="display:block;background:#fff;border:1px solid rgba(11,27,43,0.12);border-radius:8px;padding:10px 14px;font-size:14px;font-weight:500;color:var(--ink,#0B1B2B);text-decoration:none;">Livingston NJ</a>
+    <details class="area-group" open>
+      <summary>New Jersey</summary>
+      <div class="area-group__grid">
+        <a href="/hoboken-locksmith/" class="area-link">Hoboken NJ</a>
+        <a href="/jersey-city-locksmith/" class="area-link">Jersey City NJ</a>
+        <a href="/montclair-locksmith/" class="area-link">Montclair NJ</a>
+        <a href="/ridgewood-locksmith/" class="area-link">Ridgewood NJ</a>
+        <a href="/short-hills-locksmith/" class="area-link">Short Hills NJ</a>
+        <a href="/summit-locksmith/" class="area-link">Summit NJ</a>
+        <a href="/livingston-locksmith/" class="area-link">Livingston NJ</a>
       </div>
-    </div>
+    </details>
+    <p class="areas__note">Outside this list? Call us, we usually still cover you with a small travel adjustment.</p>
   </div>
 </section>
+<script>if(window.matchMedia&&matchMedia("(max-width:700px)").matches){document.querySelectorAll("details.area-group").forEach(function(d){d.removeAttribute("open");});}</script>
 
 <!-- Footer -->
 <footer class="foot">
@@ -1085,12 +825,16 @@
     });
   });
 
-  // ETA animation
-  var etaEl = document.getElementById('eta-num');
-  if (etaEl) {
-    setInterval(function() {
-      etaEl.textContent = '~' + (45 + Math.floor(Math.random() * 31));
-    }, 6000);
+  // Sticky call bar: hide while the hero call button is on screen (JS off = always shown)
+  if ('IntersectionObserver' in window) {
+    var heroCta = document.querySelector('[data-cta="hero-primary"]');
+    var stickyBar = document.querySelector('.sticky-call');
+    if (heroCta && stickyBar) {
+      document.body.classList.add('sticky-js');
+      new IntersectionObserver(function(entries) {
+        document.body.classList.toggle('show-sticky', !entries[0].isIntersecting);
+      }).observe(heroCta);
+    }
   }
 
   // Tel click tracking
